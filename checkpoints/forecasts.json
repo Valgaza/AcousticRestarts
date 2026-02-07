@@ -1,0 +1,6004 @@
+{
+  "outputs": [
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.40859103202819824
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.42520543932914734
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.3791007399559021
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.4035870432853699
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.4523325264453888
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.44429436326026917
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.4169104993343353
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.4348730444908142
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.45336097478866577
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.4023067355155945
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5740559697151184
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.4676741063594818
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5353069305419922
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.515334963798523
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.4732484817504883
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.47707459330558777
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.3738210201263428
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.3670656085014343
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.4159904420375824
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.4099639356136322
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.3819692134857178
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.42801833152770996
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.4475635588169098
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.45455700159072876
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.421452134847641
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.49481603503227234
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.39927923679351807
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5373104214668274
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5142565965652466
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5275828838348389
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5347248911857605
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5023449063301086
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.4620840549468994
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.3874147832393646
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.38213348388671875
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.26912784576416016
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.4143936038017273
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.4154048264026642
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.41208839416503906
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.42450112104415894
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.4508518874645233
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.4642722010612488
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.49077102541923523
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.45316678285598755
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5396701693534851
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.4974743127822876
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5769395232200623
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5341777801513672
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5282003283500671
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.49308276176452637
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.3951992988586426
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.4154279828071594
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.3196966350078583
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.23474378883838654
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.42749738693237305
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.45110055804252625
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.40546947717666626
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.43694669008255005
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.4696156084537506
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5105376243591309
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.4551973044872284
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5818161964416504
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.482424795627594
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5469159483909607
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5813835263252258
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5271321535110474
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5066877603530884
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.41275840997695923
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.3933314085006714
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.3274866044521332
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.2872585952281952
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.2206241637468338
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.46233633160591125
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.44781962037086487
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.4043586254119873
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.4510917663574219
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5145732164382935
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.4944732189178467
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5728743076324463
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5278413891792297
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5335060358047485
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5605710744857788
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5642135739326477
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5124777555465698
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.44423800706863403
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.39477771520614624
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.32650578022003174
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.31803205609321594
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.26246991753578186
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.18696270883083344
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.4493451714515686
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.4546872675418854
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.40151047706604004
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5023882389068604
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.48991158604621887
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5666815042495728
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5301285982131958
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5840073823928833
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5463262796401978
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5547551512718201
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5364688634872437
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.464007169008255
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.42209839820861816
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.3207602798938751
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.30930984020233154
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.28259697556495667
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.23233218491077423
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.16380716860294342
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.4546246826648712
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.4549029767513275
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.4679780602455139
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.46725088357925415
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5645420551300049
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5427929162979126
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5628434419631958
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5979223251342773
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.524898111820221
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5367467999458313
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.47247791290283203
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.4431895315647125
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.35181427001953125
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.3093843460083008
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.2817743420600891
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.2539353370666504
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.2103518694639206
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.15635867416858673
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.4587275981903076
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5132206678390503
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.44352173805236816
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5704963803291321
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5641915798187256
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5700748562812805
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5648701190948486
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5755031108856201
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.49112385511398315
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.47417759895324707
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.438257098197937
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.3665480315685272
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.3352935016155243
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.26596373319625854
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.24394729733467102
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.2270141839981079
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.19356776773929596
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.12240712344646454
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5195980668067932
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5054348707199097
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5345596075057983
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5498168468475342
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5768766403198242
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5658113360404968
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5386520624160767
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5443745851516724
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.4335620403289795
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.4496036171913147
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.3596953749656677
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.3707657754421234
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.2881355583667755
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.23660703003406525
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.21991336345672607
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.21391361951828003
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.16743434965610504
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.11750800907611847
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5086328983306885
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5548321008682251
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5100739598274231
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5785199403762817
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5767180919647217
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5487671494483948
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.5061827898025513
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.4766112267971039
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.39800602197647095
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.3605634570121765
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.3736019730567932
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.30982574820518494
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.24830728769302368
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.24722415208816528
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.2095245122909546
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.17975512146949768
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.1548532396554947
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085912,
+      "longitude": 72866783,
+      "predicted_congestion_level": 0.10325546562671661
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.3937998414039612
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4141388237476349
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.3641809821128845
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.38178151845932007
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4315042495727539
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4237839877605438
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.39876750111579895
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4189428389072418
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.430317223072052
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.3817441463470459
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5489192008972168
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4471392333507538
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5146322846412659
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4970085620880127
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4624447226524353
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.46929827332496643
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.3646390736103058
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.37437379360198975
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.404080867767334
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.39427781105041504
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.36626166105270386
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4036591649055481
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.42898133397102356
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4359646141529083
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4043748080730438
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4699871838092804
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.3812876343727112
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5131713151931763
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4906734228134155
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5094512701034546
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5142816305160522
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.48525649309158325
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4517434537410736
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.3755607306957245
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.37971240282058716
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.2671700716018677
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.3975096046924591
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.3974505066871643
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.3904685378074646
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.3988340497016907
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4322742521762848
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4446147084236145
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.46493151783943176
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4327528178691864
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5146188139915466
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.471902072429657
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5543731451034546
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5159255266189575
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5087310075759888
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.480619341135025
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.3813827633857727
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.41026467084884644
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.3128453493118286
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.23878438770771027
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.40674546360969543
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.42476001381874084
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.3830227255821228
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4088006615638733
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.44841933250427246
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.48211735486984253
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4303775727748871
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5541014671325684
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4579926133155823
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.525374174118042
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5592890381813049
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5110131502151489
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4939805865287781
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.3967038691043854
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.3852613568305969
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.31727585196495056
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.28054091334342957
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.22395522892475128
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4364358186721802
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.42235079407691956
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.3826969861984253
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4219149947166443
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4873817563056946
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4671432375907898
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5490654706954956
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5009533166885376
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5131502747535706
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5402244925498962
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5451302528381348
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4979521334171295
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4271429181098938
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.38433143496513367
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.3145264685153961
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.3122323453426361
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.2572995722293854
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.18918399512767792
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4213932156562805
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4266948401927948
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.3787974715232849
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.46592897176742554
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4615202844142914
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5397222638130188
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5012537240982056
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.559882402420044
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5261324048042297
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5367400050163269
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5217131972312927
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4445277154445648
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4132259488105774
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.3073875606060028
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.30598077178001404
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.2770865261554718
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.23040719330310822
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.16604463756084442
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.43037426471710205
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4307704269886017
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4391094446182251
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.43456679582595825
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5372110605239868
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5143884420394897
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5414355993270874
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5737285017967224
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5058037638664246
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5181798934936523
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.44807952642440796
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.42443153262138367
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.3329674005508423
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.29685866832733154
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.2712942957878113
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.24556756019592285
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.20191223919391632
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.16033123433589935
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.42475414276123047
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4704749286174774
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4054669737815857
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5324464440345764
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5273405313491821
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5442143678665161
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5477433204650879
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5580881834030151
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4798039197921753
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.45091915130615234
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.42698079347610474
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.34472766518592834
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.3312095105648041
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.2608191967010498
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.24356913566589355
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.22915390133857727
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.19867178797721863
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.1336163729429245
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.481289267539978
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.46388766169548035
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5052878260612488
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5113695859909058
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.550341010093689
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5427827835083008
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5199017524719238
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5250712633132935
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.40532708168029785
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.42592254281044006
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.32930290699005127
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.35264819860458374
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.2718491554260254
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.22329488396644592
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.21798965334892273
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.20976337790489197
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.1643708199262619
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.12288005650043488
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.46937650442123413
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5246788263320923
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.481925368309021
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5508942604064941
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5539615750312805
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.5248796939849854
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.4843924343585968
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.44428324699401855
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.3726608157157898
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.32270216941833496
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.3510160446166992
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.2801269292831421
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.2288718819618225
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.2359711080789566
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.20230458676815033
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.1710803210735321
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.14927031099796295
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085668,
+      "longitude": 72868293,
+      "predicted_congestion_level": 0.10858434438705444
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4022734761238098
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.42077580094337463
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.37280774116516113
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.3941488265991211
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.44270071387290955
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4351811408996582
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4085504114627838
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.42770421504974365
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.44176405668258667
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.39252758026123047
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5599947571754456
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4553780257701874
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5233587622642517
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.50504469871521
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4689650535583496
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.47580084204673767
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.3729282319545746
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.3804081678390503
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.41167324781417847
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.40414419770240784
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.37559038400650024
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.41746801137924194
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4391794502735138
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.44695520401000977
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.414258748292923
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.48237472772598267
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.3905702829360962
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5233903527259827
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5010101795196533
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5161224603652954
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5231715440750122
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4936901330947876
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.45974618196487427
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.3848262429237366
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.3900562524795532
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.27692025899887085
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.40774279832839966
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.40870317816734314
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4029207229614258
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.41398680210113525
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4434378743171692
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.45704346895217896
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.47812363505363464
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4438575804233551
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.525748074054718
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4837144613265991
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5639193058013916
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5228526592254639
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5185881853103638
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.48864859342575073
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.3914494514465332
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4188893735408783
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.32260677218437195
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.2400185614824295
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4212510883808136
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.44279995560646057
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.397763729095459
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4287227988243103
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4638283848762512
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4992300271987915
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4465307295322418
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5678421258926392
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.47045934200286865
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5342600345611572
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5700066089630127
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5177006721496582
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5013778209686279
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.40934908390045166
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.39344289898872375
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.3290495276451111
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.28632378578186035
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.22579734027385712
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.45327216386795044
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4399779736995697
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.3970802426338196
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.44289499521255493
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5033630132675171
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.48501476645469666
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.559860348701477
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5144191980361938
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.521690309047699
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5487968921661377
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5563399195671082
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.506560206413269
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.44289320707321167
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.39764612913131714
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.3298168182373047
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.3196564018726349
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.2672792971134186
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.1934232860803604
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.43870481848716736
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4450359642505646
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.3935391306877136
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4863815903663635
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.47848987579345703
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5527101159095764
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5150614976882935
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5707460045814514
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5361759066581726
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5464236736297607
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.535193145275116
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4618735611438751
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4296908974647522
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.32819849252700806
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.31517475843429565
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.2923540472984314
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.24161456525325775
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.1682201474905014
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4443652927875519
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4459717571735382
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4533884525299072
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.45200425386428833
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5486849546432495
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.526762843132019
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5517109632492065
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5854524374008179
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5193526148796082
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5330694913864136
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.47307175397872925
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.44769230484962463
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.36085882782936096
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.31496477127075195
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.29173505306243896
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.26493164896965027
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.21309159696102142
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.16723985970020294
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4352039098739624
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4819406569004059
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.41536474227905273
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5408769249916077
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5354564189910889
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5546832084655762
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5602990388870239
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5742311477661133
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5003121495246887
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4755735397338867
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4589540958404541
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.37525448203086853
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.35706400871276855
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.2891826629638672
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.26681309938430786
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.24383670091629028
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.2177170217037201
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.14576111733913422
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.49258068203926086
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4763164818286896
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5142991542816162
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5208842754364014
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5594122409820557
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5540913939476013
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5378358364105225
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5479617714881897
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.43391138315200806
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4581283926963806
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.3636990189552307
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.3804517090320587
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.3041139245033264
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.24727454781532288
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.2313554883003235
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.22890150547027588
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.18076324462890625
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.132241889834404
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4811837673187256
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5339840650558472
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.48994362354278564
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5596686601638794
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5651203393936157
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5416648983955383
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.5093148946762085
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4796409606933594
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.4073330760002136
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.36271870136260986
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.3808273673057556
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.3141481578350067
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.26048871874809265
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.25036975741386414
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.22182458639144897
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.18865340948104858
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.16466175019741058
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085966,
+      "longitude": 72868827,
+      "predicted_congestion_level": 0.11405597627162933
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.394563764333725
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.4148804843425751
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.3648350238800049
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.3832765817642212
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.43213021755218506
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.42498576641082764
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.4003591239452362
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.420181006193161
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.43041062355041504
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.3835883140563965
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5479406118392944
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.44760218262672424
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5135449171066284
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.49569767713546753
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.4615819454193115
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.4684978425502777
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.36440399289131165
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.3742116093635559
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.40443581342697144
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.3941505253314972
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.3660966753959656
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.4021926522254944
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.42765864729881287
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.4354553818702698
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.40435174107551575
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.468553751707077
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.3805322051048279
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5116034746170044
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.4893417954444885
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5101834535598755
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5123730301856995
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.4851558208465576
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.4550256133079529
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.376560240983963
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.38822296261787415
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.273029088973999
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.39796990156173706
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.39803260564804077
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.39048081636428833
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.3990432620048523
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.43264421820640564
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.44551241397857666
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.4642055332660675
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.43263351917266846
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5127809047698975
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.4707251191139221
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5531331300735474
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5146430730819702
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5077992081642151
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.48250430822372437
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.38213860988616943
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.41484129428863525
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.3165358603000641
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.24149523675441742
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.40908437967300415
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.4266456067562103
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.38491255044937134
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.4124875068664551
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.45167508721351624
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.4823490381240845
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.43273237347602844
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5522650480270386
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.45741307735443115
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.523707389831543
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5574702620506287
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5100281238555908
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.49454569816589355
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.3979809284210205
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.3878166675567627
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.32037094235420227
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.28081396222114563
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.2280312329530716
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.43650370836257935
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.42361196875572205
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.38413238525390625
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.4252306818962097
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.4856022000312805
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.4679862856864929
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5466877222061157
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.4987906217575073
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5115881562232971
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.537340521812439
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5450881123542786
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.4994317591190338
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.4296163320541382
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.39162904024124146
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.3197735548019409
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.3159957230091095
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.2649933099746704
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.19707496464252472
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.42341333627700806
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.4297173321247101
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.3815898895263672
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.4654043912887573
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.46307748556137085
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5368673205375671
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.49959924817085266
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5572392344474792
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5236143469810486
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5356835126876831
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5247933864593506
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.4471612274646759
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.42086857557296753
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.3151000142097473
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.31021082401275635
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.28508833050727844
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.23787204921245575
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.16741345822811127
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.43288087844848633
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.43500152230262756
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.438870370388031
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.4369100332260132
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5340431928634644
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.512529194355011
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5398730039596558
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5712708234786987
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5067960619926453
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5207415819168091
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.4539376497268677
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.4323478043079376
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.3429551124572754
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.30303239822387695
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.2798944115638733
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.2543908655643463
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.20500493049621582
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.16646341979503632
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.4320591986179352
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.47499218583106995
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.41097694635391235
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5339066982269287
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5297596454620361
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5427070260047913
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5468674898147583
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5581681728363037
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.4810410737991333
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.4578492045402527
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.43268007040023804
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.35470640659332275
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.3344571590423584
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.26733946800231934
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.2484239935874939
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.229497492313385
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.20074693858623505
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.13454924523830414
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.48326510190963745
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.4685617983341217
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5032563805580139
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5113987922668457
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5483521223068237
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5416751503944397
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5224158763885498
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.529910683631897
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.41492515802383423
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.4373108446598053
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.34263157844543457
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.36306530237197876
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.284518301486969
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.2327253371477127
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.22191834449768066
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.21731311082839966
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.17017929255962372
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.12671835720539093
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.47970807552337646
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5271130800247192
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.4842507839202881
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5522428750991821
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5543153285980225
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.5262685418128967
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.48634812235832214
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.45234063267707825
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.3787459135055542
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.33468446135520935
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.3566426634788513
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.2893199324607849
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.2351793646812439
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.23892858624458313
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.20517514646053314
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.17404022812843323
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.1506662219762802
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19086141,
+      "longitude": 72869590,
+      "predicted_congestion_level": 0.10678607225418091
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.39813458919525146
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.4215286672115326
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.36952513456344604
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.3889496922492981
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.4370647966861725
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.430288165807724
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.4047427475452423
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.42474281787872314
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.4354313611984253
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.3886507451534271
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5529149174690247
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.45161810517311096
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5182524919509888
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5004342794418335
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.4666389226913452
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.47373393177986145
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.3695320188999176
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.38018345832824707
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.4144662618637085
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.3991749882698059
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.37151873111724854
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.4087229371070862
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.4330580234527588
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.44148290157318115
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.4094668924808502
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.47505640983581543
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.38562941551208496
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5175880789756775
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.49473750591278076
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5145796537399292
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5175185203552246
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.4901313781738281
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.45994138717651367
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.3811282515525818
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.3934399485588074
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.27715224027633667
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.40371614694595337
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.4037754237651825
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.39727509021759033
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.406449556350708
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.43846383690834045
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.45220354199409485
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.4705030620098114
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.4389629662036896
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5186415910720825
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.47784024477005005
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.558530330657959
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5194978713989258
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5129717588424683
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.48680543899536133
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.38633760809898376
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.4183335304260254
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.32025399804115295
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.24111221730709076
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.41305190324783325
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.4307638704776764
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.38953328132629395
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.4169911742210388
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.45527368783950806
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.48712158203125
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.43611451983451843
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5569793581962585
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.46185630559921265
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5296469926834106
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5609414577484131
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5143948793411255
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5018483996391296
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.40172260999679565
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.3955063223838806
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.3249785006046295
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.28693461418151855
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.23613329231739044
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.43860924243927
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.42510339617729187
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.3869364261627197
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.42752552032470703
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.48644760251045227
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.46950799226760864
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5500993728637695
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5015494227409363
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5175318121910095
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5395662784576416
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5497385263442993
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5057562589645386
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.43313223123550415
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.4039139151573181
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.3259943127632141
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.3255547881126404
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.27708137035369873
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.208762988448143
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.42677316069602966
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.4327918589115143
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.3856232166290283
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.46739333868026733
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.46545717120170593
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5409884452819824
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5024559497833252
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5623495578765869
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5265936255455017
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5402975082397461
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5333967208862305
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.45126447081565857
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.4322553277015686
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.3228260278701782
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.3187633752822876
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.29427722096443176
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.24808469414710999
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.1717911809682846
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.4318270683288574
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.4336359202861786
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.43927180767059326
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.4335433840751648
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5329859256744385
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5124722719192505
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5459327697753906
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5729222297668457
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5133002996444702
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5302484631538391
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.4607686996459961
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.44483938813209534
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.35451826453208923
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.3154095411300659
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.29302626848220825
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.2678182125091553
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.21450574696063995
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.1793915182352066
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.4284447729587555
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.4694625437259674
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.4065420627593994
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5276014804840088
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5247994661331177
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5460405945777893
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5515704154968262
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5651026368141174
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.4947565793991089
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.46318429708480835
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.4520840644836426
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.36431291699409485
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.3533291816711426
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.2845066785812378
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.26421254873275757
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.2427859604358673
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.21847891807556152
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.14877046644687653
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.4765172600746155
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.45895764231681824
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.49896562099456787
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5009453296661377
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5458967685699463
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.541441798210144
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5318357944488525
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.543965220451355
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.41987186670303345
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.4554968476295471
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.35406067967414856
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.3815188705921173
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.3055212199687958
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.24889984726905823
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.23647832870483398
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.23487496376037598
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.18641483783721924
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.14071445167064667
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.46462002396583557
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5163997411727905
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.4762738347053528
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5442271828651428
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.551214337348938
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.5310673713684082
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.504102349281311
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.4644826352596283
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.40241527557373047
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.348751425743103
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.37724512815475464
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.3058890104293823
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.25866174697875977
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.24819934368133545
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.2241615653038025
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.18936815857887268
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.16698779165744781
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19086063,
+      "longitude": 72871223,
+      "predicted_congestion_level": 0.1199132651090622
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.40119147300720215
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.42068758606910706
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.3724098205566406
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.39139223098754883
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.4400334656238556
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.43305182456970215
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.4072021543979645
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.4271048903465271
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.44487613439559937
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.3913044035434723
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.5646284222602844
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.46255818009376526
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.5356437563896179
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.5103692412376404
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.47658681869506836
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.4854213297367096
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.3772728443145752
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.3940337300300598
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.41087478399276733
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.40174439549446106
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.37461572885513306
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.4138675928115845
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.4364118278026581
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.44492101669311523
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.4129532277584076
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.48345133662223816
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.39008694887161255
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.5285900235176086
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.5049206614494324
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.5279375314712524
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.5262728929519653
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.49948620796203613
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.4680071473121643
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.38582929968833923
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.40101158618927
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.28041088581085205
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.40658384561538696
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.40695104002952576
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.4024702310562134
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.4124317169189453
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.4424484074115753
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.45632404088974
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.4796898663043976
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.4443853497505188
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.5301924347877502
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.48784154653549194
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.5710456967353821
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.5289125442504883
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.5218533277511597
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.4940974712371826
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.39066261053085327
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.41951000690460205
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.3216246962547302
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.24221082031726837
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.41931629180908203
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.4400157630443573
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.3970065116882324
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.4271700978279114
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.46270567178726196
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.49976998567581177
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.4463053047657013
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.5717851519584656
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.47403448820114136
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.5409693121910095
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.5735316872596741
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.5228968858718872
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.5036692023277283
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.4062461256980896
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.3910025358200073
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.32280242443084717
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.2846711277961731
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.22442160546779633
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.4513069987297058
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.437315434217453
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.3964537978172302
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.44141465425491333
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.5031235814094543
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.4846707582473755
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.5641665458679199
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.5181171894073486
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.5272520780563354
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.554158091545105
+    },
+    {
+      "DateTime": "2024-01-01 03:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.5575513243675232
+    },
+    {
+      "DateTime": "2024-01-01 03:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.5083020925521851
+    },
+    {
+      "DateTime": "2024-01-01 04:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.43641477823257446
+    },
+    {
+      "DateTime": "2024-01-01 04:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.391289621591568
+    },
+    {
+      "DateTime": "2024-01-01 04:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.3205104172229767
+    },
+    {
+      "DateTime": "2024-01-01 05:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.3153916895389557
+    },
+    {
+      "DateTime": "2024-01-01 05:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.2624310255050659
+    },
+    {
+      "DateTime": "2024-01-01 05:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.19065003097057343
+    },
+    {
+      "DateTime": "2024-01-01 00:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.43882620334625244
+    },
+    {
+      "DateTime": "2024-01-01 00:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.4445849359035492
+    },
+    {
+      "DateTime": "2024-01-01 00:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.3943140506744385
+    },
+    {
+      "DateTime": "2024-01-01 01:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.48863935470581055
+    },
+    {
+      "DateTime": "2024-01-01 01:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.4803940951824188
+    },
+    {
+      "DateTime": "2024-01-01 01:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.5578040480613708
+    },
+    {
+      "DateTime": "2024-01-01 02:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.5204696655273438
+    },
+    {
+      "DateTime": "2024-01-01 02:20:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.5765639543533325
+    },
+    {
+      "DateTime": "2024-01-01 02:40:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.5396767258644104
+    },
+    {
+      "DateTime": "2024-01-01 03:00:00",
+      "latitude": 19085557,
+      "longitude": 72872940,
+      "predicted_congestion_level": 0.5492923259735107
+    }
+  ]
+}

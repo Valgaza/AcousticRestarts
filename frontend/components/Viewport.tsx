@@ -160,6 +160,17 @@ export default function Viewport({ state, liveTraffic, useLiveData = false }: Vi
             <rect width="100" height="100" fill="url(#grid)" stroke="currentColor" strokeWidth="1" />
           </svg>
 
+          {/* Road Network Image Background */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center opacity-100"
+            style={{
+              backgroundImage: 'url(/roadNetwork.jpeg)',
+              backgroundSize: '100% 100%',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'center'
+            }}
+          />
+
           {/* Traffic Grid */}
           <div className="absolute inset-0 grid gap-0 grid-cols-25 grid-rows-25 border border-slate-700" key={gridKey}>
             {activeGrid.flat().map((cell) => (

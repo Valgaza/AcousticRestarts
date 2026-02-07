@@ -36,3 +36,7 @@ Thumbs.db
 
 # Backup
 repo-backup.bundle
+*.csv
+.venv/
+.DS_Store
+data/

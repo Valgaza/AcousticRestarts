@@ -13,8 +13,9 @@ from datetime import datetime, timedelta
 from typing import List
 import json
 from pathlib import Path
+import shutil
 
-from fastapi import FastAPI
+from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
@@ -225,6 +226,50 @@ def get_batch_predictions(
 @app.get("/health")
 def health_check():
     return {"status": "healthy", "timestamp": datetime.now().isoformat()}
+
+
+@app.post("/upload-csv")
+async def upload_csv(file: UploadFile = File(...)):
+    """
+    Upload a CSV file for ML model processing.
+    File will be saved to backend/uploads/ directory.
+    """
+    # Validate file type
+    if not file.filename.endswith('.csv'):
+        raise HTTPException(
+            status_code=400,
+            detail="Only CSV files are allowed. Please upload a .csv file."
+        )
+    
+    # Create uploads directory if it doesn't exist
+    uploads_dir = Path(__file__).parent / "uploads"
+    uploads_dir.mkdir(exist_ok=True)
+    
+    # Save file with timestamp to avoid conflicts
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    safe_filename = f"{timestamp}_{file.filename}"
+    file_path = uploads_dir / safe_filename
+    
+    try:
+        # Save uploaded file
+        with open(file_path, "wb") as buffer:
+            shutil.copyfileobj(file.file, buffer)
+        
+        return {
+            "status": "success",
+            "message": "CSV file uploaded successfully",
+            "filename": safe_filename,
+            "path": str(file_path),
+            "size_bytes": file_path.stat().st_size,
+            "timestamp": datetime.now().isoformat()
+        }
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error saving file: {str(e)}"
+        )
+    finally:
+        file.file.close()
 
 
 @app.post("/reload")

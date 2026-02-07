@@ -1,13 +1,14 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef } from 'react'
 import { motion } from 'framer-motion'
-import { ChevronDown, ChevronUp, TrendingUp, AlertTriangle, Cloud } from 'lucide-react'
+import { ChevronDown, ChevronUp, TrendingUp, AlertTriangle, Cloud, Upload, CheckCircle, XCircle } from 'lucide-react'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { useTrafficSimulation } from '@/hooks/useTrafficSimulation'
 import type { useLiveTraffic } from '@/hooks/useLiveTraffic'
 import PredictionChart from './PredictionChart'
+import { uploadCsvFile } from '@/lib/trafficApi'
 
 interface AnalyticsPanelProps {
   state: ReturnType<typeof useTrafficSimulation>
@@ -17,6 +18,43 @@ interface AnalyticsPanelProps {
 
 export default function AnalyticsPanel({ state, liveTraffic, useLiveData = true }: AnalyticsPanelProps) {
   const [isExpanded, setIsExpanded] = useState(true)
+  const [uploadStatus, setUploadStatus] = useState<'idle' | 'uploading' | 'success' | 'error'>('idle')
+  const [uploadMessage, setUploadMessage] = useState('')
+  const fileInputRef = useRef<HTMLInputElement>(null)
+
+  const handleFileSelect = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]
+    if (!file) return
+
+    setUploadStatus('uploading')
+    setUploadMessage('Uploading...')
+
+    try {
+      const result = await uploadCsvFile(file)
+      setUploadStatus('success')
+      setUploadMessage(`File uploaded: ${result.filename} (${(result.size_bytes / 1024).toFixed(2)} KB)`)
+      
+      // Clear success message after 5 seconds
+      setTimeout(() => {
+        setUploadStatus('idle')
+        setUploadMessage('')
+      }, 5000)
+    } catch (error) {
+      setUploadStatus('error')
+      setUploadMessage(error instanceof Error ? error.message : 'Upload failed')
+      
+      // Clear error message after 5 seconds
+      setTimeout(() => {
+        setUploadStatus('idle')
+        setUploadMessage('')
+      }, 5000)
+    }
+
+    // Reset file input
+    if (fileInputRef.current) {
+      fileInputRef.current.value = ''
+    }
+  }
 
   // Calculate live metrics from grid data
   const liveMetrics = useMemo(() => {
@@ -124,6 +162,71 @@ export default function AnalyticsPanel({ state, liveTraffic, useLiveData = true 
                   )
                 })}
               </div>
+            </div>
+
+            {/* CSV Upload Section */}
+            <div>
+              <p className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-3">
+                Upload Data for ML Model
+              </p>
+              <Card className="bg-slate-800 border-slate-700 p-4">
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2 text-slate-300">
+                    <Upload className="w-4 h-4" />
+                    <span className="text-xs font-mono">CSV File Upload</span>
+                  </div>
+                  
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    accept=".csv"
+                    onChange={handleFileSelect}
+                    className="hidden"
+                    id="csv-upload"
+                  />
+                  
+                  <Button
+                    onClick={() => fileInputRef.current?.click()}
+                    disabled={uploadStatus === 'uploading'}
+                    className="w-full bg-slate-700 hover:bg-slate-600 text-slate-100 border border-slate-600"
+                    size="sm"
+                  >
+                    {uploadStatus === 'uploading' ? (
+                      <>
+                        <div className="w-3 h-3 border-2 border-slate-400 border-t-transparent rounded-full animate-spin mr-2" />
+                        Uploading...
+                      </>
+                    ) : (
+                      <>
+                        <Upload className="w-3 h-3 mr-2" />
+                        Select CSV File
+                      </>
+                    )}
+                  </Button>
+
+                  {uploadMessage && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className={`flex items-start gap-2 p-2 border text-xs font-mono ${
+                        uploadStatus === 'success'
+                          ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400'
+                          : uploadStatus === 'error'
+                          ? 'bg-rose-500/10 border-rose-500/30 text-rose-400'
+                          : 'bg-slate-700 border-slate-600 text-slate-300'
+                      }`}
+                    >
+                      {uploadStatus === 'success' && <CheckCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />}
+                      {uploadStatus === 'error' && <XCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />}
+                      <span className="flex-1">{uploadMessage}</span>
+                    </motion.div>
+                  )}
+
+                  <p className="text-xs text-slate-500 font-mono">
+                    Only .csv files accepted
+                  </p>
+                </div>
+              </Card>
             </div>
 
             {/* Prediction Chart */}

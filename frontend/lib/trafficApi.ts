@@ -77,3 +77,35 @@ export async function reloadForecasts(): Promise<{ status: string; message: stri
   }
   return response.json()
 }
+
+/**
+ * Upload a CSV file for ML model processing
+ * @param file - CSV file to upload
+ * @returns Upload status and file info
+ */
+export async function uploadCsvFile(file: File): Promise<{
+  status: string
+  message: string
+  filename: string
+  size_bytes: number
+}> {
+  // Validate file type on client side
+  if (!file.name.endsWith('.csv')) {
+    throw new Error('Only CSV files are allowed. Please select a .csv file.')
+  }
+
+  const formData = new FormData()
+  formData.append('file', file)
+
+  const response = await fetch(`${API_BASE_URL}/upload-csv`, {
+    method: 'POST',
+    body: formData,
+  })
+
+  if (!response.ok) {
+    const error = await response.json()
+    throw new Error(error.detail || 'Failed to upload CSV file')
+  }
+
+  return response.json()
+}

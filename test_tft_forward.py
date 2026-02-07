@@ -13,7 +13,7 @@ import os
 # Add parent directory to path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from models.temporal_transformer import (
+from models.custom_temporal_transformer import (
     TemporalFusionTransformer,
     QuantileLoss,
     create_tft_model
@@ -24,11 +24,12 @@ from outputs import Output, OutputList
 def generate_dummy_traffic_data(
     batch_size: int = 8,
     encoder_length: int = 48,
-    prediction_length: int = 6,
+    prediction_length: int = 18,
     num_edges: int = 100,
     num_road_types: int = 10,
     num_nodes: int = 200,
-    device: torch.device = torch.device('cpu')
+    device: torch.device = torch.device('cpu'),
+    interval_minutes: int = 20
 ) -> Dict[str, torch.Tensor]:
     """
     Generate dummy traffic data matching the dataset schema.
@@ -117,11 +118,11 @@ def generate_dummy_traffic_data(
     target = torch.rand(batch_size, prediction_length, device=device)
     
     # ============== Metadata for output formatting ==============
-    # Generate timestamps starting from current time
+    # Generate timestamps starting from current time at 20-minute intervals
     base_time = datetime.now()
     timestamps = []
     for i in range(prediction_length):
-        timestamps.append((base_time + timedelta(hours=i+1)).isoformat())
+        timestamps.append((base_time + timedelta(minutes=interval_minutes*(i+1))).isoformat())
     
     return {
         'static_categorical': static_categorical,
@@ -184,7 +185,7 @@ def main():
     # Configuration
     batch_size = 8
     encoder_length = 48
-    prediction_length = 6
+    prediction_length = 18  # 6 hours at 20-minute intervals
     num_edges = 100
     num_road_types = 10
     num_nodes = 200
@@ -201,7 +202,8 @@ def main():
         num_edges=num_edges,
         num_road_types=num_road_types,
         num_nodes=num_nodes,
-        device=device
+        device=device,
+        interval_minutes=20  # 20-minute intervals
     )
     
     print(f"    Static categorical features: {list(data['static_categorical'].keys())}")
@@ -244,7 +246,7 @@ def main():
     
     print(f"    ✓ Forward pass completed successfully!")
     print(f"    Output shape (quantile_predictions): {output['quantile_predictions'].shape}")
-    print(f"    Expected shape: (batch={batch_size}, pred_len={prediction_length}, quantiles=3)")
+    print(f"    Expected shape: (batch={batch_size}, pred_len={prediction_length} (18 steps x 20min), quantiles=3)")
     print(f"    Attention weights shape: {output['attention_weights'].shape}")
     
     # ============== Multi-Horizon Predictions ==============
@@ -274,7 +276,7 @@ def main():
     print(f"\n    Sample OutputList (batch_idx=0):")
     print("-" * 50)
     for i, out in enumerate(formatted_output.outputs):
-        print(f"    Horizon t+{i+1}h:")
+        print(f"    Horizon t+{i+1} Step:")
         print(f"      DateTime: {out.DateTime}")
         print(f"      Latitude: {out.latitude}")
         print(f"      Longitude: {out.longitude}")

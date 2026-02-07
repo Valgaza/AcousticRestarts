@@ -726,7 +726,7 @@ def create_tft_model(
     num_nodes: int = 200,
     hidden_dim: int = 64,
     encoder_length: int = 48,
-    prediction_length: int = 6
+    prediction_length: int = 18
 ) -> TemporalFusionTransformer:
     """
     Factory function to create a TFT model for traffic forecasting.

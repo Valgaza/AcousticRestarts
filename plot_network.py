@@ -257,14 +257,24 @@ for eid_val, src, dst, rtype in EDGE_DEFS:
 pos = nx.get_node_attributes(G, "pos")
 
 # ============================================================================
-# 3. STYLING
+# 3. STYLING (dark theme — matches TRAFFIC.OS UI)
 # ============================================================================
+BG_COLOR = "#1a1f2e"          # dark navy background
+GRID_COLOR = "#2a3040"        # subtle grid lines
+TEXT_COLOR = "#e0e6ed"         # light gray text
+TEXT_DIM = "#7a8599"           # dimmed labels
+
 ROAD_STYLE = {
-    "Highway":     ("#D32F2F",  3.0,  "-"),     # bold red
-    "Arterial":    ("#1976D2",  1.8,  "-"),     # blue
-    "Residential": ("#388E3C",  0.8,  "-"),     # green
-    "Ramp":        ("#F57C00",  1.2,  "--"),    # dashed orange
+    "Highway":     ("#ef4444",  5.0,  "-"),     # bright red
+    "Arterial":    ("#38bdf8",  3.0,  "-"),     # cyan / sky blue
+    "Residential": ("#4ade80",  1.6,  "-"),     # teal green
+    "Ramp":        ("#f59e0b",  2.2,  "--"),    # amber / gold dashed
 }
+
+# Node colors by zone (matching UI accent palette)
+NODE_CBD_COLOR = "#f472b6"      # pink (matches UI congestion pink)
+NODE_MID_COLOR = "#38bdf8"      # cyan
+NODE_SUB_COLOR = "#94a3b8"      # slate gray
 
 CBD_RADIUS_M = 500
 SUBURBAN_RADIUS_M = 1000
@@ -278,7 +288,8 @@ sub_radius_lng = SUBURBAN_RADIUS_M / METERS_PER_DEG_LNG
 # 4. PLOT
 # ============================================================================
 fig, ax = plt.subplots(figsize=(18, 15))
-ax.set_facecolor("#F5F5F5")
+fig.set_facecolor(BG_COLOR)
+ax.set_facecolor(BG_COLOR)
 
 # --- 4a. Background grid (350m spacing) ---
 grid_extent_m = 1500
@@ -289,24 +300,24 @@ for off_m in grid_offsets:
     lng = CENTER_LNG + off_m / METERS_PER_DEG_LNG
     lat_lo = CENTER_LAT - grid_extent_m / METERS_PER_DEG_LAT
     lat_hi = CENTER_LAT + grid_extent_m / METERS_PER_DEG_LAT
-    ax.plot([lng, lng], [lat_lo, lat_hi], color="#E0E0E0", linewidth=0.3, zorder=0)
+    ax.plot([lng, lng], [lat_lo, lat_hi], color=GRID_COLOR, linewidth=0.4, zorder=0)
 
     lat = CENTER_LAT + off_m / METERS_PER_DEG_LAT
     lng_lo = CENTER_LNG - grid_extent_m / METERS_PER_DEG_LNG
     lng_hi = CENTER_LNG + grid_extent_m / METERS_PER_DEG_LNG
-    ax.plot([lng_lo, lng_hi], [lat, lat], color="#E0E0E0", linewidth=0.3, zorder=0)
+    ax.plot([lng_lo, lng_hi], [lat, lat], color=GRID_COLOR, linewidth=0.4, zorder=0)
 
 # --- 4b. Zone circles ---
 sub_circle = mpatches.Ellipse(
     (CENTER_LNG, CENTER_LAT), width=2 * sub_radius_lng, height=2 * sub_radius_lat,
-    fill=True, facecolor="#BBDEFB", edgecolor="#1976D2", linewidth=1.0,
-    alpha=0.10, linestyle=":", zorder=1)
+    fill=True, facecolor="#38bdf8", edgecolor="#38bdf8", linewidth=0.8,
+    alpha=0.06, linestyle=":", zorder=1)
 ax.add_patch(sub_circle)
 
 cbd_circle = mpatches.Ellipse(
     (CENTER_LNG, CENTER_LAT), width=2 * cbd_radius_lng, height=2 * cbd_radius_lat,
-    fill=True, facecolor="#FFCDD2", edgecolor="#D32F2F", linewidth=1.0,
-    alpha=0.18, linestyle="--", zorder=1)
+    fill=True, facecolor="#f472b6", edgecolor="#f472b6", linewidth=0.8,
+    alpha=0.08, linestyle="--", zorder=1)
 ax.add_patch(cbd_circle)
 
 # --- 4c. Draw edges by road type ---
@@ -314,15 +325,16 @@ for eid_val, src, dst, rtype in EDGE_DEFS:
     color, lw, ls = ROAD_STYLE[rtype]
     x = [pos[src][0], pos[dst][0]]
     y = [pos[src][1], pos[dst][1]]
-    ax.plot(x, y, color=color, linewidth=lw, linestyle=ls, zorder=3, solid_capstyle="round")
+    ax.plot(x, y, color=color, linewidth=lw, linestyle=ls, zorder=3,
+            solid_capstyle="round", alpha=0.85)
 
-    # Edge ID at midpoint — label every 20th edge to avoid clutter
+    # Edge ID at midpoint — label every 20th edge
     if eid_val % 20 == 0:
         mx, my = (x[0] + x[1]) / 2, (y[0] + y[1]) / 2
-        ax.text(mx, my, str(eid_val), fontsize=4, fontweight="bold", color=color,
+        ax.text(mx, my, str(eid_val), fontsize=4, fontweight="bold", color=TEXT_DIM,
                 ha="center", va="center", zorder=5,
-                bbox=dict(boxstyle="round,pad=0.1", facecolor="white", edgecolor=color,
-                          alpha=0.8, linewidth=0.3))
+                bbox=dict(boxstyle="round,pad=0.1", facecolor=BG_COLOR, edgecolor=GRID_COLOR,
+                          alpha=0.85, linewidth=0.3))
 
 # --- 4d. Draw nodes ---
 node_x = [pos[n][0] for n in G.nodes()]
@@ -334,31 +346,30 @@ for n in G.nodes():
     dist = np.sqrt(NODE_POSITIONS[n][0]**2 + NODE_POSITIONS[n][1]**2)
     deg = final_degrees[n]
     if dist <= CBD_RADIUS_M:
-        node_colors.append("#D32F2F")
+        node_colors.append(NODE_CBD_COLOR)
         node_sizes.append(40)
     elif dist <= SUBURBAN_RADIUS_M:
-        node_colors.append("#42A5F5")
+        node_colors.append(NODE_MID_COLOR)
         node_sizes.append(25)
     else:
-        node_colors.append("#78909C")
+        node_colors.append(NODE_SUB_COLOR)
         node_sizes.append(15)
-    # Highlight dead ends with larger size
     if deg == 1:
         node_sizes[-1] = max(node_sizes[-1], 50)
 
 ax.scatter(node_x, node_y, c=node_colors, s=node_sizes, zorder=6,
-           edgecolors="white", linewidths=0.5)
+           edgecolors=BG_COLOR, linewidths=0.6)
 
-# Node ID labels — label every 10th node to avoid clutter
+# Node ID labels — label every 10th node
 for n in G.nodes():
     if n % 10 == 0:
         x, y = pos[n]
         ax.annotate(str(n), (x, y), textcoords="offset points", xytext=(0, 5),
-                    fontsize=4, ha="center", va="bottom", zorder=7, color="#424242",
+                    fontsize=4, ha="center", va="bottom", zorder=7, color=TEXT_DIM,
                     fontweight="bold")
 
 # --- 4e. Center marker ---
-ax.plot(CENTER_LNG, CENTER_LAT, marker="+", color="#D32F2F", markersize=14,
+ax.plot(CENTER_LNG, CENTER_LAT, marker="+", color="#f472b6", markersize=14,
         markeredgewidth=2, zorder=8)
 
 # --- 4f. Legend ---
@@ -366,7 +377,6 @@ road_counts = {}
 for _, _, _, rt in EDGE_DEFS:
     road_counts[rt] = road_counts.get(rt, 0) + 1
 
-# Node degree summary
 unique_degs, deg_counts = np.unique(final_degrees[final_degrees > 0], return_counts=True)
 
 legend_elements = [
@@ -378,19 +388,20 @@ legend_elements = [
            linestyle=ROAD_STYLE["Residential"][2], label=f"Residential ({road_counts.get('Residential',0)})"),
     Line2D([0], [0], color=ROAD_STYLE["Ramp"][0], linewidth=ROAD_STYLE["Ramp"][1],
            linestyle=ROAD_STYLE["Ramp"][2], label=f"Ramp ({road_counts.get('Ramp',0)})"),
-    Line2D([0], [0], marker="o", color="w", markerfacecolor="#D32F2F", markersize=8,
+    Line2D([0], [0], marker="o", color="w", markerfacecolor=NODE_CBD_COLOR, markersize=8,
            label="CBD node (<500m)"),
-    Line2D([0], [0], marker="o", color="w", markerfacecolor="#42A5F5", markersize=7,
+    Line2D([0], [0], marker="o", color="w", markerfacecolor=NODE_MID_COLOR, markersize=7,
            label="Middle node (500m-1km)"),
-    Line2D([0], [0], marker="o", color="w", markerfacecolor="#78909C", markersize=6,
+    Line2D([0], [0], marker="o", color="w", markerfacecolor=NODE_SUB_COLOR, markersize=6,
            label="Suburban node (>1km)"),
-    mpatches.Patch(facecolor="#FFCDD2", edgecolor="#D32F2F", alpha=0.35,
+    mpatches.Patch(facecolor="#f472b6", edgecolor="#f472b6", alpha=0.25,
                    linestyle="--", label="CBD zone (<500m)"),
-    mpatches.Patch(facecolor="#BBDEFB", edgecolor="#1976D2", alpha=0.2,
+    mpatches.Patch(facecolor="#38bdf8", edgecolor="#38bdf8", alpha=0.15,
                    linestyle=":", label="Suburban boundary (1km)"),
 ]
-ax.legend(handles=legend_elements, loc="lower left", fontsize=7,
-          framealpha=0.95, edgecolor="#BDBDBD")
+legend = ax.legend(handles=legend_elements, loc="lower left", fontsize=7,
+                   framealpha=0.9, edgecolor=GRID_COLOR, facecolor="#232a3b",
+                   labelcolor=TEXT_COLOR)
 
 # --- 4g. Degree distribution text box ---
 deg_text_lines = ["Node Degrees:"]
@@ -401,31 +412,34 @@ deg_text = "\n".join(deg_text_lines)
 
 ax.text(0.98, 0.98, deg_text, transform=ax.transAxes, fontsize=6,
         verticalalignment="top", horizontalalignment="right", zorder=10,
-        bbox=dict(boxstyle="round,pad=0.4", facecolor="white", edgecolor="#BDBDBD",
+        color=TEXT_COLOR,
+        bbox=dict(boxstyle="round,pad=0.4", facecolor="#232a3b", edgecolor=GRID_COLOR,
                   alpha=0.9))
 
 # --- 4h. Axes and title ---
-ax.set_xlabel("Longitude", fontsize=11)
-ax.set_ylabel("Latitude", fontsize=11)
+ax.set_xlabel("Longitude", fontsize=11, color=TEXT_COLOR)
+ax.set_ylabel("Latitude", fontsize=11, color=TEXT_COLOR)
 
 n_active = int(np.sum(final_degrees > 0))
 ax.set_title(f"Mumbai Synthetic Road Network\n{n_active} nodes, {NUM_EDGES} edges (irregular jittered grid)",
-             fontsize=14, fontweight="bold")
+             fontsize=14, fontweight="bold", color=TEXT_COLOR)
 ax.set_aspect("equal")
-ax.tick_params(labelsize=8)
+ax.tick_params(labelsize=8, colors=TEXT_DIM)
+for spine in ax.spines.values():
+    spine.set_color(GRID_COLOR)
 
 # Scale bar (500m)
 scale_bar_m = 500
 scale_bar_deg = scale_bar_m / METERS_PER_DEG_LNG
 sb_x = ax.get_xlim()[1] - scale_bar_deg - (ax.get_xlim()[1] - ax.get_xlim()[0]) * 0.03
 sb_y = ax.get_ylim()[0] + (ax.get_ylim()[1] - ax.get_ylim()[0]) * 0.04
-ax.plot([sb_x, sb_x + scale_bar_deg], [sb_y, sb_y], color="black", linewidth=2.5, zorder=10)
+ax.plot([sb_x, sb_x + scale_bar_deg], [sb_y, sb_y], color=TEXT_COLOR, linewidth=2.5, zorder=10)
 ax.text(sb_x + scale_bar_deg / 2, sb_y, f"{scale_bar_m}m", fontsize=8,
-        ha="center", va="bottom", fontweight="bold", zorder=10)
+        ha="center", va="bottom", fontweight="bold", zorder=10, color=TEXT_COLOR)
 
 plt.tight_layout()
 
 OUTPUT_FILE = "mumbai_road_network.png"
-plt.savefig(OUTPUT_FILE, dpi=200, bbox_inches="tight", facecolor="white")
+plt.savefig(OUTPUT_FILE, dpi=200, bbox_inches="tight", facecolor=BG_COLOR)
 print(f"Saved plot to {OUTPUT_FILE}")
 plt.close()

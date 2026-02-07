@@ -533,7 +533,10 @@ for t in range(TOTAL_TIMESTAMPS):
     occ *= (1.0 + accident_mask[t])
     occ *= (1.0 + event_mask[t])
 
-    noise = np.random.normal(0, 5, NUM_EDGES)
+    # Road-type-specific occupancy noise (residential more erratic, highway more stable)
+    OCC_NOISE_STD = {"Highway": 6, "Arterial": 8, "Residential": 12, "Ramp": 9}
+    occ_noise_std = np.array([OCC_NOISE_STD[road_type_arr[e]] for e in range(NUM_EDGES)])
+    noise = np.random.normal(0, 1, NUM_EDGES) * occ_noise_std
     occ += noise
 
     occ_smoothed = occ.copy()
@@ -543,7 +546,7 @@ for t in range(TOTAL_TIMESTAMPS):
             occ_smoothed[i] = 0.70 * occ[i] + 0.30 * np.mean(occ[nbrs])
 
     if t > 0:
-        occ_smoothed = 0.60 * occ_smoothed + 0.40 * occupancy[t - 1]
+        occ_smoothed = 0.75 * occ_smoothed + 0.25 * occupancy[t - 1]
 
     occ_smoothed = np.clip(occ_smoothed, 0, 100)
     occupancy[t] = occ_smoothed
@@ -552,12 +555,110 @@ print()
 print(f"Occupancy matrix generated in {_time.time() - gen_start:.1f}s")
 
 # ============================================================================
-# 8. DERIVE TRAFFIC METRICS FROM OCCUPANCY
+# 8a. COMPUTE 2D SPEED & CONGESTION MATRICES (before flattening)
 # ============================================================================
 print("Building final DataFrame...")
 
+# speed_2d and congestion_2d: shape (TOTAL_TIMESTAMPS, NUM_EDGES) = (504, 400)
+speed_2d = free_flow_speeds[np.newaxis, :] * (1.0 - 0.95 * occupancy / 100.0)
+
+# Independent speed noise — driver behavior, signal timing, micro-incidents
+SPEED_NOISE_STD = {"Highway": 0.03, "Arterial": 0.05, "Residential": 0.08, "Ramp": 0.06}
+speed_noise_std = np.array([SPEED_NOISE_STD[road_type_arr[e]] for e in range(NUM_EDGES)])
+speed_noise = np.random.normal(1.0, speed_noise_std[np.newaxis, :],
+                               size=speed_2d.shape)
+speed_2d *= speed_noise
+
+speed_2d = np.clip(speed_2d, 3.0, free_flow_speeds[np.newaxis, :].astype(float))
+
+congestion_2d = 1.0 - (speed_2d / free_flow_speeds[np.newaxis, :])
+congestion_2d = np.clip(congestion_2d, 0.0, 1.0)
+
+# ============================================================================
+# 8b. DIRECTED ADJACENCY LISTS FOR GRAPH-LAG FEATURES
+# ============================================================================
+# Build node-to-edge lookup dicts for O(E) construction
+edges_starting_at = {}   # node N -> [edge indices j where start_nodes[j] == N]
+edges_ending_at = {}     # node N -> [edge indices j where end_nodes[j] == N]
+
+for e in range(NUM_EDGES):
+    sn = start_nodes[e]
+    en = end_nodes[e]
+    edges_starting_at.setdefault(sn, []).append(e)
+    edges_ending_at.setdefault(en, []).append(e)
+
+upstream_edges = [[] for _ in range(NUM_EDGES)]
+downstream_edges = [[] for _ in range(NUM_EDGES)]
+
+for e in range(NUM_EDGES):
+    # Upstream of e: edges j whose end_node feeds into e's start_node
+    upstream_edges[e] = [j for j in edges_ending_at.get(start_nodes[e], []) if j != e]
+    # Downstream of e: edges j whose start_node is fed by e's end_node
+    downstream_edges[e] = [j for j in edges_starting_at.get(end_nodes[e], []) if j != e]
+
+all_directed_neighbors = [
+    list(set(upstream_edges[e] + downstream_edges[e])) for e in range(NUM_EDGES)
+]
+
+# ============================================================================
+# 8c. GRAPH-DERIVED LAGGED FEATURES (t-1 neighbor aggregates)
+# ============================================================================
+print("Computing graph-derived lag features...")
+
+neighbor_avg_cong  = np.zeros((TOTAL_TIMESTAMPS, NUM_EDGES))
+neighbor_avg_speed = np.zeros((TOTAL_TIMESTAMPS, NUM_EDGES))
+upstream_cong      = np.zeros((TOTAL_TIMESTAMPS, NUM_EDGES))
+downstream_cong    = np.zeros((TOTAL_TIMESTAMPS, NUM_EDGES))
+
+# t=0: no t-1 exists -> use edge's own value at t=0 as fallback
+neighbor_avg_cong[0, :]  = congestion_2d[0, :]
+neighbor_avg_speed[0, :] = speed_2d[0, :]
+upstream_cong[0, :]      = congestion_2d[0, :]
+downstream_cong[0, :]    = congestion_2d[0, :]
+
+# t=1..503: compute from t-1 using directed adjacency
+for e in range(NUM_EDGES):
+    # neighbor_avg_congestion_t-1 and neighbor_avg_speed_t-1
+    nbrs = all_directed_neighbors[e]
+    if len(nbrs) > 0:
+        neighbor_avg_cong[1:, e] = congestion_2d[:-1][:, nbrs].mean(axis=1)
+        neighbor_avg_speed[1:, e] = speed_2d[:-1][:, nbrs].mean(axis=1)
+    else:
+        neighbor_avg_cong[1:, e] = congestion_2d[:-1, e]
+        neighbor_avg_speed[1:, e] = speed_2d[:-1, e]
+
+    # upstream_congestion_t-1
+    up = upstream_edges[e]
+    if len(up) > 0:
+        upstream_cong[1:, e] = congestion_2d[:-1][:, up].mean(axis=1)
+    else:
+        upstream_cong[1:, e] = congestion_2d[:-1, e]
+
+    # downstream_congestion_t-1
+    down = downstream_edges[e]
+    if len(down) > 0:
+        downstream_cong[1:, e] = congestion_2d[:-1][:, down].mean(axis=1)
+    else:
+        downstream_cong[1:, e] = congestion_2d[:-1, e]
+
+# Add sensor/aggregation noise to graph-lag features
+neighbor_avg_cong  += np.random.normal(0, 0.02, neighbor_avg_cong.shape)
+neighbor_avg_speed += np.random.normal(0, 1.5, neighbor_avg_speed.shape)
+upstream_cong      += np.random.normal(0, 0.02, upstream_cong.shape)
+downstream_cong    += np.random.normal(0, 0.02, downstream_cong.shape)
+
+# Re-clip to valid ranges
+neighbor_avg_cong  = np.clip(neighbor_avg_cong, 0.0, 1.0)
+neighbor_avg_speed = np.clip(neighbor_avg_speed, 0.0, None)
+upstream_cong      = np.clip(upstream_cong, 0.0, 1.0)
+downstream_cong    = np.clip(downstream_cong, 0.0, 1.0)
+
+# ============================================================================
+# 8d. TILE / REPEAT ARRAYS FOR DATAFRAME
+# ============================================================================
 n_rows = TOTAL_TIMESTAMPS * NUM_EDGES
 
+# Per-edge static features (tiled across timestamps)
 edge_ids_full     = np.tile(edge_ids, TOTAL_TIMESTAMPS)
 start_nodes_full  = np.tile(start_nodes, TOTAL_TIMESTAMPS)
 end_nodes_full    = np.tile(end_nodes, TOTAL_TIMESTAMPS)
@@ -570,30 +671,42 @@ road_cap_full     = np.tile(road_capacities, TOTAL_TIMESTAMPS)
 lat_full          = np.tile(edge_lats, TOTAL_TIMESTAMPS)
 lng_full          = np.tile(edge_lngs, TOTAL_TIMESTAMPS)
 
-ts_indices        = np.repeat(np.arange(TOTAL_TIMESTAMPS), NUM_EDGES)
-timestamps_full   = timestamps[ts_indices]
-hour_sin_full     = np.repeat(hour_sin, NUM_EDGES)
-hour_cos_full     = np.repeat(hour_cos, NUM_EDGES)
+# Per-timestamp features (repeated across edges)
+time_idx_full     = np.repeat(np.arange(TOTAL_TIMESTAMPS), NUM_EDGES)
+hour_of_day_full  = np.repeat(timestamps.hour.values, NUM_EDGES)
 dow_full          = np.repeat(day_of_week, NUM_EDGES)
 is_weekend_full   = np.repeat(is_weekend, NUM_EDGES)
 is_holiday_full   = np.repeat(is_holiday, NUM_EDGES)
 weather_full      = np.repeat(weather_ts, NUM_EDGES)
-temp_full         = np.repeat(temperature, NUM_EDGES)
 vis_full          = np.repeat(visibility, NUM_EDGES)
 
+# ============================================================================
+# 8e. FLATTEN 2D ARRAYS
+# ============================================================================
 occ_flat = occupancy.ravel()
 event_impact_flat = event_impact.ravel()
 
+avg_speed = speed_2d.ravel()
+congestion = congestion_2d.ravel()
+
 vehicle_count = (occ_flat / 100.0) * CELL_CAPACITY
-vehicle_count = np.clip(vehicle_count, 0, None).astype(int)
-
-avg_speed = free_flow_full * (1.0 - 0.95 * occ_flat / 100.0)
-avg_speed = np.clip(avg_speed, 3.0, free_flow_full.astype(float))
-
-congestion = 1.0 - (avg_speed / free_flow_full)
-congestion = np.clip(congestion, 0.0, 1.0)
+# Sensor counting noise (Poisson-like: proportional to sqrt of count)
+count_noise = np.random.normal(0, np.maximum(np.sqrt(np.abs(vehicle_count)) * 0.3, 1.0))
+vehicle_count = np.clip(vehicle_count + count_noise, 0, None).astype(int)
 
 travel_time = road_lengths_full / (avg_speed * 0.277)
+# Signal and stop delay noise (road-type-specific)
+TT_NOISE_STD = {"Highway": 0.05, "Arterial": 0.12, "Residential": 0.18, "Ramp": 0.08}
+tt_noise_std = np.array([TT_NOISE_STD[road_type_arr[e]] for e in range(NUM_EDGES)])
+tt_noise_std_full = np.tile(tt_noise_std, TOTAL_TIMESTAMPS)
+tt_noise = np.random.normal(1.0, tt_noise_std_full)
+travel_time *= tt_noise
+travel_time = np.clip(travel_time, 1.0, None)
+
+neighbor_avg_cong_flat  = neighbor_avg_cong.ravel()
+neighbor_avg_speed_flat = neighbor_avg_speed.ravel()
+upstream_cong_flat      = upstream_cong.ravel()
+downstream_cong_flat    = downstream_cong.ravel()
 
 # ============================================================================
 # 9. ASSEMBLE DATAFRAME
@@ -601,31 +714,33 @@ travel_time = road_lengths_full / (avg_speed * 0.277)
 print("Assembling DataFrame...")
 
 df = pd.DataFrame({
+    "time_idx": time_idx_full,
     "edge_id": edge_ids_full,
+    "road_type": road_type_full,
     "start_node_id": start_nodes_full,
     "end_node_id": end_nodes_full,
-    "latitude": np.round(lat_full, 6),
-    "longitude": np.round(lng_full, 6),
     "road_length_meters": np.round(road_lengths_full, 2),
-    "road_type": road_type_full,
     "lane_count": lane_counts_full,
     "speed_limit_kph": speed_limits_full,
     "free_flow_speed_kph": free_flow_full,
     "road_capacity": road_cap_full,
-    "timestamp": timestamps_full,
-    "hour_sin": np.round(hour_sin_full, 6),
-    "hour_cos": np.round(hour_cos_full, 6),
-    "day_of_week": dow_full,
+    "latitude_midroad": np.round(lat_full, 6),
+    "longitude_midroad": np.round(lng_full, 6),
     "is_weekend": is_weekend_full.astype(bool),
     "is_holiday": is_holiday_full.astype(bool),
     "weather_condition": weather_full,
-    "temperature_celsius": np.round(temp_full, 1),
+    "hour_of_day": hour_of_day_full,
+    "day_of_week": dow_full,
     "visibility": np.round(vis_full, 1),
     "event_impact_score": np.round(event_impact_flat, 2),
     "average_speed_kph": np.round(avg_speed, 2),
     "vehicle_count": vehicle_count,
     "travel_time_seconds": np.round(travel_time, 2),
     "congestion_level": np.round(congestion, 4),
+    "neighbor_avg_congestion_t-1": np.round(neighbor_avg_cong_flat, 4),
+    "neighbor_avg_speed_t-1": np.round(neighbor_avg_speed_flat, 2),
+    "upstream_congestion_t-1": np.round(upstream_cong_flat, 4),
+    "downstream_congestion_t-1": np.round(downstream_cong_flat, 4),
 })
 
 # ============================================================================
@@ -649,7 +764,7 @@ ROAD_TYPES = list(ROAD_PROPS.keys())
 
 validate(len(df) == n_rows, f"Row count = {n_rows:,} (got {len(df):,})")
 validate(df["edge_id"].nunique() == NUM_EDGES, f"Unique edges = {NUM_EDGES}")
-validate(df["timestamp"].nunique() == TOTAL_TIMESTAMPS, f"Unique timestamps = {TOTAL_TIMESTAMPS}")
+validate(df["time_idx"].nunique() == TOTAL_TIMESTAMPS, f"Unique timestamps = {TOTAL_TIMESTAMPS}")
 validate(df["congestion_level"].between(0, 1).all(), "Congestion in [0, 1]")
 validate(df["average_speed_kph"].min() >= 0, "Average speed >= 0")
 validate(
@@ -674,6 +789,26 @@ validate(
     all_node_ids_in_edges.issubset(set(NODE_POSITIONS.keys())),
     f"All edge node IDs are valid ({len(all_node_ids_in_edges)} unique nodes)"
 )
+validate(df.shape[1] == 27, f"Column count = 27 (got {df.shape[1]})")
+validate(
+    df["time_idx"].min() == 0 and df["time_idx"].max() == TOTAL_TIMESTAMPS - 1,
+    f"time_idx range 0..{TOTAL_TIMESTAMPS - 1}"
+)
+validate(df["hour_of_day"].between(0, 23).all(), "hour_of_day in [0, 23]")
+validate(df["day_of_week"].between(0, 6).all(), "day_of_week in [0, 6]")
+validate(
+    df["neighbor_avg_congestion_t-1"].between(0, 1).all(),
+    "neighbor_avg_congestion_t-1 in [0, 1]"
+)
+validate(df["neighbor_avg_speed_t-1"].min() >= 0, "neighbor_avg_speed_t-1 >= 0")
+validate(
+    df["upstream_congestion_t-1"].between(0, 1).all(),
+    "upstream_congestion_t-1 in [0, 1]"
+)
+validate(
+    df["downstream_congestion_t-1"].between(0, 1).all(),
+    "downstream_congestion_t-1 in [0, 1]"
+)
 
 print(f"\nValidation: {checks_passed}/{checks_total} checks passed")
 
@@ -695,7 +830,7 @@ print("=" * 60)
 
 print(f"\nDataset shape: {df.shape[0]:,} rows x {df.shape[1]} columns")
 print(f"File size: {__import__('os').path.getsize(OUTPUT_FILE) / 1e6:.1f} MB")
-print(f"Date range: {df['timestamp'].min()} to {df['timestamp'].max()}")
+print(f"Time range: time_idx 0..{TOTAL_TIMESTAMPS - 1} ({TOTAL_TIMESTAMPS} steps, {NUM_DAYS} days)")
 
 print("\n--- Road Network ---")
 edges_df = df.drop_duplicates("edge_id")
@@ -753,7 +888,7 @@ print(speed_by_road.round(1).to_string())
 
 print("\n--- Speed by Time Period (Weekdays) ---")
 weekday_df = df[~df["is_weekend"]]
-hours_col = pd.to_datetime(weekday_df["timestamp"]).dt.hour
+hours_col = weekday_df["hour_of_day"]
 for label in ["Rush (8-10, 17-19)", "Off-peak (11-16)", "Night (22-6)"]:
     if "Rush" in label:
         mask = ((hours_col >= 8) & (hours_col < 10)) | ((hours_col >= 17) & (hours_col < 19))
@@ -764,6 +899,22 @@ for label in ["Rush (8-10, 17-19)", "Off-peak (11-16)", "Night (22-6)"]:
     subset = weekday_df[mask]
     print(f"  {label}: avg_speed={subset['average_speed_kph'].mean():.1f}, "
           f"avg_congestion={subset['congestion_level'].mean():.3f}")
+
+print("\n--- Graph-Derived Lag Features ---")
+for col in ["neighbor_avg_congestion_t-1", "neighbor_avg_speed_t-1",
+            "upstream_congestion_t-1", "downstream_congestion_t-1"]:
+    print(f"  {col}: mean={df[col].mean():.4f}, std={df[col].std():.4f}, "
+          f"min={df[col].min():.4f}, max={df[col].max():.4f}")
+
+print("\n--- Directed Adjacency ---")
+n_no_upstream = sum(1 for e in range(NUM_EDGES) if len(upstream_edges[e]) == 0)
+n_no_downstream = sum(1 for e in range(NUM_EDGES) if len(downstream_edges[e]) == 0)
+avg_up_deg = np.mean([len(upstream_edges[e]) for e in range(NUM_EDGES)])
+avg_down_deg = np.mean([len(downstream_edges[e]) for e in range(NUM_EDGES)])
+print(f"  Edges with no upstream:   {n_no_upstream}")
+print(f"  Edges with no downstream: {n_no_downstream}")
+print(f"  Avg upstream degree:      {avg_up_deg:.2f}")
+print(f"  Avg downstream degree:    {avg_down_deg:.2f}")
 
 print("\n" + "=" * 60)
 print("Generation complete!")

@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    /* Deep Slate Dark Mode */
+    --background: 215 35% 8.5%;
+    --foreground: 0 0% 95%;
+    --card: 215 35% 12%;
+    --card-foreground: 0 0% 95%;
+    --popover: 215 35% 12%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 0 0% 95%;
+    --primary-foreground: 215 35% 8.5%;
+    --secondary: 215 35% 18%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 215 28% 25%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 0 0% 95%;
+    --accent-foreground: 215 35% 8.5%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 215 28% 20%;
+    --input: 215 35% 15%;
+    --ring: 0 0% 95%;
+    --chart-1: 160 84% 39%;
+    --chart-2: 48 96% 53%;
+    --chart-3: 346 83% 61%;
+    --chart-4: 226 71% 61%;
+    --chart-5: 215 28% 60%;
+    --radius: 0rem;
+    --sidebar-background: 215 35% 8.5%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 0 0% 95%;
+    --sidebar-primary-foreground: 215 35% 8.5%;
+    --sidebar-accent: 215 35% 18%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 215 28% 20%;
+    --sidebar-ring: 0 0% 95%;
+    
+    /* Custom traffic colors */
+    --traffic-low: 160 84% 39%;
+    --traffic-moderate: 48 96% 53%;
+    --traffic-heavy: 346 83% 61%;
+    --traffic-gridlock: 226 71% 61%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0f172a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 0;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+  }
+}

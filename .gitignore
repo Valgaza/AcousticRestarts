@@ -1,3 +1,41 @@
+data/
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+.Python
+env/
+venv/
+.venv/
+build/
+dist/
+*.egg-info/
+*.egg
+*.log
+
+# Jupyter
+*.ipynb_checkpoints
+
+# Node.js
+frontend/node_modules/
+frontend/.next/
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+frontend/pnpm-lock.yaml
+frontend/package-lock.json
+frontend/yarn.lock
+
+# OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Backup
+repo-backup.bundle
 *.csv
 .venv/
 .DS_Store

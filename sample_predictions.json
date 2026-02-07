@@ -1,0 +1,1084 @@
+{
+  "predictions": [
+    {
+      "latitude": 40785389,
+      "longitude": -73986850,
+      "horizons": [
+        {
+          "horizon": "t+1h",
+          "DateTime": "2026-02-08T00:38:20.679790",
+          "predicted_congestion": -0.736
+        },
+        {
+          "horizon": "t+2h",
+          "DateTime": "2026-02-08T01:38:20.679790",
+          "predicted_congestion": -1.0016
+        },
+        {
+          "horizon": "t+3h",
+          "DateTime": "2026-02-08T02:38:20.679790",
+          "predicted_congestion": -0.8665
+        },
+        {
+          "horizon": "t+4h",
+          "DateTime": "2026-02-08T03:38:20.679790",
+          "predicted_congestion": -0.6206
+        },
+        {
+          "horizon": "t+5h",
+          "DateTime": "2026-02-08T04:38:20.679790",
+          "predicted_congestion": -1.2044
+        },
+        {
+          "horizon": "t+6h",
+          "DateTime": "2026-02-08T05:38:20.679790",
+          "predicted_congestion": 0.5132
+        }
+      ]
+    },
+    {
+      "latitude": 40760224,
+      "longitude": -73984573,
+      "horizons": [
+        {
+          "horizon": "t+1h",
+          "DateTime": "2026-02-08T00:38:20.679790",
+          "predicted_congestion": -0.3251
+        },
+        {
+          "horizon": "t+2h",
+          "DateTime": "2026-02-08T01:38:20.679790",
+          "predicted_congestion": -0.3856
+        },
+        {
+          "horizon": "t+3h",
+          "DateTime": "2026-02-08T02:38:20.679790",
+          "predicted_congestion": -0.0643
+        },
+        {
+          "horizon": "t+4h",
+          "DateTime": "2026-02-08T03:38:20.679790",
+          "predicted_congestion": -0.1719
+        },
+        {
+          "horizon": "t+5h",
+          "DateTime": "2026-02-08T04:38:20.679790",
+          "predicted_congestion": -0.3884
+        },
+        {
+          "horizon": "t+6h",
+          "DateTime": "2026-02-08T05:38:20.679790",
+          "predicted_congestion": -1.2517
+        }
+      ]
+    },
+    {
+      "latitude": 40779439,
+      "longitude": -73973240,
+      "horizons": [
+        {
+          "horizon": "t+1h",
+          "DateTime": "2026-02-08T00:38:20.679790",
+          "predicted_congestion": -0.4123
+        },
+        {
+          "horizon": "t+2h",
+          "DateTime": "2026-02-08T01:38:20.679790",
+          "predicted_congestion": -0.5022
+        },
+        {
+          "horizon": "t+3h",
+          "DateTime": "2026-02-08T02:38:20.679790",
+          "predicted_congestion": 0.4888
+        },
+        {
+          "horizon": "t+4h",
+          "DateTime": "2026-02-08T03:38:20.679790",
+          "predicted_congestion": 0.7172
+        },
+        {
+          "horizon": "t+5h",
+          "DateTime": "2026-02-08T04:38:20.679790",
+          "predicted_congestion": -0.8049
+        },
+        {
+          "horizon": "t+6h",
+          "DateTime": "2026-02-08T05:38:20.679790",
+          "predicted_congestion": 0.1333
+        }
+      ]
+    },
+    {
+      "latitude": 40757820,
+      "longitude": -73988582,
+      "horizons": [
+        {
+          "horizon": "t+1h",
+          "DateTime": "2026-02-08T00:38:20.679790",
+          "predicted_congestion": -0.7028
+        },
+        {
+          "horizon": "t+2h",
+          "DateTime": "2026-02-08T01:38:20.679790",
+          "predicted_congestion": -0.2719
+        },
+        {
+          "horizon": "t+3h",
+          "DateTime": "2026-02-08T02:38:20.679790",
+          "predicted_congestion": -0.923
+        },
+        {
+          "horizon": "t+4h",
+          "DateTime": "2026-02-08T03:38:20.679790",
+          "predicted_congestion": -1.0639
+        },
+        {
+          "horizon": "t+5h",
+          "DateTime": "2026-02-08T04:38:20.679790",
+          "predicted_congestion": -0.8252
+        },
+        {
+          "horizon": "t+6h",
+          "DateTime": "2026-02-08T05:38:20.679790",
+          "predicted_congestion": -0.84
+        }
+      ]
+    },
+    {
+      "latitude": 40749345,
+      "longitude": -73973031,
+      "horizons": [
+        {
+          "horizon": "t+1h",
+          "DateTime": "2026-02-08T00:38:20.679790",
+          "predicted_congestion": -0.6331
+        },
+        {
+          "horizon": "t+2h",
+          "DateTime": "2026-02-08T01:38:20.679790",
+          "predicted_congestion": -0.6463
+        },
+        {
+          "horizon": "t+3h",
+          "DateTime": "2026-02-08T02:38:20.679790",
+          "predicted_congestion": -0.1603
+        },
+        {
+          "horizon": "t+4h",
+          "DateTime": "2026-02-08T03:38:20.679790",
+          "predicted_congestion": -0.1286
+        },
+        {
+          "horizon": "t+5h",
+          "DateTime": "2026-02-08T04:38:20.679790",
+          "predicted_congestion": 0.2678
+        },
+        {
+          "horizon": "t+6h",
+          "DateTime": "2026-02-08T05:38:20.679790",
+          "predicted_congestion": 0.0369
+        }
+      ]
+    },
+    {
+      "latitude": 40779264,
+      "longitude": -73973347,
+      "horizons": [
+        {
+          "horizon": "t+1h",
+          "DateTime": "2026-02-08T00:38:20.679790",
+          "predicted_congestion": -0.4962
+        },
+        {
+          "horizon": "t+2h",
+          "DateTime": "2026-02-08T01:38:20.679790",
+          "predicted_congestion": -1.0216
+        },
+        {
+          "horizon": "t+3h",
+          "DateTime": "2026-02-08T02:38:20.679790",
+          "predicted_congestion": -1.185
+        },
+        {
+          "horizon": "t+4h",
+          "DateTime": "2026-02-08T03:38:20.679790",
+          "predicted_congestion": -0.3212
+        },
+        {
+          "horizon": "t+5h",
+          "DateTime": "2026-02-08T04:38:20.679790",
+          "predicted_congestion": -0.0886
+        },
+        {
+          "horizon": "t+6h",
+          "DateTime": "2026-02-08T05:38:20.679790",
+          "predicted_congestion": -0.8073
+        }
+      ]
+    },
+    {
+      "latitude": 40745891,
+      "longitude": -73972468,
+      "horizons": [
+        {
+          "horizon": "t+1h",
+          "DateTime": "2026-02-08T00:38:20.679790",
+          "predicted_congestion": 0.1065
+        },
+        {
+          "horizon": "t+2h",
+          "DateTime": "2026-02-08T01:38:20.679790",
+          "predicted_congestion": 0.1455
+        },
+        {
+          "horizon": "t+3h",
+          "DateTime": "2026-02-08T02:38:20.679790",
+          "predicted_congestion": -0.6572
+        },
+        {
+          "horizon": "t+4h",
+          "DateTime": "2026-02-08T03:38:20.679790",
+          "predicted_congestion": -0.8136
+        },
+        {
+          "horizon": "t+5h",
+          "DateTime": "2026-02-08T04:38:20.679790",
+          "predicted_congestion": -0.9306
+        },
+        {
+          "horizon": "t+6h",
+          "DateTime": "2026-02-08T05:38:20.679790",
+          "predicted_congestion": -0.8363
+        }
+      ]
+    },
+    {
+      "latitude": 40756960,
+      "longitude": -73981798,
+      "horizons": [
+        {
+          "horizon": "t+1h",
+          "DateTime": "2026-02-08T00:38:20.679790",
+          "predicted_congestion": -0.5677
+        },
+        {
+          "horizon": "t+2h",
+          "DateTime": "2026-02-08T01:38:20.679790",
+          "predicted_congestion": -0.2433
+        },
+        {
+          "horizon": "t+3h",
+          "DateTime": "2026-02-08T02:38:20.679790",
+          "predicted_congestion": 0.002
+        },
+        {
+          "horizon": "t+4h",
+          "DateTime": "2026-02-08T03:38:20.679790",
+          "predicted_congestion": -0.9315
+        },
+        {
+          "horizon": "t+5h",
+          "DateTime": "2026-02-08T04:38:20.679790",
+          "predicted_congestion": -0.9594
+        },
+        {
+          "horizon": "t+6h",
+          "DateTime": "2026-02-08T05:38:20.679790",
+          "predicted_congestion": -0.0568
+        }
+      ]
+    },
+    {
+      "latitude": 40799814,
+      "longitude": -74004232,
+      "horizons": [
+        {
+          "horizon": "t+1h",
+          "DateTime": "2026-02-08T00:38:20.679790",
+          "predicted_congestion": -0.4979
+        },
+        {
+          "horizon": "t+2h",
+          "DateTime": "2026-02-08T01:38:20.679790",
+          "predicted_congestion": -0.6918
+        },
+        {
+          "horizon": "t+3h",
+          "DateTime": "2026-02-08T02:38:20.679790",
+          "predicted_congestion": -0.8371
+        },
+        {
+          "horizon": "t+4h",
+          "DateTime": "2026-02-08T03:38:20.679790",
+          "predicted_congestion": -0.0261
+        },
+        {
+          "horizon": "t+5h",
+          "DateTime": "2026-02-08T04:38:20.679790",
+          "predicted_congestion": -1.1372
+        },
+        {
+          "horizon": "t+6h",
+          "DateTime": "2026-02-08T05:38:20.679790",
+          "predicted_congestion": 1.1897
+        }
+      ]
+    },
+    {
+      "latitude": 40728277,
+      "longitude": -73997143,
+      "horizons": [
+        {
+          "horizon": "t+1h",
+          "DateTime": "2026-02-08T00:38:20.679790",
+          "predicted_congestion": -0.6989
+        },
+        {
+          "horizon": "t+2h",
+          "DateTime": "2026-02-08T01:38:20.679790",
+          "predicted_congestion": -0.8766
+        },
+        {
+          "horizon": "t+3h",
+          "DateTime": "2026-02-08T02:38:20.679790",
+          "predicted_congestion": -0.7989
+        },
+        {
+          "horizon": "t+4h",
+          "DateTime": "2026-02-08T03:38:20.679790",
+          "predicted_congestion": -0.9455
+        },
+        {
+          "horizon": "t+5h",
+          "DateTime": "2026-02-08T04:38:20.679790",
+          "predicted_congestion": 0.6849
+        },
+        {
+          "horizon": "t+6h",
+          "DateTime": "2026-02-08T05:38:20.679790",
+          "predicted_congestion": -1.1503
+        }
+      ]
+    },
+    {
+      "latitude": 40745465,
+      "longitude": -73972541,
+      "horizons": [
+        {
+          "horizon": "t+1h",
+          "DateTime": "2026-02-08T00:38:20.679790",
+          "predicted_congestion": -0.6993
+        },
+        {
+          "horizon": "t+2h",
+          "DateTime": "2026-02-08T01:38:20.679790",
+          "predicted_congestion": -0.467
+        },
+        {
+          "horizon": "t+3h",
+          "DateTime": "2026-02-08T02:38:20.679790",
+          "predicted_congestion": 0.2179
+        },
+        {
+          "horizon": "t+4h",
+          "DateTime": "2026-02-08T03:38:20.679790",
+          "predicted_congestion": -0.8803
+        },
+        {
+          "horizon": "t+5h",
+          "DateTime": "2026-02-08T04:38:20.679790",
+          "predicted_congestion": 1.0697
+        },
+        {
+          "horizon": "t+6h",
+          "DateTime": "2026-02-08T05:38:20.679790",
+          "predicted_congestion": 0.6714
+        }
+      ]
+    },
+    {
+      "latitude": 40706069,
+      "longitude": -74010027,
+      "horizons": [
+        {
+          "horizon": "t+1h",
+          "DateTime": "2026-02-08T00:38:20.679790",
+          "predicted_congestion": -0.7435
+        },
+        {
+          "horizon": "t+2h",
+          "DateTime": "2026-02-08T01:38:20.679790",
+          "predicted_congestion": -0.7867
+        },
+        {
+          "horizon": "t+3h",
+          "DateTime": "2026-02-08T02:38:20.679790",
+          "predicted_congestion": -0.6828
+        },
+        {
+          "horizon": "t+4h",
+          "DateTime": "2026-02-08T03:38:20.679790",
+          "predicted_congestion": -1.0632
+        },
+        {
+          "horizon": "t+5h",
+          "DateTime": "2026-02-08T04:38:20.679790",
+          "predicted_congestion": -1.2156
+        },
+        {
+          "horizon": "t+6h",
+          "DateTime": "2026-02-08T05:38:20.679790",
+          "predicted_congestion": -1.0512
+        }
+      ]
+    },
+    {
+      "latitude": 40740915,
+      "longitude": -73974683,
+      "horizons": [
+        {
+          "horizon": "t+1h",
+          "DateTime": "2026-02-08T00:38:20.679790",
+          "predicted_congestion": -1.0908
+        },
+        {
+          "horizon": "t+2h",
+          "DateTime": "2026-02-08T01:38:20.679790",
+          "predicted_congestion": -0.8132
+        },
+        {
+          "horizon": "t+3h",
+          "DateTime": "2026-02-08T02:38:20.679790",
+          "predicted_congestion": -0.8725
+        },
+        {
+          "horizon": "t+4h",
+          "DateTime": "2026-02-08T03:38:20.679790",
+          "predicted_congestion": 0.0986
+        },
+        {
+          "horizon": "t+5h",
+          "DateTime": "2026-02-08T04:38:20.679790",
+          "predicted_congestion": -1.0564
+        },
+        {
+          "horizon": "t+6h",
+          "DateTime": "2026-02-08T05:38:20.679790",
+          "predicted_congestion": -0.0663
+        }
+      ]
+    },
+    {
+      "latitude": 40774133,
+      "longitude": -73940697,
+      "horizons": [
+        {
+          "horizon": "t+1h",
+          "DateTime": "2026-02-08T00:38:20.679790",
+          "predicted_congestion": -0.6524
+        },
+        {
+          "horizon": "t+2h",
+          "DateTime": "2026-02-08T01:38:20.679790",
+          "predicted_congestion": -0.5732
+        },
+        {
+          "horizon": "t+3h",
+          "DateTime": "2026-02-08T02:38:20.679790",
+          "predicted_congestion": -0.7131
+        },
+        {
+          "horizon": "t+4h",
+          "DateTime": "2026-02-08T03:38:20.679790",
+          "predicted_congestion": 0.6069
+        },
+        {
+          "horizon": "t+5h",
+          "DateTime": "2026-02-08T04:38:20.679790",
+          "predicted_congestion": -1.281
+        },
+        {
+          "horizon": "t+6h",
+          "DateTime": "2026-02-08T05:38:20.679790",
+          "predicted_congestion": -0.0148
+        }
+      ]
+    },
+    {
+      "latitude": 40762927,
+      "longitude": -73981165,
+      "horizons": [
+        {
+          "horizon": "t+1h",
+          "DateTime": "2026-02-08T00:38:20.679790",
+          "predicted_congestion": -0.2581
+        },
+        {
+          "horizon": "t+2h",
+          "DateTime": "2026-02-08T01:38:20.679790",
+          "predicted_congestion": 0.2872
+        },
+        {
+          "horizon": "t+3h",
+          "DateTime": "2026-02-08T02:38:20.679790",
+          "predicted_congestion": -0.3637
+        },
+        {
+          "horizon": "t+4h",
+          "DateTime": "2026-02-08T03:38:20.679790",
+          "predicted_congestion": -0.2356
+        },
+        {
+          "horizon": "t+5h",
+          "DateTime": "2026-02-08T04:38:20.679790",
+          "predicted_congestion": -1.1595
+        },
+        {
+          "horizon": "t+6h",
+          "DateTime": "2026-02-08T05:38:20.679790",
+          "predicted_congestion": 1.0536
+        }
+      ]
+    },
+    {
+      "latitude": 40728367,
+      "longitude": -73991250,
+      "horizons": [
+        {
+          "horizon": "t+1h",
+          "DateTime": "2026-02-08T00:38:20.679790",
+          "predicted_congestion": -0.4841
+        },
+        {
+          "horizon": "t+2h",
+          "DateTime": "2026-02-08T01:38:20.679790",
+          "predicted_congestion": -0.8062
+        },
+        {
+          "horizon": "t+3h",
+          "DateTime": "2026-02-08T02:38:20.679790",
+          "predicted_congestion": -0.186
+        },
+        {
+          "horizon": "t+4h",
+          "DateTime": "2026-02-08T03:38:20.679790",
+          "predicted_congestion": 0.4179
+        },
+        {
+          "horizon": "t+5h",
+          "DateTime": "2026-02-08T04:38:20.679790",
+          "predicted_congestion": -0.1159
+        },
+        {
+          "horizon": "t+6h",
+          "DateTime": "2026-02-08T05:38:20.679790",
+          "predicted_congestion": 1.0103
+        }
+      ]
+    },
+    {
+      "latitude": 40717464,
+      "longitude": -74009032,
+      "horizons": [
+        {
+          "horizon": "t+1h",
+          "DateTime": "2026-02-08T00:38:20.679790",
+          "predicted_congestion": -0.2978
+        },
+        {
+          "horizon": "t+2h",
+          "DateTime": "2026-02-08T01:38:20.679790",
+          "predicted_congestion": -0.9617
+        },
+        {
+          "horizon": "t+3h",
+          "DateTime": "2026-02-08T02:38:20.679790",
+          "predicted_congestion": -0.3175
+        },
+        {
+          "horizon": "t+4h",
+          "DateTime": "2026-02-08T03:38:20.679790",
+          "predicted_congestion": 0.0221
+        },
+        {
+          "horizon": "t+5h",
+          "DateTime": "2026-02-08T04:38:20.679790",
+          "predicted_congestion": -1.1346
+        },
+        {
+          "horizon": "t+6h",
+          "DateTime": "2026-02-08T05:38:20.679790",
+          "predicted_congestion": -1.1688
+        }
+      ]
+    },
+    {
+      "latitude": 40724462,
+      "longitude": -73989004,
+      "horizons": [
+        {
+          "horizon": "t+1h",
+          "DateTime": "2026-02-08T00:38:20.679790",
+          "predicted_congestion": -0.5923
+        },
+        {
+          "horizon": "t+2h",
+          "DateTime": "2026-02-08T01:38:20.679790",
+          "predicted_congestion": -1.1164
+        },
+        {
+          "horizon": "t+3h",
+          "DateTime": "2026-02-08T02:38:20.679790",
+          "predicted_congestion": -0.6211
+        },
+        {
+          "horizon": "t+4h",
+          "DateTime": "2026-02-08T03:38:20.679790",
+          "predicted_congestion": -0.864
+        },
+        {
+          "horizon": "t+5h",
+          "DateTime": "2026-02-08T04:38:20.679790",
+          "predicted_congestion": 0.7439
+        },
+        {
+          "horizon": "t+6h",
+          "DateTime": "2026-02-08T05:38:20.679790",
+          "predicted_congestion": -1.137
+        }
+      ]
+    },
+    {
+      "latitude": 40711791,
+      "longitude": -73944240,
+      "horizons": [
+        {
+          "horizon": "t+1h",
+          "DateTime": "2026-02-08T00:38:20.679790",
+          "predicted_congestion": -0.7375
+        },
+        {
+          "horizon": "t+2h",
+          "DateTime": "2026-02-08T01:38:20.679790",
+          "predicted_congestion": -0.5775
+        },
+        {
+          "horizon": "t+3h",
+          "DateTime": "2026-02-08T02:38:20.679790",
+          "predicted_congestion": -0.4185
+        },
+        {
+          "horizon": "t+4h",
+          "DateTime": "2026-02-08T03:38:20.679790",
+          "predicted_congestion": -0.375
+        },
+        {
+          "horizon": "t+5h",
+          "DateTime": "2026-02-08T04:38:20.679790",
+          "predicted_congestion": 0.1437
+        },
+        {
+          "horizon": "t+6h",
+          "DateTime": "2026-02-08T05:38:20.679790",
+          "predicted_congestion": -0.9135
+        }
+      ]
+    },
+    {
+      "latitude": 40747250,
+      "longitude": -73981888,
+      "horizons": [
+        {
+          "horizon": "t+1h",
+          "DateTime": "2026-02-08T00:38:20.679790",
+          "predicted_congestion": -0.2866
+        },
+        {
+          "horizon": "t+2h",
+          "DateTime": "2026-02-08T01:38:20.679790",
+          "predicted_congestion": -0.8931
+        },
+        {
+          "horizon": "t+3h",
+          "DateTime": "2026-02-08T02:38:20.679790",
+          "predicted_congestion": -0.9383
+        },
+        {
+          "horizon": "t+4h",
+          "DateTime": "2026-02-08T03:38:20.679790",
+          "predicted_congestion": 0.332
+        },
+        {
+          "horizon": "t+5h",
+          "DateTime": "2026-02-08T04:38:20.679790",
+          "predicted_congestion": -0.9525
+        },
+        {
+          "horizon": "t+6h",
+          "DateTime": "2026-02-08T05:38:20.679790",
+          "predicted_congestion": -0.8404
+        }
+      ]
+    },
+    {
+      "latitude": 40717970,
+      "longitude": -73967992,
+      "horizons": [
+        {
+          "horizon": "t+1h",
+          "DateTime": "2026-02-08T00:38:20.679790",
+          "predicted_congestion": -0.4638
+        },
+        {
+          "horizon": "t+2h",
+          "DateTime": "2026-02-08T01:38:20.679790",
+          "predicted_congestion": -0.5701
+        },
+        {
+          "horizon": "t+3h",
+          "DateTime": "2026-02-08T02:38:20.679790",
+          "predicted_congestion": -1.0481
+        },
+        {
+          "horizon": "t+4h",
+          "DateTime": "2026-02-08T03:38:20.679790",
+          "predicted_congestion": -1.0224
+        },
+        {
+          "horizon": "t+5h",
+          "DateTime": "2026-02-08T04:38:20.679790",
+          "predicted_congestion": -1.0239
+        },
+        {
+          "horizon": "t+6h",
+          "DateTime": "2026-02-08T05:38:20.679790",
+          "predicted_congestion": 0.0854
+        }
+      ]
+    },
+    {
+      "latitude": 40727184,
+      "longitude": -73990686,
+      "horizons": [
+        {
+          "horizon": "t+1h",
+          "DateTime": "2026-02-08T00:38:20.679790",
+          "predicted_congestion": -0.0968
+        },
+        {
+          "horizon": "t+2h",
+          "DateTime": "2026-02-08T01:38:20.679790",
+          "predicted_congestion": -0.4396
+        },
+        {
+          "horizon": "t+3h",
+          "DateTime": "2026-02-08T02:38:20.679790",
+          "predicted_congestion": 0.3363
+        },
+        {
+          "horizon": "t+4h",
+          "DateTime": "2026-02-08T03:38:20.679790",
+          "predicted_congestion": -0.7742
+        },
+        {
+          "horizon": "t+5h",
+          "DateTime": "2026-02-08T04:38:20.679790",
+          "predicted_congestion": -1.1519
+        },
+        {
+          "horizon": "t+6h",
+          "DateTime": "2026-02-08T05:38:20.679790",
+          "predicted_congestion": -0.1433
+        }
+      ]
+    },
+    {
+      "latitude": 40796946,
+      "longitude": -73942577,
+      "horizons": [
+        {
+          "horizon": "t+1h",
+          "DateTime": "2026-02-08T00:38:20.679790",
+          "predicted_congestion": -1.0591
+        },
+        {
+          "horizon": "t+2h",
+          "DateTime": "2026-02-08T01:38:20.679790",
+          "predicted_congestion": -1.0824
+        },
+        {
+          "horizon": "t+3h",
+          "DateTime": "2026-02-08T02:38:20.679790",
+          "predicted_congestion": -1.0219
+        },
+        {
+          "horizon": "t+4h",
+          "DateTime": "2026-02-08T03:38:20.679790",
+          "predicted_congestion": 0.0689
+        },
+        {
+          "horizon": "t+5h",
+          "DateTime": "2026-02-08T04:38:20.679790",
+          "predicted_congestion": -1.3154
+        },
+        {
+          "horizon": "t+6h",
+          "DateTime": "2026-02-08T05:38:20.679790",
+          "predicted_congestion": -0.6458
+        }
+      ]
+    },
+    {
+      "latitude": 40743654,
+      "longitude": -73983837,
+      "horizons": [
+        {
+          "horizon": "t+1h",
+          "DateTime": "2026-02-08T00:38:20.679790",
+          "predicted_congestion": -0.3263
+        },
+        {
+          "horizon": "t+2h",
+          "DateTime": "2026-02-08T01:38:20.679790",
+          "predicted_congestion": -0.3559
+        },
+        {
+          "horizon": "t+3h",
+          "DateTime": "2026-02-08T02:38:20.679790",
+          "predicted_congestion": -0.1443
+        },
+        {
+          "horizon": "t+4h",
+          "DateTime": "2026-02-08T03:38:20.679790",
+          "predicted_congestion": -0.961
+        },
+        {
+          "horizon": "t+5h",
+          "DateTime": "2026-02-08T04:38:20.679790",
+          "predicted_congestion": -0.6547
+        },
+        {
+          "horizon": "t+6h",
+          "DateTime": "2026-02-08T05:38:20.679790",
+          "predicted_congestion": 1.0441
+        }
+      ]
+    },
+    {
+      "latitude": 40743861,
+      "longitude": -73984583,
+      "horizons": [
+        {
+          "horizon": "t+1h",
+          "DateTime": "2026-02-08T00:38:20.679790",
+          "predicted_congestion": -0.7739
+        },
+        {
+          "horizon": "t+2h",
+          "DateTime": "2026-02-08T01:38:20.679790",
+          "predicted_congestion": 0.044
+        },
+        {
+          "horizon": "t+3h",
+          "DateTime": "2026-02-08T02:38:20.679790",
+          "predicted_congestion": 0.169
+        },
+        {
+          "horizon": "t+4h",
+          "DateTime": "2026-02-08T03:38:20.679790",
+          "predicted_congestion": 0.5091
+        },
+        {
+          "horizon": "t+5h",
+          "DateTime": "2026-02-08T04:38:20.679790",
+          "predicted_congestion": -0.3225
+        },
+        {
+          "horizon": "t+6h",
+          "DateTime": "2026-02-08T05:38:20.679790",
+          "predicted_congestion": -0.2423
+        }
+      ]
+    },
+    {
+      "latitude": 40729826,
+      "longitude": -73945191,
+      "horizons": [
+        {
+          "horizon": "t+1h",
+          "DateTime": "2026-02-08T00:38:20.679790",
+          "predicted_congestion": -0.6788
+        },
+        {
+          "horizon": "t+2h",
+          "DateTime": "2026-02-08T01:38:20.679790",
+          "predicted_congestion": -0.7993
+        },
+        {
+          "horizon": "t+3h",
+          "DateTime": "2026-02-08T02:38:20.679790",
+          "predicted_congestion": -0.3996
+        },
+        {
+          "horizon": "t+4h",
+          "DateTime": "2026-02-08T03:38:20.679790",
+          "predicted_congestion": -0.922
+        },
+        {
+          "horizon": "t+5h",
+          "DateTime": "2026-02-08T04:38:20.679790",
+          "predicted_congestion": -0.9361
+        },
+        {
+          "horizon": "t+6h",
+          "DateTime": "2026-02-08T05:38:20.679790",
+          "predicted_congestion": 0.8079
+        }
+      ]
+    },
+    {
+      "latitude": 40759325,
+      "longitude": -73973517,
+      "horizons": [
+        {
+          "horizon": "t+1h",
+          "DateTime": "2026-02-08T00:38:20.679790",
+          "predicted_congestion": -0.7115
+        },
+        {
+          "horizon": "t+2h",
+          "DateTime": "2026-02-08T01:38:20.679790",
+          "predicted_congestion": -0.6644
+        },
+        {
+          "horizon": "t+3h",
+          "DateTime": "2026-02-08T02:38:20.679790",
+          "predicted_congestion": -0.6553
+        },
+        {
+          "horizon": "t+4h",
+          "DateTime": "2026-02-08T03:38:20.679790",
+          "predicted_congestion": -1.1852
+        },
+        {
+          "horizon": "t+5h",
+          "DateTime": "2026-02-08T04:38:20.679790",
+          "predicted_congestion": -0.9113
+        },
+        {
+          "horizon": "t+6h",
+          "DateTime": "2026-02-08T05:38:20.679790",
+          "predicted_congestion": 0.2822
+        }
+      ]
+    },
+    {
+      "latitude": 40731086,
+      "longitude": -73991438,
+      "horizons": [
+        {
+          "horizon": "t+1h",
+          "DateTime": "2026-02-08T00:38:20.679790",
+          "predicted_congestion": -0.664
+        },
+        {
+          "horizon": "t+2h",
+          "DateTime": "2026-02-08T01:38:20.679790",
+          "predicted_congestion": 0.0867
+        },
+        {
+          "horizon": "t+3h",
+          "DateTime": "2026-02-08T02:38:20.679790",
+          "predicted_congestion": -0.7939
+        },
+        {
+          "horizon": "t+4h",
+          "DateTime": "2026-02-08T03:38:20.679790",
+          "predicted_congestion": -0.0806
+        },
+        {
+          "horizon": "t+5h",
+          "DateTime": "2026-02-08T04:38:20.679790",
+          "predicted_congestion": -0.1654
+        },
+        {
+          "horizon": "t+6h",
+          "DateTime": "2026-02-08T05:38:20.679790",
+          "predicted_congestion": 0.1258
+        }
+      ]
+    },
+    {
+      "latitude": 40711558,
+      "longitude": -74008781,
+      "horizons": [
+        {
+          "horizon": "t+1h",
+          "DateTime": "2026-02-08T00:38:20.679790",
+          "predicted_congestion": -0.7764
+        },
+        {
+          "horizon": "t+2h",
+          "DateTime": "2026-02-08T01:38:20.679790",
+          "predicted_congestion": -0.0251
+        },
+        {
+          "horizon": "t+3h",
+          "DateTime": "2026-02-08T02:38:20.679790",
+          "predicted_congestion": 0.1765
+        },
+        {
+          "horizon": "t+4h",
+          "DateTime": "2026-02-08T03:38:20.679790",
+          "predicted_congestion": -0.4443
+        },
+        {
+          "horizon": "t+5h",
+          "DateTime": "2026-02-08T04:38:20.679790",
+          "predicted_congestion": -0.086
+        },
+        {
+          "horizon": "t+6h",
+          "DateTime": "2026-02-08T05:38:20.679790",
+          "predicted_congestion": 0.8759
+        }
+      ]
+    },
+    {
+      "latitude": 40787119,
+      "longitude": -73966767,
+      "horizons": [
+        {
+          "horizon": "t+1h",
+          "DateTime": "2026-02-08T00:38:20.679790",
+          "predicted_congestion": -0.9195
+        },
+        {
+          "horizon": "t+2h",
+          "DateTime": "2026-02-08T01:38:20.679790",
+          "predicted_congestion": 0.3359
+        },
+        {
+          "horizon": "t+3h",
+          "DateTime": "2026-02-08T02:38:20.679790",
+          "predicted_congestion": -1.1762
+        },
+        {
+          "horizon": "t+4h",
+          "DateTime": "2026-02-08T03:38:20.679790",
+          "predicted_congestion": -1.1833
+        },
+        {
+          "horizon": "t+5h",
+          "DateTime": "2026-02-08T04:38:20.679790",
+          "predicted_congestion": -0.9294
+        },
+        {
+          "horizon": "t+6h",
+          "DateTime": "2026-02-08T05:38:20.679790",
+          "predicted_congestion": 0.4919
+        }
+      ]
+    }
+  ]
+}

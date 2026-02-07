@@ -358,14 +358,13 @@ def main():
         'encoder_length': 48,
         'prediction_length': 18,
         'batch_size': 64,
-        'num_epochs': 50,
+        'num_epochs': 4,
         'learning_rate': 1e-3,
         'weight_decay': 1e-4,  # L2 regularization
         'hidden_dim': 64,
         'num_layers': 2,
         'dropout': 0.3,
         'checkpoint_dir': 'checkpoints',
-        'num_workers': 0,
         'early_stopping_patience': 10,
         
         # Time-based split parameters (504 time steps total: 0-503)
@@ -406,7 +405,6 @@ def main():
         encoder_length=config['encoder_length'],
         prediction_length=config['prediction_length'],
         shuffle=True,
-        num_workers=config['num_workers'],
         device=device,
         time_idx_min=0,
         time_idx_max=config['train_time_max']
@@ -420,7 +418,6 @@ def main():
         encoder_length=config['encoder_length'],
         prediction_length=config['prediction_length'],
         shuffle=False,
-        num_workers=config['num_workers'],
         device=device,
         time_idx_min=config['val_time_min'],
         time_idx_max=config['val_time_max']
@@ -434,7 +431,6 @@ def main():
         encoder_length=config['encoder_length'],
         prediction_length=config['prediction_length'],
         shuffle=False,
-        num_workers=config['num_workers'],
         device=device,
         time_idx_min=config['test_time_min'],
         time_idx_max=config['test_time_max']

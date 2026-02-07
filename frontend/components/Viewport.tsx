@@ -15,7 +15,7 @@ interface ViewportProps {
   useLiveData?: boolean
 }
 
-export default function Viewport({ state, liveTraffic, useLiveData = false }: ViewportProps) {
+export default function Viewport({ state, liveTraffic, useLiveData = true }: ViewportProps) {
   const [selectedCell, setSelectedCell] = useState<GridCell | null>(null)
 
   // Choose data source
@@ -175,7 +175,7 @@ export default function Viewport({ state, liveTraffic, useLiveData = false }: Vi
           <div className="absolute inset-0 grid gap-0 grid-cols-25 grid-rows-25 border border-slate-700" key={gridKey}>
             {activeGrid.flat().map((cell) => (
               <motion.div
-                key={`${cell.x}-${cell.y}`}
+                key={`${gridKey}-${cell.x}-${cell.y}`}
                 onClick={(e) => {
                   e.stopPropagation()
                   setSelectedCell(cell)
@@ -184,7 +184,7 @@ export default function Viewport({ state, liveTraffic, useLiveData = false }: Vi
                 animate={{
                   opacity: 0.3 + cell.congestionLevel * 0.7,
                 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
                 title={`Cell ${cell.x},${cell.y}: ${Math.round(cell.congestionLevel * 100)}% congestion | Horizon: ${useLiveData ? liveTraffic.selectedHorizon : 'sim'}`}
               >
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-slate-100/10 transition-opacity" />

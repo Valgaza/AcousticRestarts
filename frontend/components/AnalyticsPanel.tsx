@@ -15,7 +15,7 @@ interface AnalyticsPanelProps {
   useLiveData?: boolean
 }
 
-export default function AnalyticsPanel({ state, liveTraffic, useLiveData = false }: AnalyticsPanelProps) {
+export default function AnalyticsPanel({ state, liveTraffic, useLiveData = true }: AnalyticsPanelProps) {
   const [isExpanded, setIsExpanded] = useState(true)
 
   // Calculate live metrics from grid data

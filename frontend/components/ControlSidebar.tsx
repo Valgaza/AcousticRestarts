@@ -1,9 +1,8 @@
 'use client'
 
-import { Play, Pause, Cloud, CloudRain, CloudSnow, CloudFog, Activity, Radio } from 'lucide-react'
+import { Play, Pause, Cloud, CloudRain, CloudSnow, CloudFog, Map } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import { Switch } from '@/components/ui/switch'
 import {
   Select,
   SelectContent,
@@ -11,18 +10,16 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { useTrafficSimulation, RouteMetric } from '@/hooks/useTrafficSimulation'
+import { useTrafficSimulation } from '@/hooks/useTrafficSimulation'
 import type { useLiveTraffic } from '@/hooks/useLiveTraffic'
-import RouteSparkline from './RouteSparkline'
 
 interface ControlSidebarProps {
   state: ReturnType<typeof useTrafficSimulation>
   liveTraffic: ReturnType<typeof useLiveTraffic>
   useLiveData?: boolean
-  onToggleLive?: (value: boolean) => void
 }
 
-export default function ControlSidebar({ state, liveTraffic, useLiveData = false, onToggleLive }: ControlSidebarProps) {
+export default function ControlSidebar({ state, liveTraffic, useLiveData = true }: ControlSidebarProps) {
   const weatherIcons = {
     clear: <Cloud className="w-4 h-4" />,
     rain: <CloudRain className="w-4 h-4" />,
@@ -44,25 +41,6 @@ export default function ControlSidebar({ state, liveTraffic, useLiveData = false
         <h1 className="text-xl font-bold font-mono text-slate-100 tracking-wider">TRAFFIC.OS</h1>
         <p className="text-xs text-slate-400 font-mono mt-1">Urban Congestion Management</p>
       </div>
-
-      {/* Live Data Toggle */}
-      {onToggleLive && (
-        <Card className="bg-slate-800 border-slate-700 p-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Radio className={`w-4 h-4 ${useLiveData ? 'text-emerald-400' : 'text-slate-400'}`} />
-              <div>
-                <p className="text-sm font-mono text-slate-200">Live API Data</p>
-                <p className="text-xs text-slate-400">Real-time predictions</p>
-              </div>
-            </div>
-            <Switch
-              checked={useLiveData}
-              onCheckedChange={onToggleLive}
-            />
-          </div>
-        </Card>
-      )}
 
       {/* Simulation Controls */}
       <Card className="bg-slate-800 border-slate-700 p-4">
@@ -162,50 +140,78 @@ export default function ControlSidebar({ state, liveTraffic, useLiveData = false
         </div>
       </Card>
 
-      {/* Route Metrics */}
-      <div>
+      {/* Map Legend */}
+      <Card className="bg-slate-800 border-slate-700 p-4">
         <div className="flex items-center gap-2 mb-3">
-          <Activity className="w-4 h-4 text-slate-400" />
-          <p className="text-xs font-mono text-slate-300 uppercase tracking-wider">Critical Arteries</p>
+          <Map className="w-4 h-4 text-slate-400" />
+          <p className="text-xs font-mono text-slate-300 uppercase tracking-wider">Map Legend</p>
         </div>
         <div className="space-y-3">
-          {state.routes.map((route) => (
-            <RouteMetricCard key={route.id} route={route} />
-          ))}
+          {/* Road Types */}
+          <div className="space-y-2">
+            <p className="text-xs font-mono text-slate-400 uppercase tracking-wider">Road Types</p>
+            <div className="space-y-1.5">
+              <LegendItem color="bg-red-500" label="Highway" count={12} />
+              <LegendItem color="bg-cyan-400" label="Arterial" count={106} />
+              <LegendItem color="bg-emerald-500" label="Residential" count={266} />
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-0.5 border-t-2 border-dashed border-yellow-500" />
+                <span className="text-xs font-mono text-slate-200">Ramp</span>
+                <span className="text-xs font-mono text-slate-400">({16})</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Nodes */}
+          <div className="space-y-2">
+            <p className="text-xs font-mono text-slate-400 uppercase tracking-wider">Nodes</p>
+            <div className="space-y-1.5">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-pink-400 border-2 border-pink-300" />
+                <span className="text-xs font-mono text-slate-200">CBD node</span>
+                <span className="text-xs font-mono text-slate-400">(&lt;500m)</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-cyan-400 border-2 border-cyan-300" />
+                <span className="text-xs font-mono text-slate-200">Middle node</span>
+                <span className="text-xs font-mono text-slate-400">(500m-1km)</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-slate-400 border-2 border-slate-300" />
+                <span className="text-xs font-mono text-slate-200">Suburban node</span>
+                <span className="text-xs font-mono text-slate-400">(&gt;1km)</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Zones */}
+          <div className="space-y-2">
+            <p className="text-xs font-mono text-slate-400 uppercase tracking-wider">Zones</p>
+            <div className="space-y-1.5">
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-3 bg-purple-500/30 border border-purple-400" />
+                <span className="text-xs font-mono text-slate-200">CBD zone</span>
+                <span className="text-xs font-mono text-slate-400">(&lt;500m)</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-3 bg-blue-500/20 border border-blue-400" />
+                <span className="text-xs font-mono text-slate-200">Suburban boundary</span>
+                <span className="text-xs font-mono text-slate-400">(1km)</span>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </Card>
     </div>
   )
 }
 
-function RouteMetricCard({ route }: { route: RouteMetric }) {
-  const congestionPercent = Math.round(((route.freeFlowSpeed - route.currentSpeed) / route.freeFlowSpeed) * 100)
-  const isCongested = congestionPercent > 40
-
+function LegendItem({ color, label, count }: { color: string; label: string; count: number }) {
   return (
-    <Card className="bg-slate-800 border-slate-700 p-3 hover:border-slate-600 cursor-pointer transition-colors">
-      <div className="space-y-2">
-        <p className="text-xs font-mono text-slate-100 font-semibold">{route.name}</p>
-        <div className="flex justify-between items-center gap-2">
-          <div>
-            <p className="text-xs text-slate-400 font-mono">Speed</p>
-            <p className={`text-sm font-mono font-bold ${isCongested ? 'text-rose-400' : 'text-emerald-400'}`}>
-              {route.currentSpeed} km/h
-            </p>
-          </div>
-          <div className="flex-1 h-8">
-            <RouteSparkline data={route.sparklineData} />
-          </div>
-        </div>
-        <div className="w-full bg-slate-700 rounded-none h-1 overflow-hidden">
-          <div
-            className={`h-full transition-all ${isCongested ? 'bg-rose-500' : 'bg-emerald-500'}`}
-            style={{
-              width: `${congestionPercent}%`,
-            }}
-          />
-        </div>
-      </div>
-    </Card>
+    <div className="flex items-center gap-2">
+      <div className={`w-8 h-0.5 ${color}`} />
+      <span className="text-xs font-mono text-slate-200">{label}</span>
+      <span className="text-xs font-mono text-slate-400">({count})</span>
+    </div>
   )
 }

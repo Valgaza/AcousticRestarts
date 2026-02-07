@@ -34,10 +34,55 @@ const GRID_SIZE = 25
 const SIMULATION_TIME_STEP = 1 // hours
 const FREE_FLOW_SPEED = 60 // km/h
 
+// Initialize empty grid (for SSR compatibility)
+function createEmptyGrid(): GridCell[][] {
+  const grid: GridCell[][] = []
+  for (let x = 0; x < GRID_SIZE; x++) {
+    grid[x] = []
+    for (let y = 0; y < GRID_SIZE; y++) {
+      grid[x][y] = {
+        x,
+        y,
+        congestionLevel: 0,
+        speed: FREE_FLOW_SPEED,
+        predictedCongestion: 0,
+      }
+    }
+  }
+  return grid
+}
+
+// Initialize empty routes (for SSR compatibility)
+function createEmptyRoutes(): RouteMetric[] {
+  return [
+    {
+      id: 'i90-east',
+      name: 'I-90 Eastbound',
+      currentSpeed: 50,
+      freeFlowSpeed: 65,
+      sparklineData: Array.from({ length: 20 }, () => 50),
+    },
+    {
+      id: 'downtown-loop',
+      name: 'Downtown Loop',
+      currentSpeed: 35,
+      freeFlowSpeed: 50,
+      sparklineData: Array.from({ length: 20 }, () => 40),
+    },
+    {
+      id: 'hwy405',
+      name: 'Highway 405',
+      currentSpeed: 45,
+      freeFlowSpeed: 70,
+      sparklineData: Array.from({ length: 20 }, () => 50),
+    },
+  ]
+}
+
 export function useTrafficSimulation() {
   const [state, setState] = useState<TrafficSimulationState>({
-    grid: initializeGrid(),
-    routes: initializeRoutes(),
+    grid: createEmptyGrid(),
+    routes: createEmptyRoutes(),
     isPlaying: false,
     speed: 1,
     weather: 'clear',
@@ -46,6 +91,8 @@ export function useTrafficSimulation() {
     activeBottlenecks: 3,
     weatherPenalty: 0,
   })
+
+  const [isInitialized, setIsInitialized] = useState(false)
 
   // Rush hour pattern using sine wave (peaks at 8:00 and 18:00)
   const getRushHourFactor = useCallback((hour: number) => {
@@ -69,8 +116,10 @@ export function useTrafficSimulation() {
     }
   }, [])
 
-  // Initialize grid with random congestion
-  function initializeGrid(): GridCell[][] {
+  // Initialize with random data only on client side (after mount)
+  useEffect(() => {
+    if (isInitialized) return
+
     const grid: GridCell[][] = []
     for (let x = 0; x < GRID_SIZE; x++) {
       grid[x] = []
@@ -84,12 +133,8 @@ export function useTrafficSimulation() {
         }
       }
     }
-    return grid
-  }
 
-  // Initialize route metrics
-  function initializeRoutes(): RouteMetric[] {
-    return [
+    const routes: RouteMetric[] = [
       {
         id: 'i90-east',
         name: 'I-90 Eastbound',
@@ -112,7 +157,14 @@ export function useTrafficSimulation() {
         sparklineData: Array.from({ length: 20 }, () => Math.random() * 70 + 35),
       },
     ]
-  }
+
+    setState((prev) => ({
+      ...prev,
+      grid,
+      routes,
+    }))
+    setIsInitialized(true)
+  }, [isInitialized])
 
   // Update simulation based on time and weather
   const updateSimulation = useCallback((newTime?: number) => {
@@ -163,18 +215,55 @@ export function useTrafficSimulation() {
 
   // Animation loop
   useEffect(() => {
-    if (!state.isPlaying) return
+    if (!state.isPlaying || !isInitialized) return
 
     const interval = setInterval(() => {
       setState((prevState) => {
         const newTime = (prevState.currentTime + (SIMULATION_TIME_STEP * prevState.speed) / 10) % 24
-        return { ...prevState, currentTime: newTime }
+        const rushHour = getRushHourFactor(newTime)
+        const weatherPenalty = getWeatherPenalty(prevState.weather)
+
+        // Update grid cells based on rush hour and weather
+        const newGrid = prevState.grid.map((row) =>
+          row.map((cell) => {
+            // Add some randomness but follow the rush hour pattern
+            const baseLevel = rushHour + Math.random() * 0.3 - 0.15
+            const congestionLevel = Math.max(0, Math.min(1, baseLevel + weatherPenalty))
+            const speedFactor = 1 - congestionLevel * 0.7
+            const speed = FREE_FLOW_SPEED * speedFactor
+            const predictedLevel = Math.max(0, Math.min(1, baseLevel + 0.1))
+
+            return {
+              ...cell,
+              congestionLevel,
+              speed,
+              predictedCongestion: predictedLevel,
+            }
+          })
+        )
+
+        // Calculate metrics
+        const avgSpeed = Math.round(
+          newGrid.flat().reduce((sum, cell) => sum + cell.speed, 0) / (GRID_SIZE * GRID_SIZE)
+        )
+
+        const bottleneckCount = newGrid
+          .flat()
+          .filter((cell) => cell.congestionLevel > 0.65).length
+
+        return {
+          ...prevState,
+          grid: newGrid,
+          currentTime: newTime,
+          avgCitySpeed: avgSpeed,
+          activeBottlenecks: Math.ceil(bottleneckCount / 5),
+          weatherPenalty: Math.round(weatherPenalty * 100),
+        }
       })
-      updateSimulation()
     }, 200)
 
     return () => clearInterval(interval)
-  }, [state.isPlaying, updateSimulation])
+  }, [state.isPlaying, isInitialized, getRushHourFactor, getWeatherPenalty])
 
   const togglePlayPause = useCallback(() => {
     setState((prev) => ({ ...prev, isPlaying: !prev.isPlaying }))
@@ -191,10 +280,49 @@ export function useTrafficSimulation() {
 
   const setTime = useCallback(
     (time: number) => {
-      setState((prev) => ({ ...prev, currentTime: time }))
-      updateSimulation(time)
+      setState((prevState) => {
+        const rushHour = getRushHourFactor(time)
+        const weatherPenalty = getWeatherPenalty(prevState.weather)
+
+        // Update grid cells based on rush hour and weather
+        const newGrid = prevState.grid.map((row) =>
+          row.map((cell) => {
+            // Add some randomness but follow the rush hour pattern
+            const baseLevel = rushHour + Math.random() * 0.3 - 0.15
+            const congestionLevel = Math.max(0, Math.min(1, baseLevel + weatherPenalty))
+            const speedFactor = 1 - congestionLevel * 0.7
+            const speed = FREE_FLOW_SPEED * speedFactor
+            const predictedLevel = Math.max(0, Math.min(1, baseLevel + 0.1))
+
+            return {
+              ...cell,
+              congestionLevel,
+              speed,
+              predictedCongestion: predictedLevel,
+            }
+          })
+        )
+
+        // Calculate metrics
+        const avgSpeed = Math.round(
+          newGrid.flat().reduce((sum, cell) => sum + cell.speed, 0) / (GRID_SIZE * GRID_SIZE)
+        )
+
+        const bottleneckCount = newGrid
+          .flat()
+          .filter((cell) => cell.congestionLevel > 0.65).length
+
+        return {
+          ...prevState,
+          grid: newGrid,
+          currentTime: time,
+          avgCitySpeed: avgSpeed,
+          activeBottlenecks: Math.ceil(bottleneckCount / 5),
+          weatherPenalty: Math.round(weatherPenalty * 100),
+        }
+      })
     },
-    [updateSimulation]
+    [getRushHourFactor, getWeatherPenalty]
   )
 
   return {

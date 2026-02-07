@@ -42,7 +42,7 @@ from typing import Dict, Tuple
 
 from data_loader import create_data_loader
 from models.lstm_seq2seq import create_lstm_model
-from outputs import Output, OutputList
+from outputs_format import Output, OutputList
 
 
 def calculate_metrics(predictions: torch.Tensor, targets: torch.Tensor) -> Dict[str, float]:

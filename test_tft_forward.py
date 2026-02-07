@@ -18,7 +18,7 @@ from models.custom_temporal_transformer import (
     QuantileLoss,
     create_tft_model
 )
-from outputs import Output, OutputList
+from outputs_format import Output, OutputList
 
 
 def generate_dummy_traffic_data(

@@ -41,7 +41,7 @@ from typing import Dict, Tuple
 
 from data_loader import create_data_loader
 from models.custom_temporal_transformer import create_tft_model, QuantileLoss
-from outputs import Output, OutputList  # Import the output schema
+from outputs_format import Output, OutputList  # Import the output schema
 
 
 def calculate_metrics(predictions: torch.Tensor, targets: torch.Tensor) -> Dict[str, float]:

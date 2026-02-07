@@ -724,7 +724,7 @@ def create_tft_model(
     num_edges: int = 100,
     num_road_types: int = 10,
     num_nodes: int = 200,
-    hidden_dim: int = 64,
+    hidden_dim: int = 32,  # Reduced from 64 to prevent overfitting
     encoder_length: int = 48,
     prediction_length: int = 18
 ) -> TemporalFusionTransformer:
@@ -742,17 +742,18 @@ def create_tft_model(
     Returns:
         Configured TFT model
     """
+    # Smaller embeddings to reduce model capacity
     static_categorical_features = {
-        'edge_id': (num_edges, 32),
-        'road_type': (num_road_types, 16),
-        'start_node_id': (num_nodes, 16),
-        'end_node_id': (num_nodes, 16)
+        'edge_id': (num_edges, 16),  # Reduced from 32
+        'road_type': (num_road_types, 8),  # Reduced from 16
+        'start_node_id': (num_nodes, 8),  # Reduced from 16
+        'end_node_id': (num_nodes, 8)  # Reduced from 16
     }
     
     known_categorical_embedding_dims = {
-        'is_weekend': (2, 8),
-        'is_holiday': (2, 8),
-        'weather_condition': (10, 16)
+        'is_weekend': (2, 4),  # Reduced from 8
+        'is_holiday': (2, 4),  # Reduced from 8
+        'weather_condition': (10, 8)  # Reduced from 16
     }
     
     model = TemporalFusionTransformer(
@@ -762,9 +763,9 @@ def create_tft_model(
         num_known_real=4,  # hour_of_day, day_of_week, visibility, event_impact_score
         num_unknown_real=8,  # avg_speed, vehicle_count, travel_time, congestion + 4 graph features
         hidden_dim=hidden_dim,
-        num_attention_heads=4,
-        num_lstm_layers=2,
-        dropout=0.1,
+        num_attention_heads=1,  # Reduced from 4 to single head
+        num_lstm_layers=1,  # Reduced from 2 to single layer
+        dropout=0.3,  # Increased from 0.1 for stronger regularization
         encoder_length=encoder_length,
         prediction_length=prediction_length,
         quantiles=[0.1, 0.5, 0.9],

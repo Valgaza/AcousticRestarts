@@ -1,0 +1,23 @@
+{
+    "csv_path": "data/traffic_synthetic.csv",
+    "encoder_length": 48,
+    "prediction_length": 18,
+    "batch_size": 64,
+    "num_epochs": 50,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "hidden_dim": 64,
+    "num_layers": 2,
+    "dropout": 0.3,
+    "checkpoint_dir": "checkpoints",
+    "num_workers": 0,
+    "early_stopping_patience": 10,
+    "train_time_max": 353,
+    "val_time_min": 354,
+    "val_time_max": 428,
+    "test_time_min": 429,
+    "test_time_max": 503,
+    "forecast_start_datetime": "2024-01-01 00:00:00",
+    "forecast_interval_minutes": 20,
+    "forecast_horizon_hours": 6
+}

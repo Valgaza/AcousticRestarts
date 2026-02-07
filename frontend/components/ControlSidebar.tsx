@@ -1,15 +1,8 @@
 'use client'
 
-import { Play, Pause, Cloud, CloudRain, CloudSnow, CloudFog, Map } from 'lucide-react'
+import { Play, Pause, Map } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
 import { useTrafficSimulation } from '@/hooks/useTrafficSimulation'
 import type { useLiveTraffic } from '@/hooks/useLiveTraffic'
 
@@ -20,20 +13,6 @@ interface ControlSidebarProps {
 }
 
 export default function ControlSidebar({ state, liveTraffic, useLiveData = true }: ControlSidebarProps) {
-  const weatherIcons = {
-    clear: <Cloud className="w-4 h-4" />,
-    rain: <CloudRain className="w-4 h-4" />,
-    snow: <CloudSnow className="w-4 h-4" />,
-    fog: <CloudFog className="w-4 h-4" />,
-  }
-
-  const weatherLabels = {
-    clear: 'Clear',
-    rain: 'Rain',
-    snow: 'Snow',
-    fog: 'Fog',
-  }
-
   return (
     <div className="w-80 bg-slate-900 border-r border-slate-700 flex flex-col p-4 gap-4 overflow-y-auto">
       {/* Header */}
@@ -117,25 +96,6 @@ export default function ControlSidebar({ state, liveTraffic, useLiveData = true 
                 ))
               )}
             </div>
-          </div>
-
-          {/* Weather Control */}
-          <div>
-            <p className="text-xs font-mono text-slate-300 mb-2 uppercase tracking-wider">
-              Weather
-            </p>
-            <Select value={state.weather} onValueChange={(v: any) => state.setWeather(v)}>
-              <SelectTrigger className="bg-slate-700 border-slate-600 text-slate-100 font-mono text-xs">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent className="bg-slate-800 border-slate-700">
-                {Object.entries(weatherLabels).map(([key, label]) => (
-                  <SelectItem key={key} value={key} className="font-mono text-xs">
-                    {label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
           </div>
         </div>
       </Card>

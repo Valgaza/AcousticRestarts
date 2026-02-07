@@ -2,7 +2,7 @@
 
 import { useState, useMemo, useRef } from 'react'
 import { motion } from 'framer-motion'
-import { ChevronDown, ChevronUp, TrendingUp, AlertTriangle, Cloud, Upload, CheckCircle, XCircle } from 'lucide-react'
+import { ChevronDown, ChevronUp, TrendingUp, AlertTriangle, Upload, CheckCircle, XCircle } from 'lucide-react'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { useTrafficSimulation } from '@/hooks/useTrafficSimulation'
@@ -72,9 +72,7 @@ export default function AnalyticsPanel({ state, liveTraffic, useLiveData = true 
     
     return {
       avgCitySpeed: avgSpeed,
-      activeBottlenecks: bottlenecks,
-      weatherPenalty: 0, // API doesn't provide weather
-      weather: 'clear' as const
+      activeBottlenecks: bottlenecks
     }
   }, [useLiveData, liveTraffic.grid])
 
@@ -95,13 +93,6 @@ export default function AnalyticsPanel({ state, liveTraffic, useLiveData = true 
       icon: AlertTriangle,
       color: 'text-rose-400',
       change: 'Critical areas',
-    },
-    {
-      label: 'Weather Penalty',
-      value: `${metrics.weatherPenalty}%`,
-      icon: Cloud,
-      color: 'text-slate-400',
-      change: metrics.weather !== 'clear' ? `${metrics.weather} conditions` : 'Clear skies',
     },
   ]
 

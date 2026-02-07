@@ -23,11 +23,9 @@ interface TrafficSimulationState {
   routes: RouteMetric[]
   isPlaying: boolean
   speed: number
-  weather: 'clear' | 'rain' | 'snow' | 'fog'
   currentTime: number
   avgCitySpeed: number
   activeBottlenecks: number
-  weatherPenalty: number
 }
 
 const GRID_SIZE = 25
@@ -85,11 +83,9 @@ export function useTrafficSimulation() {
     routes: createEmptyRoutes(),
     isPlaying: false,
     speed: 1,
-    weather: 'clear',
     currentTime: 8, // 8:00 AM
     avgCitySpeed: 45,
     activeBottlenecks: 3,
-    weatherPenalty: 0,
   })
 
   const [isInitialized, setIsInitialized] = useState(false)
@@ -100,20 +96,6 @@ export function useTrafficSimulation() {
     const morningPeak = Math.sin(((hour24 - 6) * Math.PI) / 6) * 0.5 + 0.5 // 6:00-12:00
     const eveningPeak = Math.sin(((hour24 - 16) * Math.PI) / 6) * 0.5 + 0.5 // 16:00-22:00
     return Math.max(morningPeak, eveningPeak, 0.2) // Minimum 0.2 congestion
-  }, [])
-
-  // Weather impact on speeds
-  const getWeatherPenalty = useCallback((weather: string) => {
-    switch (weather) {
-      case 'rain':
-        return 0.2
-      case 'snow':
-        return 0.35
-      case 'fog':
-        return 0.15
-      default:
-        return 0
-    }
   }, [])
 
   // Initialize with random data only on client side (after mount)
@@ -166,20 +148,18 @@ export function useTrafficSimulation() {
     setIsInitialized(true)
   }, [isInitialized])
 
-  // Update simulation based on time and weather
+  // Update simulation based on time
   const updateSimulation = useCallback((newTime?: number) => {
     setState((prevState) => {
       const time = newTime !== undefined ? newTime : prevState.currentTime
       const rushHour = getRushHourFactor(time)
-      const weatherPenalty = getWeatherPenalty(prevState.weather)
-      const totalPenalty = rushHour + weatherPenalty
 
-      // Update grid cells based on rush hour and weather
+      // Update grid cells based on rush hour
       const newGrid = prevState.grid.map((row) =>
         row.map((cell) => {
           // Add some randomness but follow the rush hour pattern
           const baseLevel = rushHour + Math.random() * 0.3 - 0.15
-          const congestionLevel = Math.max(0, Math.min(1, baseLevel + weatherPenalty))
+          const congestionLevel = Math.max(0, Math.min(1, baseLevel))
           const speedFactor = 1 - congestionLevel * 0.7
           const speed = FREE_FLOW_SPEED * speedFactor
           const predictedLevel = Math.max(0, Math.min(1, baseLevel + 0.1))
@@ -208,10 +188,9 @@ export function useTrafficSimulation() {
         currentTime: time,
         avgCitySpeed: avgSpeed,
         activeBottlenecks: Math.ceil(bottleneckCount / 5),
-        weatherPenalty: Math.round(weatherPenalty * 100),
       }
     })
-  }, [getRushHourFactor, getWeatherPenalty])
+  }, [getRushHourFactor])
 
   // Animation loop
   useEffect(() => {
@@ -221,14 +200,13 @@ export function useTrafficSimulation() {
       setState((prevState) => {
         const newTime = (prevState.currentTime + (SIMULATION_TIME_STEP * prevState.speed) / 10) % 24
         const rushHour = getRushHourFactor(newTime)
-        const weatherPenalty = getWeatherPenalty(prevState.weather)
 
-        // Update grid cells based on rush hour and weather
+        // Update grid cells based on rush hour
         const newGrid = prevState.grid.map((row) =>
           row.map((cell) => {
             // Add some randomness but follow the rush hour pattern
             const baseLevel = rushHour + Math.random() * 0.3 - 0.15
-            const congestionLevel = Math.max(0, Math.min(1, baseLevel + weatherPenalty))
+            const congestionLevel = Math.max(0, Math.min(1, baseLevel))
             const speedFactor = 1 - congestionLevel * 0.7
             const speed = FREE_FLOW_SPEED * speedFactor
             const predictedLevel = Math.max(0, Math.min(1, baseLevel + 0.1))
@@ -257,13 +235,12 @@ export function useTrafficSimulation() {
           currentTime: newTime,
           avgCitySpeed: avgSpeed,
           activeBottlenecks: Math.ceil(bottleneckCount / 5),
-          weatherPenalty: Math.round(weatherPenalty * 100),
         }
       })
     }, 200)
 
     return () => clearInterval(interval)
-  }, [state.isPlaying, isInitialized, getRushHourFactor, getWeatherPenalty])
+  }, [state.isPlaying, isInitialized, getRushHourFactor])
 
   const togglePlayPause = useCallback(() => {
     setState((prev) => ({ ...prev, isPlaying: !prev.isPlaying }))
@@ -273,23 +250,17 @@ export function useTrafficSimulation() {
     setState((prev) => ({ ...prev, speed }))
   }, [])
 
-  const setWeather = useCallback((weather: 'clear' | 'rain' | 'snow' | 'fog') => {
-    setState((prev) => ({ ...prev, weather }))
-    updateSimulation()
-  }, [updateSimulation])
-
   const setTime = useCallback(
     (time: number) => {
       setState((prevState) => {
         const rushHour = getRushHourFactor(time)
-        const weatherPenalty = getWeatherPenalty(prevState.weather)
 
-        // Update grid cells based on rush hour and weather
+        // Update grid cells based on rush hour
         const newGrid = prevState.grid.map((row) =>
           row.map((cell) => {
             // Add some randomness but follow the rush hour pattern
             const baseLevel = rushHour + Math.random() * 0.3 - 0.15
-            const congestionLevel = Math.max(0, Math.min(1, baseLevel + weatherPenalty))
+            const congestionLevel = Math.max(0, Math.min(1, baseLevel))
             const speedFactor = 1 - congestionLevel * 0.7
             const speed = FREE_FLOW_SPEED * speedFactor
             const predictedLevel = Math.max(0, Math.min(1, baseLevel + 0.1))
@@ -318,18 +289,16 @@ export function useTrafficSimulation() {
           currentTime: time,
           avgCitySpeed: avgSpeed,
           activeBottlenecks: Math.ceil(bottleneckCount / 5),
-          weatherPenalty: Math.round(weatherPenalty * 100),
         }
       })
     },
-    [getRushHourFactor, getWeatherPenalty]
+    [getRushHourFactor]
   )
 
   return {
     ...state,
     togglePlayPause,
     setSimulationSpeed,
-    setWeather,
     setTime,
     updateSimulation,
   }

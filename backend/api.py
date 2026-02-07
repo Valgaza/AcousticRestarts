@@ -1,17 +1,18 @@
 """
-FastAPI Backend Simulator for Traffic Congestion ML Model
+FastAPI Backend for Traffic Congestion ML Model
 ==========================================================
-Simulates ML model predictions with multi-horizon forecasts.
+Serves real ML model predictions from forecasts.json with multi-horizon forecasts.
 
 Returns predictions with:
 - Location (latitude/longitude as integers)
 - 6 time horizons (t+1h through t+6h)
-- Normalized congestion values (can be negative, range ~-1 to 1)
+- Normalized congestion values
 """
 
 from datetime import datetime, timedelta
 from typing import List
-import random
+import json
+from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -28,8 +29,8 @@ class HorizonPrediction(BaseModel):
 
 
 class LocationPrediction(BaseModel):
-    latitude: int  # Integer format (e.g., 40742511 = 40.742511°)
-    longitude: int  # Integer format (e.g., -73949134 = -73.949134°)
+    latitude: float  # Can be decimal (19.085912) or integer (19085912)
+    longitude: float  # Can be decimal (72.866783) or integer (72866783)
     horizons: List[HorizonPrediction]
 
 
@@ -40,7 +41,7 @@ class OutputList(BaseModel):
 # ── App Setup ────────────────────────────────────────────────────────────────
 
 
-app = FastAPI(title="Traffic Congestion Simulator API")
+app = FastAPI(title="Traffic Congestion ML API")
 
 # Enable CORS for frontend
 app.add_middleware(
@@ -51,89 +52,95 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Load real forecast data
+FORECASTS_FILE = Path(__file__).parent / "forecasts.json"
+FORECAST_DATA = {}
 
-# ── Simulation Data ──────────────────────────────────────────────────────────
+def load_forecasts():
+    """Load and structure forecast data from JSON file."""
+    global FORECAST_DATA
+    print("📊 Loading forecasts from forecasts.json...")
+    
+    with open(FORECASTS_FILE, 'r') as f:
+        data = json.load(f)
+    
+    # Group by location and time
+    # Structure: {(lat, lon): {datetime_str: congestion_value}}
+    for record in data['outputs']:
+        lat = record['latitude']
+        lon = record['longitude']
+        dt = record['DateTime']
+        congestion = record['predicted_congestion_level']
+        
+        # Handle both decimal and integer formats
+        if isinstance(lat, int) or lat > 180 or lat < -180:
+            lat = lat / 1_000_000 if abs(lat) > 180 else lat
+        if isinstance(lon, int) or lon > 180 or lon < -180:
+            lon = lon / 1_000_000 if abs(lon) > 180 else lon
+        
+        key = (lat, lon)
+        if key not in FORECAST_DATA:
+            FORECAST_DATA[key] = {}
+        FORECAST_DATA[key][dt] = congestion
+    
+    print(f"✅ Loaded {len(FORECAST_DATA)} unique locations with {len(data['outputs'])} total predictions")
+
+# Load data on startup
+load_forecasts()
 
 
-# Manhattan-like bounding box (as integers)
-LATITUDE_RANGE = (40700000, 40800000)   # 40.700 to 40.800
-LONGITUDE_RANGE = (-74020000, -73940000)  # -74.020 to -73.940
+# ── Data Processing ──────────────────────────────────────────────────────────
+
 
 NUM_HORIZONS = 6  # t+1h through t+6h
-
-# Define key hotspot areas
-HOTSPOTS = [
-    {"lat": 40758000, "lon": -73985000, "name": "Times Square", "base": 0.7},
-    {"lat": 40748000, "lon": -73986000, "name": "Herald Square", "base": 0.65},
-    {"lat": 40761000, "lon": -73977000, "name": "Central Park South", "base": 0.6},
-    {"lat": 40706000, "lon": -74009000, "name": "Financial District", "base": 0.75},
-    {"lat": 40715000, "lon": -74005000, "name": "Tribeca", "base": 0.5},
-    {"lat": 40730000, "lon": -73995000, "name": "Greenwich Village", "base": 0.55},
-    {"lat": 40750000, "lon": -73975000, "name": "Midtown East", "base": 0.68},
-    {"lat": 40783000, "lon": -73971000, "name": "Upper East Side", "base": 0.45},
-]
-
-
-def _to_int_coord(float_coord: float, scale: int = 1000000) -> int:
-    """Convert float coordinate to integer format."""
-    return int(float_coord * scale)
-
-
-def _from_int_coord(int_coord: int, scale: int = 1000000) -> float:
-    """Convert integer coordinate back to float."""
-    return int_coord / scale
-
-
-def _time_of_day_factor(hour: int) -> float:
-    """Return congestion multiplier based on hour (0-23)."""
-    if 7 <= hour <= 9:
-        return 1.4  # Morning rush
-    elif 16 <= hour <= 19:
-        return 1.5  # Evening rush
-    elif 22 <= hour or hour <= 5:
-        return 0.4  # Late night
-    elif 11 <= hour <= 14:
-        return 1.1  # Lunch traffic
-    else:
-        return 0.8  # Off-peak
 
 
 def _normalize_congestion(congestion_0_1: float) -> float:
     """
     Convert congestion from [0, 1] to normalized range with mean ~0.
-    This simulates a standardized ML model output.
+    This matches the ML model output format expected by frontend.
     """
-    # Transform to approximately [-1, 1] range with some variance
+    # Transform to approximately [-1, 1] range
     normalized = (congestion_0_1 - 0.5) * 2.0
-    # Add slight noise
-    normalized += random.gauss(0, 0.15)
     # Clamp to reasonable range
     return max(-1.5, min(1.5, normalized))
 
 
-def _generate_location_prediction(base_time: datetime) -> LocationPrediction:
-    """Generate a single location with 6 horizon predictions."""
-    # Pick a location (hotspot or random)
-    if random.random() < 0.7:  # 70% near hotspots
-        spot = random.choice(HOTSPOTS)
-        lat = spot["lat"] + random.randint(-5000, 5000)  # ~500m variance
-        lon = spot["lon"] + random.randint(-5000, 5000)
-        base_congestion = spot["base"]
-    else:  # 30% random locations
-        lat = random.randint(*LATITUDE_RANGE)
-        lon = random.randint(*LONGITUDE_RANGE)
-        base_congestion = random.uniform(0.2, 0.6)
+def _get_future_prediction(location_data: dict, base_time: datetime, hours_ahead: int) -> float:
+    """Get prediction for a specific time horizon from location data."""
+    target_time = base_time + timedelta(hours=hours_ahead)
+    target_str = target_time.strftime("%Y-%m-%d %H:%M:%S")
+    
+    # Round to nearest 20 minutes (since data is in 20-minute intervals)
+    minutes = (target_time.minute // 20) * 20
+    rounded_time = target_time.replace(minute=minutes, second=0)
+    rounded_str = rounded_time.strftime("%Y-%m-%d %H:%M:%S")
+    
+    # Get prediction from data, or use nearest available
+    if rounded_str in location_data:
+        return location_data[rounded_str]
+    
+    # Fallback: find closest timestamp
+    available_times = sorted(location_data.keys())
+    if available_times:
+        # Use first available prediction as fallback
+        return location_data[available_times[0]]
+    
+    return 0.5  # Default fallback
 
+
+def _generate_location_prediction(base_time: datetime, location_key: tuple) -> LocationPrediction:
+    """Generate predictions for a specific location using real forecast data."""
+    lat, lon = location_key
+    location_data = FORECAST_DATA.get(location_key, {})
+    
     # Generate predictions for 6 horizons
     horizons = []
     for h in range(1, NUM_HORIZONS + 1):
         future_time = base_time + timedelta(hours=h)
-        time_factor = _time_of_day_factor(future_time.hour)
         
-        # Congestion evolves over time
-        evolution = random.gauss(0, 0.1)  # Random walk
-        congestion_raw = base_congestion * time_factor + evolution * h
-        congestion_raw = max(0.0, min(1.0, congestion_raw))
+        # Get real prediction from loaded data
+        congestion_raw = _get_future_prediction(location_data, base_time, h)
         
         # Normalize to ML model output format
         normalized_congestion = _normalize_congestion(congestion_raw)
@@ -159,8 +166,10 @@ def _generate_location_prediction(base_time: datetime) -> LocationPrediction:
 @app.get("/")
 def root():
     return {
-        "service": "Traffic Congestion ML Simulator (Multi-Horizon)",
+        "service": "Traffic Congestion ML API (Real Data)",
         "format": "6 horizons per location (t+1h through t+6h)",
+        "data_source": "forecasts.json",
+        "available_locations": len(FORECAST_DATA),
         "endpoints": {
             "/predictions/current": "Get predictions for current time + 6 horizons",
             "/predictions/batch": "Get batch predictions for multiple locations",
@@ -171,13 +180,19 @@ def root():
 @app.get("/predictions/current", response_model=OutputList)
 def get_current_predictions(locations: int = 20):
     """
-    Get multi-horizon predictions for N locations.
+    Get multi-horizon predictions for N locations using real forecast data.
     
     Args:
-        locations: Number of locations to predict (default 20)
+        locations: Number of locations to return (default 20, max = available locations)
     """
     now = datetime.now()
-    predictions = [_generate_location_prediction(now) for _ in range(locations)]
+    
+    # Get available locations (up to requested amount)
+    available_locations = list(FORECAST_DATA.keys())
+    num_to_return = min(locations, len(available_locations))
+    selected_locations = available_locations[:num_to_return]
+    
+    predictions = [_generate_location_prediction(now, loc) for loc in selected_locations]
     return OutputList(predictions=predictions)
 
 
@@ -187,10 +202,10 @@ def get_batch_predictions(
     base_hour: int = None
 ):
     """
-    Get batch predictions for many locations.
+    Get batch predictions for many locations using real forecast data.
     
     Args:
-        locations: Number of locations (default 50)
+        locations: Number of locations (default 50, max = available locations)
         base_hour: Starting hour (0-23), defaults to current
     """
     if base_hour is None:
@@ -198,7 +213,12 @@ def get_batch_predictions(
     else:
         base_time = datetime.now().replace(hour=base_hour, minute=0, second=0)
     
-    predictions = [_generate_location_prediction(base_time) for _ in range(locations)]
+    # Get available locations (up to requested amount)
+    available_locations = list(FORECAST_DATA.keys())
+    num_to_return = min(locations, len(available_locations))
+    selected_locations = available_locations[:num_to_return]
+    
+    predictions = [_generate_location_prediction(base_time, loc) for loc in selected_locations]
     return OutputList(predictions=predictions)
 
 
@@ -207,13 +227,36 @@ def health_check():
     return {"status": "healthy", "timestamp": datetime.now().isoformat()}
 
 
+@app.post("/reload")
+def reload_forecasts():
+    """
+    Reload forecast data from forecasts.json.
+    Use this endpoint when your ML model updates the JSON file.
+    """
+    try:
+        load_forecasts()
+        return {
+            "status": "success",
+            "message": "Forecasts reloaded",
+            "locations": len(FORECAST_DATA),
+            "timestamp": datetime.now().isoformat()
+        }
+    except Exception as e:
+        return {
+            "status": "error",
+            "message": str(e),
+            "timestamp": datetime.now().isoformat()
+        }
+
+
 # ── Run Instructions ─────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
     import uvicorn
-    print("🚀 Starting Traffic Congestion Simulator API (Multi-Horizon)...")
+    print("🚀 Starting Traffic Congestion ML API (Real Data)...")
     print("📍 API docs: http://localhost:8000/docs")
     print("📍 Frontend CORS: enabled for all origins")
+    print(f"📊 Loaded {len(FORECAST_DATA)} locations from forecasts.json")
     print("\n💡 Run with: uvicorn api:app --reload (for hot reload)")
     print("   Or just:  python api.py\n")
     uvicorn.run(app, host="0.0.0.0", port=8000)

@@ -15,12 +15,12 @@ export interface GridPosition {
   y: number
 }
 
-// Default bounds (Manhattan, adjust for your city)
+// Default bounds (Mumbai area based on actual data)
 const DEFAULT_BOUNDS: GeoBounds = {
-  minLat: 40.700,
-  maxLat: 40.800,
-  minLon: -74.020,
-  maxLon: -73.940,
+  minLat: 19.085,
+  maxLat: 19.087,
+  minLon: 72.866,
+  maxLon: 72.873,
 }
 
 /**

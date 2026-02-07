@@ -65,3 +65,15 @@ export async function checkApiHealth(): Promise<{ status: string; timestamp: str
   }
   return response.json()
 }
+
+/**
+ * Reload forecasts from JSON file
+ * Call this after your ML model updates forecasts.json
+ */
+export async function reloadForecasts(): Promise<{ status: string; message: string; locations: number }> {
+  const response = await fetch(`${API_BASE_URL}/reload`, { method: 'POST' })
+  if (!response.ok) {
+    throw new Error('Failed to reload forecasts')
+  }
+  return response.json()
+}

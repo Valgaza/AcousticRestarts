@@ -1,8 +1,9 @@
 'use client'
 
-import { Play, Pause, Cloud, CloudRain, CloudSnow, CloudFog, Activity } from 'lucide-react'
+import { Play, Pause, Cloud, CloudRain, CloudSnow, CloudFog, Activity, Radio } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
+import { Switch } from '@/components/ui/switch'
 import {
   Select,
   SelectContent,
@@ -11,13 +12,17 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { useTrafficSimulation, RouteMetric } from '@/hooks/useTrafficSimulation'
+import type { useLiveTraffic } from '@/hooks/useLiveTraffic'
 import RouteSparkline from './RouteSparkline'
 
 interface ControlSidebarProps {
   state: ReturnType<typeof useTrafficSimulation>
+  liveTraffic: ReturnType<typeof useLiveTraffic>
+  useLiveData?: boolean
+  onToggleLive?: (value: boolean) => void
 }
 
-export default function ControlSidebar({ state }: ControlSidebarProps) {
+export default function ControlSidebar({ state, liveTraffic, useLiveData = false, onToggleLive }: ControlSidebarProps) {
   const weatherIcons = {
     clear: <Cloud className="w-4 h-4" />,
     rain: <CloudRain className="w-4 h-4" />,
@@ -40,20 +45,39 @@ export default function ControlSidebar({ state }: ControlSidebarProps) {
         <p className="text-xs text-slate-400 font-mono mt-1">Urban Congestion Management</p>
       </div>
 
+      {/* Live Data Toggle */}
+      {onToggleLive && (
+        <Card className="bg-slate-800 border-slate-700 p-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Radio className={`w-4 h-4 ${useLiveData ? 'text-emerald-400' : 'text-slate-400'}`} />
+              <div>
+                <p className="text-sm font-mono text-slate-200">Live API Data</p>
+                <p className="text-xs text-slate-400">Real-time predictions</p>
+              </div>
+            </div>
+            <Switch
+              checked={useLiveData}
+              onCheckedChange={onToggleLive}
+            />
+          </div>
+        </Card>
+      )}
+
       {/* Simulation Controls */}
       <Card className="bg-slate-800 border-slate-700 p-4">
         <div className="space-y-4">
           {/* Play/Pause */}
           <div>
             <p className="text-xs font-mono text-slate-300 mb-2 uppercase tracking-wider">
-              Simulation
+              {useLiveData ? 'Time Horizons' : 'Simulation'}
             </p>
             <Button
-              onClick={state.togglePlayPause}
+              onClick={useLiveData ? liveTraffic.togglePlayPause : state.togglePlayPause}
               className="w-full bg-slate-700 hover:bg-slate-600 text-slate-100 font-mono text-sm border border-slate-600"
               variant="outline"
             >
-              {state.isPlaying ? (
+              {(useLiveData ? liveTraffic.isPlaying : state.isPlaying) ? (
                 <>
                   <Pause className="w-4 h-4 mr-2" />
                   Pause
@@ -65,6 +89,11 @@ export default function ControlSidebar({ state }: ControlSidebarProps) {
                 </>
               )}
             </Button>
+            {useLiveData && (
+              <p className="text-xs text-slate-400 mt-2">
+                {liveTraffic.isPlaying ? 'Cycling through t+1h to t+6h' : 'Paused at ' + liveTraffic.selectedHorizon}
+              </p>
+            )}
           </div>
 
           {/* Speed Control */}
@@ -72,24 +101,43 @@ export default function ControlSidebar({ state }: ControlSidebarProps) {
             <div className="flex justify-between items-center mb-2">
               <p className="text-xs font-mono text-slate-300 uppercase tracking-wider">Speed</p>
               <span className="text-sm font-mono text-slate-200 bg-slate-700 px-2 py-1">
-                {state.speed}x
+                {useLiveData ? `${liveTraffic.speed}s` : `${state.speed}x`}
               </span>
             </div>
             <div className="flex gap-1">
-              {[1, 5, 10].map((speed) => (
-                <Button
-                  key={speed}
-                  onClick={() => state.setSimulationSpeed(speed)}
-                  className={`flex-1 text-xs font-mono ${
-                    state.speed === speed
-                      ? 'bg-slate-600 text-slate-100 border-slate-500'
-                      : 'bg-slate-700 hover:bg-slate-600 text-slate-300 border-slate-600'
-                  }`}
-                  variant="outline"
-                >
-                  {speed}x
-                </Button>
-              ))}
+              {useLiveData ? (
+                /* Seconds per horizon for live mode */
+                [2, 3, 5].map((speed) => (
+                  <Button
+                    key={speed}
+                    onClick={() => liveTraffic.setSpeed(speed)}
+                    className={`flex-1 text-xs font-mono ${
+                      liveTraffic.speed === speed
+                        ? 'bg-slate-600 text-slate-100 border-slate-500'
+                        : 'bg-slate-700 hover:bg-slate-600 text-slate-300 border-slate-600'
+                    }`}
+                    variant="outline"
+                  >
+                    {speed}s
+                  </Button>
+                ))
+              ) : (
+                /* Multiplier for simulation mode */
+                [1, 5, 10].map((speed) => (
+                  <Button
+                    key={speed}
+                    onClick={() => state.setSimulationSpeed(speed)}
+                    className={`flex-1 text-xs font-mono ${
+                      state.speed === speed
+                        ? 'bg-slate-600 text-slate-100 border-slate-500'
+                        : 'bg-slate-700 hover:bg-slate-600 text-slate-300 border-slate-600'
+                    }`}
+                    variant="outline"
+                  >
+                    {speed}x
+                  </Button>
+                ))
+              )}
             </div>
           </div>
 

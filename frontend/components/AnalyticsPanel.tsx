@@ -1,41 +1,69 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { ChevronDown, ChevronUp, TrendingUp, AlertTriangle, Cloud } from 'lucide-react'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { useTrafficSimulation } from '@/hooks/useTrafficSimulation'
+import type { useLiveTraffic } from '@/hooks/useLiveTraffic'
 import PredictionChart from './PredictionChart'
 
 interface AnalyticsPanelProps {
   state: ReturnType<typeof useTrafficSimulation>
+  liveTraffic: ReturnType<typeof useLiveTraffic>
+  useLiveData?: boolean
 }
 
-export default function AnalyticsPanel({ state }: AnalyticsPanelProps) {
+export default function AnalyticsPanel({ state, liveTraffic, useLiveData = false }: AnalyticsPanelProps) {
   const [isExpanded, setIsExpanded] = useState(true)
+
+  // Calculate live metrics from grid data
+  const liveMetrics = useMemo(() => {
+    if (!useLiveData || liveTraffic.grid.length === 0) return null
+
+    const cells = liveTraffic.grid.flat()
+    const congestionLevels = cells.map(c => c.congestionLevel).filter(c => c > 0)
+    
+    const avgCongestion = congestionLevels.length > 0 
+      ? congestionLevels.reduce((a, b) => a + b, 0) / congestionLevels.length 
+      : 0
+    
+    const avgSpeed = Math.round(60 * (1 - avgCongestion * 0.7))
+    const bottlenecks = cells.filter(c => c.congestionLevel > 0.7).length
+    
+    return {
+      avgCitySpeed: avgSpeed,
+      activeBottlenecks: bottlenecks,
+      weatherPenalty: 0, // API doesn't provide weather
+      weather: 'clear' as const
+    }
+  }, [useLiveData, liveTraffic.grid])
+
+  // Choose data source
+  const metrics = useLiveData && liveMetrics ? liveMetrics : state
 
   const stats = [
     {
       label: 'Avg City Speed',
-      value: `${state.avgCitySpeed} km/h`,
+      value: `${metrics.avgCitySpeed} km/h`,
       icon: TrendingUp,
       color: 'text-emerald-400',
-      change: '+5% from baseline',
+      change: useLiveData ? `${liveTraffic.selectedHorizon} forecast` : '+5% from baseline',
     },
     {
       label: 'Active Bottlenecks',
-      value: state.activeBottlenecks.toString(),
+      value: metrics.activeBottlenecks.toString(),
       icon: AlertTriangle,
       color: 'text-rose-400',
       change: 'Critical areas',
     },
     {
       label: 'Weather Penalty',
-      value: `${state.weatherPenalty}%`,
+      value: `${metrics.weatherPenalty}%`,
       icon: Cloud,
       color: 'text-slate-400',
-      change: state.weather !== 'clear' ? `${state.weather} conditions` : 'Clear skies',
+      change: metrics.weather !== 'clear' ? `${metrics.weather} conditions` : 'Clear skies',
     },
   ]
 

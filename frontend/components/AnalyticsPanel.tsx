@@ -58,11 +58,9 @@ export default function AnalyticsPanel({ state, liveTraffic, gridTraffic, useLiv
     }
   }
 
-  // Calculate live metrics from grid data
-  const liveMetrics = useMemo(() => {
-    if (!useLiveData || liveTraffic.grid.length === 0) return null
-
-    const cells = liveTraffic.grid.flat()
+  // Calculate metrics from grid data
+  const gridMetrics = useMemo(() => {
+    const cells = gridTraffic.grid.flat()
     const congestionLevels = cells.map(c => c.congestionLevel).filter(c => c > 0)
     
     const avgCongestion = congestionLevels.length > 0 
@@ -70,16 +68,17 @@ export default function AnalyticsPanel({ state, liveTraffic, gridTraffic, useLiv
       : 0
     
     const avgSpeed = Math.round(60 * (1 - avgCongestion * 0.7))
-    const bottlenecks = cells.filter(c => c.congestionLevel > 0.7).length
+    // Count red (>= 0.6) and purple (>= 0.8) areas as bottlenecks
+    const bottlenecks = cells.filter(c => c.congestionLevel >= 0.6).length
     
     return {
       avgCitySpeed: avgSpeed,
       activeBottlenecks: bottlenecks
     }
-  }, [useLiveData, liveTraffic.grid])
+  }, [gridTraffic.grid])
 
-  // Choose data source
-  const metrics = useLiveData && liveMetrics ? liveMetrics : state
+  // Use grid metrics
+  const metrics = gridMetrics
 
   const stats = [
     {
@@ -87,7 +86,7 @@ export default function AnalyticsPanel({ state, liveTraffic, gridTraffic, useLiv
       value: `${metrics.avgCitySpeed} km/h`,
       icon: TrendingUp,
       color: 'text-emerald-400',
-      change: useLiveData ? `${liveTraffic.selectedHorizon} forecast` : '+5% from baseline',
+      change: `t+${gridTraffic.currentFrameIndex}h forecast`,
     },
     {
       label: 'Active Bottlenecks',

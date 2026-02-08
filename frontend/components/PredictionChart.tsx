@@ -1,21 +1,38 @@
 'use client'
 
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
-import { useTrafficSimulation } from '@/hooks/useTrafficSimulation'
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts'
+import { useGridTraffic } from '@/hooks/useGridTraffic'
 
 interface PredictionChartProps {
-  state: ReturnType<typeof useTrafficSimulation>
+  gridTraffic: ReturnType<typeof useGridTraffic>
 }
 
-export default function PredictionChart({ state }: PredictionChartProps) {
-  // Generate mock actual vs predicted data
-  const data = Array.from({ length: 12 }).map((_, i) => {
-    const hour = state.currentTime + (i - 5)
-    const rushHour = Math.sin(((hour - 6) * Math.PI) / 6) * 0.5 + 0.5
+export default function PredictionChart({ gridTraffic }: PredictionChartProps) {
+  // Generate data from actual grid frames
+  const data = gridTraffic.frames.map((frame, index) => {
+    // Calculate average congestion for the frame
+    const avgCongestion = frame.cells.length > 0
+      ? frame.cells.reduce((sum, cell) => sum + cell.predicted_congestion_level, 0) / frame.cells.length
+      : 0
+    
+    // Calculate max congestion (hotspot)
+    const maxCongestion = frame.cells.length > 0
+      ? Math.max(...frame.cells.map(cell => cell.predicted_congestion_level))
+      : 0
+    
+    // Format time from DateTime
+    let timeLabel = `T+${index + 1}`
+    try {
+      const date = new Date(frame.DateTime)
+      const hours = date.getHours()
+      const minutes = date.getMinutes()
+      timeLabel = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`
+    } catch {}
+    
     return {
-      time: `${Math.floor(hour)}:00`,
-      actual: Math.max(0, Math.min(100, rushHour * 100 + Math.random() * 10)),
-      predicted: Math.max(0, Math.min(100, rushHour * 100 + 5)),
+      time: timeLabel,
+      average: Math.round(avgCongestion * 100),
+      peak: Math.round(maxCongestion * 100),
     }
   })
 
@@ -34,6 +51,7 @@ export default function PredictionChart({ state }: PredictionChartProps) {
           style={{ fontSize: '11px', fontFamily: 'monospace' }}
           tick={{ fill: '#94a3b8' }}
           domain={[0, 100]}
+          label={{ value: 'Congestion %', angle: -90, position: 'insideLeft', style: { fill: '#94a3b8', fontSize: '11px' } }}
         />
         <Tooltip
           contentStyle={{
@@ -42,26 +60,29 @@ export default function PredictionChart({ state }: PredictionChartProps) {
             borderRadius: '0',
           }}
           labelStyle={{ color: '#e2e8f0', fontFamily: 'monospace', fontSize: '12px' }}
-          formatter={(value: number) => `${Math.round(value)}%`}
+          formatter={(value: number) => `${value}%`}
+        />
+        <Legend 
+          wrapperStyle={{ fontSize: '11px', fontFamily: 'monospace' }}
+          iconType="line"
         />
         <Line
           type="monotone"
-          dataKey="actual"
+          dataKey="average"
           stroke="#10b981"
           strokeWidth={2}
-          dot={false}
-          name="Actual"
+          dot={{ r: 3 }}
+          name="Average"
           isAnimationActive={true}
           animationDuration={500}
         />
         <Line
           type="monotone"
-          dataKey="predicted"
+          dataKey="peak"
           stroke="#f43f5e"
           strokeWidth={2}
-          strokeDasharray="5 5"
-          dot={false}
-          name="Predicted"
+          dot={{ r: 3 }}
+          name="Peak"
           isAnimationActive={true}
           animationDuration={500}
         />

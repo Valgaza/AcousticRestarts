@@ -29,14 +29,14 @@ export default function ControlSidebar({ state, liveTraffic, gridTraffic, useLiv
           {/* Play/Pause */}
           <div>
             <p className="text-xs font-mono text-slate-300 mb-2 uppercase tracking-wider">
-              {useLiveData ? 'Time Horizons' : 'Simulation'}
+              Time Horizons
             </p>
             <Button
-              onClick={useLiveData ? liveTraffic.togglePlayPause : state.togglePlayPause}
+              onClick={gridTraffic.togglePlayPause}
               className="w-full bg-slate-700 hover:bg-slate-600 text-slate-100 font-mono text-sm border border-slate-600"
               variant="outline"
             >
-              {(useLiveData ? liveTraffic.isPlaying : state.isPlaying) ? (
+              {gridTraffic.isPlaying ? (
                 <>
                   <Pause className="w-4 h-4 mr-2" />
                   Pause
@@ -48,11 +48,9 @@ export default function ControlSidebar({ state, liveTraffic, gridTraffic, useLiv
                 </>
               )}
             </Button>
-            {useLiveData && (
-              <p className="text-xs text-slate-400 mt-2">
-                {liveTraffic.isPlaying ? 'Cycling through t+1h to t+6h' : 'Paused at ' + liveTraffic.selectedHorizon}
-              </p>
-            )}
+            <p className="text-xs text-slate-400 mt-2">
+              {gridTraffic.isPlaying ? `Cycling through ${gridTraffic.frames.length} frames` : `Paused at frame ${gridTraffic.currentFrameIndex + 1}/${gridTraffic.frames.length}`}
+            </p>
           </div>
 
           {/* Speed Control */}
@@ -60,43 +58,24 @@ export default function ControlSidebar({ state, liveTraffic, gridTraffic, useLiv
             <div className="flex justify-between items-center mb-2">
               <p className="text-xs font-mono text-slate-300 uppercase tracking-wider">Speed</p>
               <span className="text-sm font-mono text-slate-200 bg-slate-700 px-2 py-1">
-                {useLiveData ? `${liveTraffic.speed}s` : `${state.speed}x`}
+                {gridTraffic.speed}s
               </span>
             </div>
             <div className="flex gap-1">
-              {useLiveData ? (
-                /* Seconds per horizon for live mode */
-                [2, 3, 5].map((speed) => (
-                  <Button
-                    key={speed}
-                    onClick={() => liveTraffic.setSpeed(speed)}
-                    className={`flex-1 text-xs font-mono ${
-                      liveTraffic.speed === speed
-                        ? 'bg-slate-600 text-slate-100 border-slate-500'
-                        : 'bg-slate-700 hover:bg-slate-600 text-slate-300 border-slate-600'
-                    }`}
-                    variant="outline"
-                  >
-                    {speed}s
-                  </Button>
-                ))
-              ) : (
-                /* Multiplier for simulation mode */
-                [1, 5, 10].map((speed) => (
-                  <Button
-                    key={speed}
-                    onClick={() => state.setSimulationSpeed(speed)}
-                    className={`flex-1 text-xs font-mono ${
-                      state.speed === speed
-                        ? 'bg-slate-600 text-slate-100 border-slate-500'
-                        : 'bg-slate-700 hover:bg-slate-600 text-slate-300 border-slate-600'
-                    }`}
-                    variant="outline"
-                  >
-                    {speed}x
-                  </Button>
-                ))
-              )}
+              {[2, 3, 5].map((speed) => (
+                <Button
+                  key={speed}
+                  onClick={() => gridTraffic.setSpeed(speed)}
+                  className={`flex-1 text-xs font-mono ${
+                    gridTraffic.speed === speed
+                      ? 'bg-slate-600 text-slate-100 border-slate-500'
+                      : 'bg-slate-700 hover:bg-slate-600 text-slate-300 border-slate-600'
+                  }`}
+                  variant="outline"
+                >
+                  {speed}s
+                </Button>
+              ))}
             </div>
           </div>
         </div>

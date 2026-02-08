@@ -94,19 +94,6 @@ export default function Viewport({ state, liveTraffic, gridTraffic, useLiveData 
                 Frame {gridTraffic.currentFrameIndex + 1}/{gridTraffic.frames.length}
               </span>
             </div>
-            
-            <Button
-              size="sm"
-              variant="outline"
-              onClick={gridTraffic.togglePlayPause}
-              className="gap-2"
-            >
-              {gridTraffic.isPlaying ? (
-                <><Pause className="w-4 h-4" /> Pause</>
-              ) : (
-                <><Play className="w-4 h-4" /> Play</>
-              )}
-            </Button>
 
             <Button
               size="sm"
@@ -117,14 +104,6 @@ export default function Viewport({ state, liveTraffic, gridTraffic, useLiveData 
             >
               <RefreshCw className={`w-4 h-4 ${isLoading ? 'animate-spin' : ''}`} />
               Refresh
-            </Button>
-            
-            <Button
-              size="sm"
-              variant="outline"
-              onClick={gridTraffic.toggleAutoRefresh}
-            >
-              {gridTraffic.autoRefresh ? 'Pause Auto' : 'Resume Auto'}
             </Button>
           </div>
           
@@ -209,7 +188,7 @@ export default function Viewport({ state, liveTraffic, gridTraffic, useLiveData 
       </div>
 
       {/* Time Scrubber */}
-      <TimeScrubber state={state} />
+      <TimeScrubber gridTraffic={gridTraffic} />
     </div>
   )
 }

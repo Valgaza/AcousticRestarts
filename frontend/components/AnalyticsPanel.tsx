@@ -224,10 +224,10 @@ export default function AnalyticsPanel({ state, liveTraffic, gridTraffic, useLiv
             {/* Prediction Chart */}
             <div>
               <p className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-3">
-                Network Congestion Forecast
+                Traffic Congestion Forecast
               </p>
               <Card className="bg-slate-800 border-slate-700 p-4">
-                <PredictionChart state={state} />
+                <PredictionChart gridTraffic={gridTraffic} />
               </Card>
             </div>
 

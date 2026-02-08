@@ -1,26 +1,62 @@
 'use client'
 
-import { useTrafficSimulation } from '@/hooks/useTrafficSimulation'
+import { useGridTraffic } from '@/hooks/useGridTraffic'
 
 interface TimeScrubberProps {
-  state: ReturnType<typeof useTrafficSimulation>
+  gridTraffic: ReturnType<typeof useGridTraffic>
 }
 
-export default function TimeScrubber({ state }: TimeScrubberProps) {
-  const formatTime = (hour: number) => {
-    const h = Math.floor(hour)
-    const m = Math.round((hour - h) * 60)
-    return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`
+export default function TimeScrubber({ gridTraffic }: TimeScrubberProps) {
+  const formatDateTime = (dateTimeStr: string) => {
+    try {
+      const date = new Date(dateTimeStr)
+      const hours = date.getHours()
+      const minutes = date.getMinutes()
+      const month = date.getMonth() + 1
+      const day = date.getDate()
+      return `${month}/${day} ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`
+    } catch {
+      return dateTimeStr
+    }
   }
 
-  const timeLabels = ['06:00', '08:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00']
+  const currentFrame = gridTraffic.frames[gridTraffic.currentFrameIndex]
+  const displayTime = currentFrame ? formatDateTime(currentFrame.DateTime) : '--:--'
+  
+  // Generate time labels from available frames
+  const getTimeLabels = () => {
+    if (gridTraffic.frames.length === 0) return []
+    
+    const labelCount = Math.min(6, gridTraffic.frames.length)
+    const step = Math.max(1, Math.floor(gridTraffic.frames.length / (labelCount - 1)))
+    
+    const labels = []
+    for (let i = 0; i < labelCount; i++) {
+      const index = Math.min(i * step, gridTraffic.frames.length - 1)
+      const frame = gridTraffic.frames[index]
+      if (frame) {
+        try {
+          const date = new Date(frame.DateTime)
+          const hours = date.getHours()
+          const minutes = date.getMinutes()
+          labels.push(`${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`)
+        } catch {
+          labels.push('--:--')
+        }
+      }
+    }
+    return labels
+  }
+
+  const timeLabels = getTimeLabels()
+  const maxFrames = Math.max(0, gridTraffic.frames.length - 1)
 
   return (
     <div className="bg-slate-900/80 backdrop-blur border-t border-slate-700 p-4">
       <div className="max-w-full">
         <div className="flex justify-between items-center mb-3">
           <p className="text-xs font-mono text-slate-400 uppercase tracking-wider">Timeline</p>
-          <p className="text-sm font-mono font-bold text-slate-100">{formatTime(state.currentTime)}</p>
+          <p className="text-sm font-mono font-bold text-slate-100">{displayTime}</p>
         </div>
 
         {/* Scrubber Track */}
@@ -31,9 +67,34 @@ export default function TimeScrubber({ state }: TimeScrubberProps) {
           {/* Gradient overlay showing congestion pattern */}
           <div className="absolute inset-x-0 h-2 flex">
             {Array.from({ length: 100 }).map((_, i) => {
-              const hour = 6 + (i / 100) * 16 // 6:00 to 22:00
-              const rushHour = Math.sin(((hour - 6) * Math.PI) / 6) * 0.5 + 0.5
-              const color = rushHour > 0.7 ? '#f43f5e' : rushHour > 0.5 ? '#eab308' : '#10b981'
+              if (gridTraffic.frames.length === 0) {
+                return <div key={i} className="flex-1 h-2 bg-slate-700" />
+              }
+              
+              // Map this segment to a frame in the timeline
+              const framePosition = (i / 100) * (gridTraffic.frames.length - 1)
+              const frameIndex = Math.floor(framePosition)
+              const nextFrameIndex = Math.min(frameIndex + 1, gridTraffic.frames.length - 1)
+              
+              const frame = gridTraffic.frames[frameIndex]
+              const nextFrame = gridTraffic.frames[nextFrameIndex]
+              
+              // Calculate average congestion for current frame
+              const getAvgCongestion = (f: typeof frame) => {
+                if (!f || f.cells.length === 0) return 0.3
+                return f.cells.reduce((sum, cell) => sum + cell.predicted_congestion_level, 0) / f.cells.length
+              }
+              
+              const congestion1 = getAvgCongestion(frame)
+              const congestion2 = getAvgCongestion(nextFrame)
+              
+              // Interpolate between frames for smooth gradient
+              const alpha = framePosition - frameIndex
+              const avgCongestion = congestion1 * (1 - alpha) + congestion2 * alpha
+              
+              // Map congestion to colors based on actual data range (0-1 scale)
+              // Low: 0-0.25 (green), Moderate: 0.25-0.50 (yellow), High: 0.50+ (red)
+              const color = avgCongestion > 0.50 ? '#f43f5e' : avgCongestion > 0.25 ? '#eab308' : '#10b981'
               return (
                 <div
                   key={i}
@@ -48,10 +109,11 @@ export default function TimeScrubber({ state }: TimeScrubberProps) {
           <input
             type="range"
             min="0"
-            max="24"
-            step="0.1"
-            value={state.currentTime}
-            onChange={(e) => state.setTime(parseFloat(e.currentTarget.value))}
+            max={maxFrames}
+            step="1"
+            value={gridTraffic.currentFrameIndex}
+            onChange={(e) => gridTraffic.setFrameIndex(parseInt(e.currentTarget.value))}
+            disabled={gridTraffic.frames.length === 0}
             className="absolute inset-x-0 h-2 w-full appearance-none bg-transparent cursor-pointer z-20 slider"
             style={{
               WebkitAppearance: 'slider-horizontal',

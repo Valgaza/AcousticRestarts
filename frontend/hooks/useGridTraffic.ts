@@ -10,7 +10,6 @@ import type { GridCell as TrafficGridCell } from './useTrafficSimulation'
 
 const GRID_SIZE = 25
 const REFRESH_INTERVAL = 30000 // 30 seconds
-const FRAME_CYCLE_INTERVAL = 3000 // 3 seconds per frame
 
 interface GridTrafficState {
   grid: TrafficGridCell[][]
@@ -21,6 +20,7 @@ interface GridTrafficState {
   error: string | null
   lastUpdate: Date | null
   isPlaying: boolean
+  speed: number // seconds per frame (2, 3, or 5)
 }
 
 export function useGridTraffic() {
@@ -33,6 +33,7 @@ export function useGridTraffic() {
     error: null,
     lastUpdate: null,
     isPlaying: false,
+    speed: 2, // default 2 seconds per frame
   })
 
   const [autoRefresh, setAutoRefresh] = useState(true)
@@ -142,10 +143,10 @@ export function useGridTraffic() {
           grid: nextGrid,
         }
       })
-    }, FRAME_CYCLE_INTERVAL)
+    }, state.speed * 1000) // Convert seconds to milliseconds
 
     return () => clearInterval(interval)
-  }, [state.isPlaying, state.frames.length, frameToGrid])
+  }, [state.isPlaying, state.frames.length, state.speed, frameToGrid])
 
   const toggleAutoRefresh = useCallback(() => {
     setAutoRefresh((prev) => !prev)
@@ -172,6 +173,10 @@ export function useGridTraffic() {
     setState((prev) => ({ ...prev, isPlaying: !prev.isPlaying }))
   }, [])
 
+  const setSpeed = useCallback((speed: number) => {
+    setState((prev) => ({ ...prev, speed }))
+  }, [])
+
   return {
     ...state,
     autoRefresh,
@@ -179,5 +184,6 @@ export function useGridTraffic() {
     manualRefresh,
     setFrameIndex,
     togglePlayPause,
+    setSpeed,
   }
 }

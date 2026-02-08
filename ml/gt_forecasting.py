@@ -477,8 +477,8 @@ def generate_forecasts(
                     # Create output
                     output = Output(
                         DateTime=pred_datetime.strftime("%Y-%m-%d %H:%M:%S"),
-                        latitude=int(round(latitude)),
-                        longitude=int(round(longitude)),
+                        latitude=latitude,
+                        longitude=longitude,
                         predicted_congestion_level=float(pred_median[i, t])
                     )
                     outputs.append(output)

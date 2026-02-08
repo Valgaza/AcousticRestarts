@@ -14,8 +14,9 @@ from collections import defaultdict
 
 GRID_SIZE = 25
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-INPUT_PATH = os.path.join(SCRIPT_DIR, "forecasts.json")
-OUTPUT_PATH = os.path.join(SCRIPT_DIR, "forecasts_grid.json")
+# INPUT_PATH = os.path.join(SCRIPT_DIR, "forecasts.json")
+INPUT_PATH = ".\\backend\\uploads\\forecasts_7d.json"
+OUTPUT_PATH = os.path.join(SCRIPT_DIR, "forecasts_grid_7days.json")
 
 
 def load_forecasts(path):

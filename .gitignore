@@ -28,6 +28,9 @@ frontend/pnpm-lock.yaml
 frontend/package-lock.json
 frontend/yarn.lock
 
+backend/outputs/forecasts_grid_7days.json
+backend/uploads/forecasts_7d.json
+
 # OS
 .DS_Store
 Thumbs.db

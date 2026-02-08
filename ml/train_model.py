@@ -39,9 +39,9 @@ import json
 from datetime import datetime, timedelta
 from typing import Dict, Tuple
 
-from ml.data_loader import create_data_loader
+from data_loader import create_data_loader
 from models.custom_temporal_transformer import create_tft_model, QuantileLoss
-from ml.outputs_format import Output, OutputList  # Import the output schema
+from outputs_format import Output, OutputList  # Import the output schema
 
 
 def calculate_metrics(predictions: torch.Tensor, targets: torch.Tensor) -> Dict[str, float]:
@@ -362,11 +362,11 @@ def main():
     """Main training function."""
     # ============== Configuration ==============
     config = {
-        'csv_path': 'data/traffic_synthetic.csv',
+        'csv_path': './data/traffic_synthetic.csv',
         'encoder_length': 48,
         'prediction_length': 18,
-        'batch_size': 32,
-        'num_epochs': 2,
+        'batch_size': 64,
+        'num_epochs': 10,
         'learning_rate': 1e-3,
         'weight_decay': 1e-4,  # L2 regularization
         'lr_step_size': 10,  # Decay LR every 10 epochs
@@ -388,7 +388,7 @@ def main():
         # Forecast generation parameters
         'forecast_start_datetime': '2024-01-01 00:00:00',
         'forecast_interval_minutes': 20,
-        'forecast_horizon_hours': 6
+        'forecast_horizon_hours': 168
     }
     
     # Device configuration

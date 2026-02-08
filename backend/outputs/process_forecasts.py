@@ -67,11 +67,16 @@ def process(entries, bounds):
     """
     # Intermediate: timestamp -> (row, col) -> list of congestion values
     ts_cell_values = defaultdict(lambda: defaultdict(list))
+    # Intermediate: timestamp -> (row, col) -> list of speed values
+    ts_cell_speeds = defaultdict(lambda: defaultdict(list))
 
     for entry in entries:
         ts = entry["DateTime"]
         row, col = coord_to_cell(entry["latitude"], entry["longitude"], bounds)
         ts_cell_values[ts][(row, col)].append(entry["predicted_congestion_level"])
+        speed = entry.get("average_speed_kph")
+        if speed is not None:
+            ts_cell_speeds[ts][(row, col)].append(speed)
 
     # Build final structure
     timestamps_sorted = sorted(ts_cell_values.keys())
@@ -80,6 +85,8 @@ def process(entries, bounds):
     for ts in timestamps_sorted:
         cells = []
         cell_map = ts_cell_values[ts]
+        speed_map = ts_cell_speeds[ts]
+        all_speeds = []
         for i in range(GRID_SIZE):
             for j in range(GRID_SIZE):
                 values = cell_map.get((i, j))
@@ -92,8 +99,14 @@ def process(entries, bounds):
                     "col": j,
                     "predicted_congestion_level": round(congestion, 6),
                 })
+                speeds = speed_map.get((i, j))
+                if speeds:
+                    all_speeds.extend(speeds)
+
+        avg_speed = round(sum(all_speeds) / len(all_speeds), 2) if all_speeds else 0.0
         result.append({
             "DateTime": ts,
+            "AvgSpeed": avg_speed,
             "cells": cells,
         })
 

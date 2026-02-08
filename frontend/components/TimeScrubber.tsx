@@ -14,7 +14,8 @@ export default function TimeScrubber({ gridTraffic }: TimeScrubberProps) {
       const minutes = date.getMinutes()
       const month = date.getMonth() + 1
       const day = date.getDate()
-      return `${month}/${day} ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`
+      const year = date.getFullYear() % 100
+      return `${String(day).padStart(2, '0')},${String(month).padStart(2, '0')},${String(year).padStart(2, '0')} ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`
     } catch {
       return dateTimeStr
     }

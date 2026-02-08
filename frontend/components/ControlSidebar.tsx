@@ -5,14 +5,16 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { useTrafficSimulation } from '@/hooks/useTrafficSimulation'
 import type { useLiveTraffic } from '@/hooks/useLiveTraffic'
+import type { useGridTraffic } from '@/hooks/useGridTraffic'
 
 interface ControlSidebarProps {
   state: ReturnType<typeof useTrafficSimulation>
   liveTraffic: ReturnType<typeof useLiveTraffic>
+  gridTraffic: ReturnType<typeof useGridTraffic>
   useLiveData?: boolean
 }
 
-export default function ControlSidebar({ state, liveTraffic, useLiveData = true }: ControlSidebarProps) {
+export default function ControlSidebar({ state, liveTraffic, gridTraffic, useLiveData = true }: ControlSidebarProps) {
   return (
     <div className="w-80 bg-slate-900 border-r border-slate-700 flex flex-col p-4 gap-4 overflow-y-auto">
       {/* Header */}

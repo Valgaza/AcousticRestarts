@@ -109,3 +109,57 @@ export async function uploadCsvFile(file: File): Promise<{
 
   return response.json()
 }
+
+/**
+ * Fetch all grid frames with congestion data
+ */
+export interface GridCell {
+  row: number
+  col: number
+  predicted_congestion_level: number
+}
+
+export interface GridFrame {
+  DateTime: string
+  cells: GridCell[]
+}
+
+export interface GridFramesResponse {
+  metadata: {
+    grid_size: number
+    bounds: {
+      lat_min: number
+      lat_max: number
+      lon_min: number
+      lon_max: number
+    }
+    total_timestamps: number
+    cells_per_timestamp: number
+  }
+  frames: GridFrame[]
+  total_frames: number
+}
+
+export async function fetchGridFrames(): Promise<GridFramesResponse> {
+  const response = await fetch(`${API_BASE_URL}/grid-frames`)
+  if (!response.ok) {
+    throw new Error('Failed to fetch grid frames')
+  }
+  return response.json()
+}
+
+/**
+ * Fetch a specific grid frame by index
+ */
+export async function fetchGridFrame(frameIndex: number): Promise<{
+  metadata: any
+  frame: GridFrame
+  frame_index: number
+  total_frames: number
+}> {
+  const response = await fetch(`${API_BASE_URL}/grid-frame/${frameIndex}`)
+  if (!response.ok) {
+    throw new Error(`Failed to fetch frame ${frameIndex}`)
+  }
+  return response.json()
+}

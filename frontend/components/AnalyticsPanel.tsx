@@ -7,16 +7,18 @@ import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { useTrafficSimulation } from '@/hooks/useTrafficSimulation'
 import type { useLiveTraffic } from '@/hooks/useLiveTraffic'
+import type { useGridTraffic } from '@/hooks/useGridTraffic'
 import PredictionChart from './PredictionChart'
 import { uploadCsvFile } from '@/lib/trafficApi'
 
 interface AnalyticsPanelProps {
   state: ReturnType<typeof useTrafficSimulation>
   liveTraffic: ReturnType<typeof useLiveTraffic>
+  gridTraffic: ReturnType<typeof useGridTraffic>
   useLiveData?: boolean
 }
 
-export default function AnalyticsPanel({ state, liveTraffic, useLiveData = true }: AnalyticsPanelProps) {
+export default function AnalyticsPanel({ state, liveTraffic, gridTraffic, useLiveData = true }: AnalyticsPanelProps) {
   const [isExpanded, setIsExpanded] = useState(true)
   const [uploadStatus, setUploadStatus] = useState<'idle' | 'uploading' | 'success' | 'error'>('idle')
   const [uploadMessage, setUploadMessage] = useState('')

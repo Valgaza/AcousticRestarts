@@ -54,8 +54,10 @@ app.add_middleware(
 )
 
 # Load real forecast data
-FORECASTS_FILE = Path(__file__).parent / "forecasts.json"
+FORECASTS_FILE = Path(__file__).parent / "outputs" / "forecasts.json"
+FORECASTS_GRID_FILE = Path(__file__).parent / "outputs" / "forecasts_grid.json"
 FORECAST_DATA = {}
+GRID_DATA = {}
 
 def load_forecasts():
     """Load and structure forecast data from JSON file."""
@@ -86,8 +88,22 @@ def load_forecasts():
     
     print(f"✅ Loaded {len(FORECAST_DATA)} unique locations with {len(data['outputs'])} total predictions")
 
+def load_grid_data():
+    """Load grid-based forecast data from forecasts_grid.json."""
+    global GRID_DATA
+    print("📊 Loading grid data from forecasts_grid.json...")
+    
+    try:
+        with open(FORECASTS_GRID_FILE, 'r') as f:
+            GRID_DATA = json.load(f)
+        print(f"✅ Loaded {len(GRID_DATA.get('frames', []))} time frames with {GRID_DATA.get('metadata', {}).get('grid_size', 0)}x{GRID_DATA.get('metadata', {}).get('grid_size', 0)} grid")
+    except FileNotFoundError:
+        print("⚠️ forecasts_grid.json not found, grid data will not be available")
+        GRID_DATA = {"metadata": {"grid_size": 25}, "frames": []}
+
 # Load data on startup
 load_forecasts()
+load_grid_data()
 
 
 # ── Data Processing ──────────────────────────────────────────────────────────
@@ -228,6 +244,47 @@ def health_check():
     return {"status": "healthy", "timestamp": datetime.now().isoformat()}
 
 
+@app.get("/grid-frames")
+def get_grid_frames():
+    """
+    Get all grid frames with congestion data.
+    Returns frames with pre-computed grid positions and congestion values.
+    """
+    if not GRID_DATA or not GRID_DATA.get('frames'):
+        return {
+            "error": "Grid data not available",
+            "metadata": {"grid_size": 25},
+            "frames": []
+        }
+    
+    return {
+        "metadata": GRID_DATA.get('metadata', {}),
+        "frames": GRID_DATA.get('frames', []),
+        "total_frames": len(GRID_DATA.get('frames', []))
+    }
+
+
+@app.get("/grid-frame/{frame_index}")
+def get_grid_frame(frame_index: int):
+    """
+    Get a specific grid frame by index.
+    """
+    frames = GRID_DATA.get('frames', [])
+    
+    if frame_index < 0 or frame_index >= len(frames):
+        raise HTTPException(
+            status_code=404,
+            detail=f"Frame index {frame_index} not found. Available frames: 0-{len(frames)-1}"
+        )
+    
+    return {
+        "metadata": GRID_DATA.get('metadata', {}),
+        "frame": frames[frame_index],
+        "frame_index": frame_index,
+        "total_frames": len(frames)
+    }
+
+
 @app.post("/upload-csv")
 async def upload_csv(file: UploadFile = File(...)):
     """
@@ -238,7 +295,7 @@ async def upload_csv(file: UploadFile = File(...)):
     if not file.filename.endswith('.csv'):
         raise HTTPException(
             status_code=400,
-            detail="Only CSV files are allowed. Please upload a .csv file."
+            detail="Only CSV files are allowed"
         )
     
     # Create uploads directory if it doesn't exist
@@ -275,15 +332,17 @@ async def upload_csv(file: UploadFile = File(...)):
 @app.post("/reload")
 def reload_forecasts():
     """
-    Reload forecast data from forecasts.json.
-    Use this endpoint when your ML model updates the JSON file.
+    Reload forecast data from forecasts.json and forecasts_grid.json.
+    Use this endpoint when your ML model updates the JSON files.
     """
     try:
         load_forecasts()
+        load_grid_data()
         return {
             "status": "success",
-            "message": "Forecasts reloaded",
+            "message": "Forecasts and grid data reloaded",
             "locations": len(FORECAST_DATA),
+            "grid_frames": len(GRID_DATA.get('frames', [])),
             "timestamp": datetime.now().isoformat()
         }
     except Exception as e:

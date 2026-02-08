@@ -2,9 +2,10 @@
 
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Clock, RefreshCw, Wifi, WifiOff, Timer } from 'lucide-react'
+import { Clock, RefreshCw, Wifi, WifiOff, Timer, Play, Pause } from 'lucide-react'
 import { useTrafficSimulation, GridCell } from '@/hooks/useTrafficSimulation'
 import type { useLiveTraffic } from '@/hooks/useLiveTraffic'
+import type { useGridTraffic } from '@/hooks/useGridTraffic'
 import ContextPanel from './ContextPanel'
 import TimeScrubber from './TimeScrubber'
 import { Button } from './ui/button'
@@ -12,26 +13,26 @@ import { Button } from './ui/button'
 interface ViewportProps {
   state: ReturnType<typeof useTrafficSimulation>
   liveTraffic: ReturnType<typeof useLiveTraffic>
+  gridTraffic: ReturnType<typeof useGridTraffic>
   useLiveData?: boolean
 }
 
-export default function Viewport({ state, liveTraffic, useLiveData = true }: ViewportProps) {
+export default function Viewport({ state, liveTraffic, gridTraffic, useLiveData = true }: ViewportProps) {
   const [selectedCell, setSelectedCell] = useState<GridCell | null>(null)
 
-  // Choose data source
-  const activeGrid = useLiveData ? liveTraffic.grid : state.grid
-  const isLoading = useLiveData ? liveTraffic.isLoading : false
-  const lastUpdate = useLiveData ? liveTraffic.lastUpdate : null
-  const gridKey = useLiveData ? liveTraffic.selectedHorizon : `sim-${state.currentTime.toFixed(1)}`
+  // Use grid traffic data
+  const activeGrid = gridTraffic.grid
+  const isLoading = gridTraffic.isLoading
+  const lastUpdate = gridTraffic.lastUpdate
+  const gridKey = `grid-frame-${gridTraffic.currentFrameIndex}`
+  const currentFrame = gridTraffic.frames[gridTraffic.currentFrameIndex]
 
   // Debug: Log when grid changes
   React.useEffect(() => {
-    if (useLiveData) {
-      const nonZeroCells = liveTraffic.grid.flat().filter(c => c.congestionLevel > 0).length
-      const avgCongestion = liveTraffic.grid.flat().reduce((sum, c) => sum + c.congestionLevel, 0) / (25*25)
-      console.log(`🔄 Viewport grid update - Horizon: ${liveTraffic.selectedHorizon}, Active cells: ${nonZeroCells}, Avg: ${avgCongestion.toFixed(3)}, Grid hash: ${liveTraffic.grid[0][0].congestionLevel.toFixed(4)}`)
-    }
-  }, [useLiveData, liveTraffic.grid, liveTraffic.selectedHorizon])
+    const nonZeroCells = gridTraffic.grid.flat().filter(c => c.congestionLevel > 0).length
+    const avgCongestion = gridTraffic.grid.flat().reduce((sum, c) => sum + c.congestionLevel, 0) / (25*25)
+    console.log(`🔄 Grid frame ${gridTraffic.currentFrameIndex}/${gridTraffic.frames.length}, Active cells: ${nonZeroCells}, Avg: ${avgCongestion.toFixed(3)}`)
+  }, [gridTraffic.currentFrameIndex, gridTraffic.grid, gridTraffic.frames.length])
 
   const getCongestionColor = (level: number) => {
     if (level < 0.3) return 'bg-emerald-500' // Low
@@ -85,58 +86,63 @@ export default function Viewport({ state, liveTraffic, useLiveData = true }: Vie
         </div>
 
         <div className="flex items-center gap-4">
-          {useLiveData && (
-            <div className="flex gap-2">
-              {/* Time Horizon Selector */}
-              <div className="flex items-center gap-2 border border-slate-700 rounded-md px-3 py-1">
-                <Timer className="w-4 h-4 text-slate-400" />
-                <select
-                  value={liveTraffic.selectedHorizon}
-                  onChange={(e) => liveTraffic.setSelectedHorizon(e.target.value as TimeHorizon)}
-                  className="bg-transparent text-sm font-mono text-slate-100 focus:outline-none cursor-pointer"
-                >
-                  <option value="t+1h">+1h</option>
-                  <option value="t+2h">+2h</option>
-                  <option value="t+3h">+3h</option>
-                  <option value="t+4h">+4h</option>
-                  <option value="t+5h">+5h</option>
-                  <option value="t+6h">+6h</option>
-                </select>
-              </div>
-              <Button
-                size="sm"
-                variant="outline"
-                onClick={liveTraffic.manualRefresh}
-                disabled={isLoading}
-                className="gap-2"
-              >
-                <RefreshCw className={`w-4 h-4 ${isLoading ? 'animate-spin' : ''}`} />
-                Refresh
-              </Button>
-              <Button
-                size="sm"
-                variant="outline"
-                onClick={liveTraffic.toggleAutoRefresh}
-              >
-                {liveTraffic.autoRefresh ? 'Pause Auto' : 'Resume Auto'}
-              </Button>
+          <div className="flex gap-2">
+            {/* Frame Navigation */}
+            <div className="flex items-center gap-2 border border-slate-700 rounded-md px-3 py-1">
+              <Timer className="w-4 h-4 text-slate-400" />
+              <span className="text-sm font-mono text-slate-100">
+                Frame {gridTraffic.currentFrameIndex + 1}/{gridTraffic.frames.length}
+              </span>
             </div>
-          )}
+            
+            <Button
+              size="sm"
+              variant="outline"
+              onClick={gridTraffic.togglePlayPause}
+              className="gap-2"
+            >
+              {gridTraffic.isPlaying ? (
+                <><Pause className="w-4 h-4" /> Pause</>
+              ) : (
+                <><Play className="w-4 h-4" /> Play</>
+              )}
+            </Button>
+
+            <Button
+              size="sm"
+              variant="outline"
+              onClick={gridTraffic.manualRefresh}
+              disabled={isLoading}
+              className="gap-2"
+            >
+              <RefreshCw className={`w-4 h-4 ${isLoading ? 'animate-spin' : ''}`} />
+              Refresh
+            </Button>
+            
+            <Button
+              size="sm"
+              variant="outline"
+              onClick={gridTraffic.toggleAutoRefresh}
+            >
+              {gridTraffic.autoRefresh ? 'Pause Auto' : 'Resume Auto'}
+            </Button>
+          </div>
+          
           <div className="text-right">
             <p className="text-xs font-mono text-slate-400 uppercase tracking-wider">
-              {useLiveData ? 'Mode' : 'Simulation'}
+              Mode
             </p>
-            <p className={`text-sm font-mono font-bold ${useLiveData ? 'text-emerald-400' : state.isPlaying ? 'text-emerald-400' : 'text-slate-400'}`}>
-              {useLiveData ? 'LIVE API' : state.isPlaying ? 'ACTIVE' : 'PAUSED'}
+            <p className="text-sm font-mono font-bold text-emerald-400">
+              GRID DATA
             </p>
           </div>
         </div>
       </div>
 
       {/* Error Banner */}
-      {useLiveData && liveTraffic.error && (
+      {gridTraffic.error && (
         <div className="px-6 py-3 bg-rose-500/10 border-b border-rose-500/20 text-rose-400 text-sm">
-          ⚠️ API Error: {liveTraffic.error}
+          ⚠️ Error: {gridTraffic.error}
         </div>
       )}
 
@@ -185,7 +191,7 @@ export default function Viewport({ state, liveTraffic, useLiveData = true }: Vie
                   opacity: 0.3 + cell.congestionLevel * 0.7,
                 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
-                title={`Cell ${cell.x},${cell.y}: ${Math.round(cell.congestionLevel * 100)}% congestion | Horizon: ${useLiveData ? liveTraffic.selectedHorizon : 'sim'}`}
+                title={`Cell ${cell.x},${cell.y}: ${Math.round(cell.congestionLevel * 100)}% congestion | Frame: ${gridTraffic.currentFrameIndex + 1}`}
               >
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-slate-100/10 transition-opacity" />
               </motion.div>

@@ -41,6 +41,29 @@ class OutputList(BaseModel):
     predictions: List[LocationPrediction]
 
 
+class RouteRequest(BaseModel):
+    start_node: int
+    end_node: int
+    timestamp: str  # ISO format: "2026-02-08T03:00:00"
+
+
+class RouteOptimizationInput(BaseModel):
+    requests: List[RouteRequest]
+
+
+class RouteAssignment(BaseModel):
+    request_idx: int
+    chosen_route: List[int]  # Edge IDs
+    route_nodes: List[int]  # Node IDs
+    total_cost: float
+    alternatives_considered: int
+
+
+class RouteOptimizationOutput(BaseModel):
+    assignments: List[RouteAssignment]
+    output_csv_path: str
+
+
 # ── App Setup ────────────────────────────────────────────────────────────────
 
 
@@ -401,6 +424,107 @@ def reload_forecasts():
             "message": str(e),
             "timestamp": datetime.now().isoformat()
         }
+
+
+@app.post("/optimize-routes", response_model=RouteOptimizationOutput)
+async def optimize_routes(input_data: RouteOptimizationInput):
+    """
+    Optimize multiple route requests using the route_optimizer.py script.
+    
+    This endpoint:
+    1. Processes each route request through the optimizer
+    2. Returns the chosen routes with cost information
+    3. Generates a modified CSV with updated traffic predictions
+    """
+    try:
+        # Get workspace root
+        ml_dir = Path(__file__).parent.parent / "ml"
+        route_optimizer_script = ml_dir / "route_optimizer.py"
+        
+        if not route_optimizer_script.exists():
+            raise HTTPException(status_code=500, detail="route_optimizer.py not found in ml/ directory")
+        
+        assignments = []
+        output_csv_path = None
+        
+        # Process each route request
+        for idx, request in enumerate(input_data.requests):
+            print(f"\n🔄 Processing route {idx + 1}/{len(input_data.requests)}: "
+                  f"Node {request.start_node} → {request.end_node} @ {request.timestamp}")
+            
+            # Run route optimizer
+            cmd = [
+                sys.executable,
+                str(route_optimizer_script),
+                "--start", str(request.start_node),
+                "--end", str(request.end_node),
+                "--timestamp", request.timestamp
+            ]
+            
+            result = subprocess.run(
+                cmd,
+                cwd=str(ml_dir),
+                capture_output=True,
+                text=True,
+                timeout=120  # 2 minute timeout per route
+            )
+            
+            if result.returncode != 0:
+                print(f"❌ Route optimizer failed: {result.stderr}")
+                raise HTTPException(
+                    status_code=500,
+                    detail=f"Route optimization failed for request {idx + 1}: {result.stderr}"
+                )
+            
+            # Parse JSON output from stdout
+            try:
+                # Find the JSON output (last line usually contains the result)
+                output_lines = result.stdout.strip().split('\n')
+                json_output = None
+                for line in reversed(output_lines):
+                    if line.strip().startswith('{'):
+                        json_output = json.loads(line)
+                        break
+                
+                if not json_output:
+                    raise ValueError("No JSON output found from route optimizer")
+                
+                # Store the output CSV path (same for all requests)
+                if not output_csv_path:
+                    output_csv_path = json_output.get("output_csv", "backend/outputs/optimized_edges.csv")
+                
+                # Create assignment
+                assignments.append(RouteAssignment(
+                    request_idx=idx,
+                    chosen_route=json_output.get("chosen_edges", []),
+                    route_nodes=json_output.get("chosen_route", []),
+                    total_cost=json_output.get("total_cost", 0.0),
+                    alternatives_considered=len(json_output.get("all_routes", []))
+                ))
+                
+                print(f"✅ Route {idx + 1} optimized: {len(json_output.get('chosen_route', []))} nodes, "
+                      f"cost={json_output.get('total_cost', 0):.2f}")
+                
+            except (json.JSONDecodeError, ValueError) as e:
+                print(f"❌ Failed to parse route optimizer output: {e}")
+                print(f"   stdout: {result.stdout}")
+                raise HTTPException(
+                    status_code=500,
+                    detail=f"Failed to parse route optimizer output for request {idx + 1}"
+                )
+        
+        print(f"\n🎉 All {len(assignments)} routes optimized successfully")
+        
+        return RouteOptimizationOutput(
+            assignments=assignments,
+            output_csv_path=output_csv_path or "backend/outputs/optimized_edges.csv"
+        )
+        
+    except subprocess.TimeoutExpired:
+        raise HTTPException(status_code=504, detail="Route optimization timed out")
+    except Exception as e:
+        print(f"❌ Error in route optimization: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 # ── Run Instructions ─────────────────────────────────────────────────────────

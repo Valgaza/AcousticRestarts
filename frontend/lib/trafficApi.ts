@@ -163,3 +163,47 @@ export async function fetchGridFrame(frameIndex: number): Promise<{
   }
   return response.json()
 }
+
+/**
+ * Route optimization request/response types
+ */
+export interface RouteRequest {
+  start_node: number
+  end_node: number
+  timestamp: string // ISO format: "2026-02-08T03:00:00"
+}
+
+export interface RouteAssignment {
+  request_idx: number
+  chosen_route: number[] // Edge IDs
+  route_nodes: number[] // Node IDs
+  total_cost: number
+  alternatives_considered: number
+}
+
+export interface RouteOptimizationResponse {
+  assignments: RouteAssignment[]
+  output_csv_path: string
+}
+
+/**
+ * Submit route optimization requests
+ * @param requests - Array of route optimization requests
+ * @returns Route assignments and output CSV path
+ */
+export async function optimizeRoutes(requests: RouteRequest[]): Promise<RouteOptimizationResponse> {
+  const response = await fetch(`${API_BASE_URL}/optimize-routes`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ requests }),
+  })
+
+  if (!response.ok) {
+    const error = await response.json()
+    throw new Error(error.detail || 'Route optimization failed')
+  }
+
+  return response.json()
+}

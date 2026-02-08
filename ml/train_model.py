@@ -362,14 +362,14 @@ def main():
     """Main training function."""
     # ============== Configuration ==============
     config = {
-        'csv_path': './data/traffic_synthetic.csv',
+        'csv_path': './ml/data/traffic_synthetic.csv',
         'encoder_length': 48,
         'prediction_length': 18,
         'batch_size': 64,
         'num_epochs': 10,
-        'learning_rate': 1e-3,
+        'learning_rate': 5e-3,
         'weight_decay': 1e-4,  # L2 regularization
-        'lr_step_size': 10,  # Decay LR every 10 epochs
+        'lr_step_size': 1,  # Decay LR every epoch
         'lr_gamma': 0.7,  # Multiply LR by 0.7 each step
         'hidden_dim': 32,  # Reduced model capacity
         'dropout': 0.3,  # Higher dropout for regularization

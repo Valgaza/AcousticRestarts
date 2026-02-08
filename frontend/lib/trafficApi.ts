@@ -181,18 +181,29 @@ export interface RouteAssignment {
   alternatives_considered: number
 }
 
+export interface PipelineStep {
+  step: string
+  status: string
+  [key: string]: any
+}
+
 export interface RouteOptimizationResponse {
+  status: string
+  message: string
+  pipeline_steps: PipelineStep[]
   assignments: RouteAssignment[]
-  output_csv_path: string
+  forecast_locations: number
+  grid_frames: number
+  timestamp: string
 }
 
 /**
- * Submit route optimization requests
+ * Submit route optimization + forecasting pipeline
  * @param requests - Array of route optimization requests
- * @returns Route assignments and output CSV path
+ * @returns Pipeline results including updated grid info
  */
 export async function optimizeRoutes(requests: RouteRequest[]): Promise<RouteOptimizationResponse> {
-  const response = await fetch(`${API_BASE_URL}/optimize-routes`, {
+  const response = await fetch(`${API_BASE_URL}/optimize-and-forecast`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

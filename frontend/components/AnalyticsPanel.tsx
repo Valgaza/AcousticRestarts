@@ -92,8 +92,11 @@ export default function AnalyticsPanel({ state, liveTraffic, gridTraffic, useLiv
     try {
       const result = await optimizeRoutes(routeRequests)
       setOptimizeStatus('success')
-      setOptimizeMessage(`${result.assignments.length} route(s) optimized successfully`)
+      setOptimizeMessage(`${result.assignments.length} route(s) optimized — grid updated (${result.grid_frames} frames)`)
       setRouteResults(result)
+      
+      // Refresh the grid to show updated forecasts
+      gridTraffic.manualRefresh()
       
       // Clear success message after 10 seconds
       setTimeout(() => {

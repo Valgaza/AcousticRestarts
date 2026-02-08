@@ -527,6 +527,244 @@ async def optimize_routes(input_data: RouteOptimizationInput):
         raise HTTPException(status_code=500, detail=str(e))
 
 
+def _merge_gt_forecasts_into_forecasts():
+    """
+    Merge gt_forecasts.json into forecasts.json.
+    
+    gt_forecasts.json has decimal lat/lon (e.g. 19.085912).
+    forecasts.json has integer lat/lon (×10^6, e.g. 19085912).
+    
+    For each entry in gt_forecasts:
+    - Convert lat/lon to integer (×10^6)
+    - Find matching entries in forecasts.json by (lat_int, lon_int)
+    - Update the congestion values for matching timestamps
+    - If no match found, add as new entry
+    """
+    backend_dir = Path(__file__).parent
+    gt_path = backend_dir / "outputs" / "gt_forecasts.json"
+    forecasts_path = backend_dir / "outputs" / "forecasts.json"
+    
+    if not gt_path.exists():
+        raise FileNotFoundError("gt_forecasts.json not found")
+    
+    # Load gt_forecasts
+    with open(gt_path) as f:
+        gt_data = json.load(f)
+    
+    # Load or initialize forecasts.json
+    if forecasts_path.exists():
+        with open(forecasts_path) as f:
+            forecasts_data = json.load(f)
+    else:
+        forecasts_data = {"outputs": []}
+    
+    # Build lookup: (lat_int, lon_int, datetime) → index in forecasts outputs
+    existing_lookup = {}
+    for idx, entry in enumerate(forecasts_data["outputs"]):
+        key = (entry["latitude"], entry["longitude"], entry["DateTime"])
+        existing_lookup[key] = idx
+    
+    updated_count = 0
+    added_count = 0
+    
+    for gt_entry in gt_data["outputs"]:
+        # Convert decimal lat/lon to integer (×10^6)
+        lat_int = int(round(gt_entry["latitude"] * 1e6))
+        lon_int = int(round(gt_entry["longitude"] * 1e6))
+        dt = gt_entry["DateTime"]
+        congestion = gt_entry["predicted_congestion_level"]
+        
+        key = (lat_int, lon_int, dt)
+        
+        if key in existing_lookup:
+            # Update existing entry
+            idx = existing_lookup[key]
+            forecasts_data["outputs"][idx]["predicted_congestion_level"] = congestion
+            updated_count += 1
+        else:
+            # Add new entry with integer lat/lon
+            new_entry = {
+                "DateTime": dt,
+                "latitude": lat_int,
+                "longitude": lon_int,
+                "predicted_congestion_level": congestion,
+            }
+            forecasts_data["outputs"].append(new_entry)
+            added_count += 1
+    
+    # Save updated forecasts.json
+    with open(forecasts_path, "w") as f:
+        json.dump(forecasts_data, f, indent=2)
+    
+    print(f"✅ Merged gt_forecasts: {updated_count} updated, {added_count} added")
+    return updated_count, added_count
+
+
+@app.post("/optimize-and-forecast")
+async def optimize_and_forecast(input_data: RouteOptimizationInput):
+    """
+    Full pipeline: Optimize routes → Run GT forecasting → Update grid.
+    
+    Steps:
+    1. Run route_optimizer.py for each request → optimized_edges.csv
+    2. Run gt_forecasting.py on the optimized edges → gt_forecasts.json
+    3. Merge gt_forecasts.json into forecasts.json (lat/lon ×10^6)
+    4. Run process_forecasts.py → forecasts_grid.json
+    5. Reload API data so frontend gets updated grid
+    """
+    backend_dir = Path(__file__).parent
+    workspace_root = backend_dir.parent
+    ml_dir = workspace_root / "ml"
+    
+    pipeline_steps = []
+    assignments = []
+    
+    try:
+        # ── Step 1: Route Optimization ───────────────────────────────────
+        print("\n🚀 Step 1: Running route optimizer...")
+        route_optimizer_script = ml_dir / "route_optimizer.py"
+        
+        if not route_optimizer_script.exists():
+            raise HTTPException(status_code=500, detail="route_optimizer.py not found")
+        
+        output_csv_path = None
+        
+        for idx, request in enumerate(input_data.requests):
+            print(f"  Route {idx + 1}/{len(input_data.requests)}: "
+                  f"Node {request.start_node} → {request.end_node} @ {request.timestamp}")
+            
+            cmd = [
+                sys.executable,
+                str(route_optimizer_script),
+                "--start", str(request.start_node),
+                "--end", str(request.end_node),
+                "--timestamp", request.timestamp
+            ]
+            
+            result = subprocess.run(
+                cmd, cwd=str(ml_dir),
+                capture_output=True, text=True, timeout=120
+            )
+            
+            if result.returncode != 0:
+                raise Exception(f"Route optimizer failed for request {idx + 1}: {result.stderr}")
+            
+            # Parse JSON output
+            output_lines = result.stdout.strip().split('\n')
+            json_output = None
+            for line in reversed(output_lines):
+                if line.strip().startswith('{'):
+                    json_output = json.loads(line)
+                    break
+            
+            if not json_output:
+                raise ValueError(f"No JSON output from route optimizer for request {idx + 1}")
+            
+            if not output_csv_path:
+                output_csv_path = json_output.get("output_csv", str(backend_dir / "outputs" / "optimized_edges.csv"))
+            
+            assignments.append({
+                "request_idx": idx,
+                "chosen_route": json_output.get("chosen_edges", []),
+                "route_nodes": json_output.get("chosen_route", []),
+                "total_cost": json_output.get("total_cost", 0.0),
+                "alternatives_considered": len(json_output.get("all_routes", []))
+            })
+            
+            print(f"  ✅ Route {idx + 1} optimized: cost={json_output.get('total_cost', 0):.2f}")
+        
+        pipeline_steps.append({
+            "step": "Route Optimization",
+            "status": "success",
+            "routes_optimized": len(assignments),
+            "output_csv": output_csv_path
+        })
+        
+        # ── Step 2: GT Forecasting ───────────────────────────────────────
+        print("\n🔮 Step 2: Running GT forecasting on optimized edges...")
+        gt_forecasting_script = ml_dir / "gt_forecasting.py"
+        
+        if not gt_forecasting_script.exists():
+            raise Exception("gt_forecasting.py not found in ml/ directory")
+        
+        result = subprocess.run(
+            [sys.executable, str(gt_forecasting_script)],
+            cwd=str(ml_dir),
+            capture_output=True, text=True, timeout=300  # 5 min timeout
+        )
+        
+        if result.returncode != 0:
+            raise Exception(f"GT forecasting failed: {result.stderr}")
+        
+        print(f"  ✅ GT forecasting completed")
+        pipeline_steps.append({
+            "step": "GT Forecasting",
+            "status": "success",
+            "output": result.stdout.strip()[-200:]  # Last 200 chars
+        })
+        
+        # ── Step 3: Merge gt_forecasts into forecasts.json ──────────────
+        print("\n📊 Step 3: Merging GT forecasts into forecasts.json...")
+        updated, added = _merge_gt_forecasts_into_forecasts()
+        
+        pipeline_steps.append({
+            "step": "Merge Forecasts",
+            "status": "success",
+            "entries_updated": updated,
+            "entries_added": added
+        })
+        
+        # ── Step 4: Run process_forecasts.py ────────────────────────────
+        print("\n🔄 Step 4: Processing forecasts into grid...")
+        process_py = backend_dir / "outputs" / "process_forecasts.py"
+        
+        result = subprocess.run(
+            [sys.executable, str(process_py)],
+            cwd=str(workspace_root),
+            capture_output=True, text=True, timeout=60
+        )
+        
+        if result.returncode != 0:
+            raise Exception(f"Process forecasts failed: {result.stderr}")
+        
+        print(f"  ✅ Grid data regenerated")
+        pipeline_steps.append({
+            "step": "Grid Generation",
+            "status": "success",
+            "output": result.stdout.strip()
+        })
+        
+        # ── Step 5: Reload API data ─────────────────────────────────────
+        print("\n♻️  Step 5: Reloading forecast data...")
+        load_forecasts()
+        load_grid_data()
+        
+        pipeline_steps.append({
+            "step": "API Reload",
+            "status": "success",
+            "locations": len(FORECAST_DATA),
+            "grid_frames": len(GRID_DATA.get('frames', []))
+        })
+        
+        print("\n✅ Full pipeline completed successfully!")
+        
+        return {
+            "status": "success",
+            "message": "Route optimization and forecasting completed",
+            "pipeline_steps": pipeline_steps,
+            "assignments": assignments,
+            "forecast_locations": len(FORECAST_DATA),
+            "grid_frames": len(GRID_DATA.get('frames', [])),
+            "timestamp": datetime.now().isoformat()
+        }
+    
+    except subprocess.TimeoutExpired:
+        raise HTTPException(status_code=504, detail="Pipeline timed out")
+    except Exception as e:
+        print(f"\n❌ Pipeline error: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Pipeline error: {str(e)}")
+
+
 # ── Run Instructions ─────────────────────────────────────────────────────────
 
 if __name__ == "__main__":

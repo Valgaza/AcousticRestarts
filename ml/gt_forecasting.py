@@ -27,10 +27,33 @@ import numpy as np
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
+from dataclasses import dataclass, field
 from torch.utils.data import Dataset, DataLoader
 
 from models.custom_temporal_transformer import create_tft_model
 from outputs_format import Output, OutputList
+
+
+@dataclass
+class ForecastConfig:
+    """Configuration for forecasting workflow."""
+    config_path: str = './checkpoints/config.json'
+    checkpoint_path: str = './checkpoints/best_model.pth'
+    target_csv_path: str = './ml/data/optimized_edges.csv'
+    training_csv_path: str = './ml/data/traffic_synthetic.csv'
+    output_path: str = './backend/outputs/gt_forecasts.json'
+    batch_size: int = 32
+    encoder_length: int = 48
+    prediction_length: int = 18
+    hidden_dim: int = 32
+    start_datetime: str = "2024-01-01 00:00:00"
+    time_interval_minutes: int = 20
+    device: Optional[torch.device] = None
+    
+    def __post_init__(self):
+        """Set device if not specified."""
+        if self.device is None:
+            self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 
 class InferenceTrafficDataset(Dataset):
@@ -467,87 +490,228 @@ def generate_forecasts(
     return OutputList(outputs=outputs)
 
 
-def main():
-    """Main forecasting function."""
-    # ============== Configuration ==============
-    config_path = './checkpoints/config.json'
-    checkpoint_path = './checkpoints/best_model.pth'
-    csv_path = './ml/data/optimized_edges.csv'
-    output_path = './backend/outputs/gt_forecasts.json'
+def load_config_from_file(config_path: str) -> Dict:
+    """Load configuration from JSON file.
     
-    # Load training configuration
+    Args:
+        config_path: Path to config.json file
+        
+    Returns:
+        Configuration dictionary
+    """
     if os.path.exists(config_path):
         with open(config_path, 'r') as f:
             config = json.load(f)
         print(f"Loaded configuration from {config_path}")
+        return config
     else:
         print(f"Warning: Config file not found at {config_path}, using defaults")
-        config = {
+        return {
             'encoder_length': 48,
             'prediction_length': 18,
-            'hidden_dim': 32
+            'hidden_dim': 32,
+            'csv_path': './ml/data/traffic_synthetic.csv',
+            'forecast_start_datetime': '2024-01-01 00:00:00',
+            'forecast_interval_minutes': 20
         }
+
+
+def validate_paths(forecast_config: ForecastConfig) -> None:
+    """Validate that required paths exist.
     
-    # Device configuration
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    Args:
+        forecast_config: ForecastConfig instance
+        
+    Raises:
+        FileNotFoundError: If required files don't exist
+    """
+    if not os.path.exists(forecast_config.checkpoint_path):
+        raise FileNotFoundError(
+            f"Checkpoint not found: {forecast_config.checkpoint_path}\n"
+            f"Please ensure the model has been trained."
+        )
+    
+    if not os.path.exists(forecast_config.target_csv_path):
+        raise FileNotFoundError(
+            f"Target CSV not found: {forecast_config.target_csv_path}"
+        )
+    
+    if not os.path.exists(forecast_config.training_csv_path):
+        raise FileNotFoundError(
+            f"Training CSV not found: {forecast_config.training_csv_path}"
+        )
+    
+    print("✓ All required paths validated")
+
+
+def setup_device(device: Optional[torch.device] = None) -> torch.device:
+    """Setup and display device information.
+    
+    Args:
+        device: Optional device to use. If None, auto-select GPU/CPU
+        
+    Returns:
+        Configured device
+    """
+    if device is None:
+        device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    
     print(f"\nUsing device: {device}")
     if device.type == 'cuda':
         print(f"GPU: {torch.cuda.get_device_name(0)}")
         print(f"Memory: {torch.cuda.get_device_properties(0).total_memory / 1e9:.2f} GB")
     
-    # ============== Load Model ==============
-    print("\nLoading pretrained model...")
-    model = load_model(checkpoint_path, config, device)
-    print(f"Model loaded successfully with {sum(p.numel() for p in model.parameters())} parameters")
+    return device
+
+
+def save_forecasts(output_list: OutputList, output_path: str, verbose: bool = True) -> None:
+    """Save forecasts to JSON file.
     
-    # ============== Create Dataset ==============
-    print(f"\nCreating inference dataset from {csv_path}...")
-    dataset = InferenceTrafficDataset(
-        target_csv_path=csv_path,
-        training_csv_path=config.get('csv_path', './ml/data/traffic_synthetic.csv'),
-        encoder_length=config['encoder_length'],
-        prediction_length=config['prediction_length']
-    )
-    print(f"Created {len(dataset)} inference sequences")
-    
-    # Create dataloader
-    data_loader = DataLoader(
-        dataset,
-        batch_size=32,
-        shuffle=False,
-        num_workers=0,
-        pin_memory=(device.type == 'cuda'),
-        collate_fn=collate_inference_batch
-    )
-    
-    # ============== Generate Forecasts ==============
-    output_list = generate_forecasts(
-        model=model,
-        data_loader=data_loader,
-        device=device,
-        start_datetime=config.get('forecast_start_datetime', '2024-01-01 00:00:00'),
-        time_interval_minutes=config.get('forecast_interval_minutes', 20)
-    )
-    
-    # ============== Save Results ==============
-    print(f"\nSaving forecasts to {output_path}...")
+    Args:
+        output_list: OutputList containing predictions
+        output_path: Path to save JSON file
+        verbose: Whether to print detailed output
+    """
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     
     with open(output_path, 'w') as f:
-        # Convert to JSON using pydantic
         json.dump(output_list.model_dump(), f, indent=2)
     
-    print(f"✓ Forecasts saved successfully!")
-    print(f"  Total predictions: {len(output_list.outputs)}")
-    print(f"  Output file: {output_path}")
+    if verbose:
+        print(f"\n✓ Forecasts saved successfully!")
+        print(f"  Total predictions: {len(output_list.outputs)}")
+        print(f"  Output file: {output_path}")
+        
+        # Print sample predictions
+        if len(output_list.outputs) > 0:
+            print("\nSample predictions:")
+            for i, output in enumerate(output_list.outputs[:5]):
+                print(f"  {i+1}. {output.DateTime} | "
+                      f"Lat: {output.latitude}, Lon: {output.longitude} | "
+                      f"Congestion: {output.predicted_congestion_level:.4f}")
+
+
+def run_forecasting_workflow(
+    forecast_config: Optional[ForecastConfig] = None,
+    save_output: bool = True,
+    verbose: bool = True
+) -> OutputList:
+    """Run the complete forecasting workflow.
     
-    # Print sample predictions
-    if len(output_list.outputs) > 0:
-        print("\nSample predictions:")
-        for i, output in enumerate(output_list.outputs[:5]):
-            print(f"  {i+1}. {output.DateTime} | "
-                  f"Lat: {output.latitude}, Lon: {output.longitude} | "
-                  f"Congestion: {output.predicted_congestion_level:.4f}")
+    This is the main orchestration function that can be called from other scripts
+    or workflows. It handles the entire forecasting pipeline from loading the model
+    to generating and optionally saving predictions.
+    
+    Args:
+        forecast_config: Configuration object. If None, uses defaults.
+        save_output: Whether to save forecasts to file
+        verbose: Whether to print detailed progress information
+        
+    Returns:
+        OutputList containing all predictions
+        
+    Raises:
+        FileNotFoundError: If required files are missing
+        RuntimeError: If forecasting fails
+    """
+    # Initialize configuration
+    if forecast_config is None:
+        forecast_config = ForecastConfig()
+    
+    # Load training configuration and merge with forecast config
+    training_config = load_config_from_file(forecast_config.config_path)
+    
+    # Override forecast_config with training config where applicable
+    if 'encoder_length' in training_config:
+        forecast_config.encoder_length = training_config['encoder_length']
+    if 'prediction_length' in training_config:
+        forecast_config.prediction_length = training_config['prediction_length']
+    if 'hidden_dim' in training_config:
+        forecast_config.hidden_dim = training_config['hidden_dim']
+    if 'csv_path' in training_config:
+        forecast_config.training_csv_path = training_config['csv_path']
+    if 'forecast_start_datetime' in training_config:
+        forecast_config.start_datetime = training_config['forecast_start_datetime']
+    if 'forecast_interval_minutes' in training_config:
+        forecast_config.time_interval_minutes = training_config['forecast_interval_minutes']
+    
+    # Validate paths
+    validate_paths(forecast_config)
+    
+    # Setup device
+    device = setup_device(forecast_config.device)
+    
+    try:
+        # Load model
+        if verbose:
+            print("\nLoading pretrained model...")
+        model = load_model(forecast_config.checkpoint_path, training_config, device)
+        if verbose:
+            num_params = sum(p.numel() for p in model.parameters())
+            print(f"Model loaded successfully with {num_params} parameters")
+        
+        # Create dataset
+        if verbose:
+            print(f"\nCreating inference dataset from {forecast_config.target_csv_path}...")
+        dataset = InferenceTrafficDataset(
+            target_csv_path=forecast_config.target_csv_path,
+            training_csv_path=forecast_config.training_csv_path,
+            encoder_length=forecast_config.encoder_length,
+            prediction_length=forecast_config.prediction_length
+        )
+        if verbose:
+            print(f"Created {len(dataset)} inference sequences")
+        
+        # Create dataloader
+        data_loader = DataLoader(
+            dataset,
+            batch_size=forecast_config.batch_size,
+            shuffle=False,
+            num_workers=0,
+            pin_memory=(device.type == 'cuda'),
+            collate_fn=collate_inference_batch
+        )
+        
+        # Generate forecasts
+        if verbose:
+            print("\nGenerating forecasts...")
+        output_list = generate_forecasts(
+            model=model,
+            data_loader=data_loader,
+            device=device,
+            start_datetime=forecast_config.start_datetime,
+            time_interval_minutes=forecast_config.time_interval_minutes
+        )
+        
+        # Save results
+        if save_output:
+            save_forecasts(output_list, forecast_config.output_path, verbose)
+        
+        return output_list
+        
+    except Exception as e:
+        raise RuntimeError(f"Forecasting workflow failed: {str(e)}") from e
+
+
+def main():
+    """Main entry point for command-line execution."""
+    try:
+        # Create default configuration
+        config = ForecastConfig()
+        
+        # Run workflow
+        output_list = run_forecasting_workflow(
+            forecast_config=config,
+            save_output=True,
+            verbose=True
+        )
+        
+        print(f"\n✓ Workflow completed successfully!")
+        print(f"  Generated {len(output_list.outputs)} predictions")
+        
+    except Exception as e:
+        print(f"\n✗ Error: {str(e)}")
+        raise
 
 
 if __name__ == "__main__":

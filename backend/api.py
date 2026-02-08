@@ -14,6 +14,8 @@ from typing import List
 import json
 from pathlib import Path
 import shutil
+import subprocess
+import sys
 
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -289,7 +291,12 @@ def get_grid_frame(frame_index: int):
 async def upload_csv(file: UploadFile = File(...)):
     """
     Upload a CSV file for ML model processing.
-    File will be saved to backend/uploads/ directory.
+    Automatically triggers the full pipeline:
+    1. Save CSV to backend/uploads/
+    2. Run ML inference (pipeline.py)
+    3. Process forecasts (process_forecasts.py)
+    4. Generate grid data (forecasts_grid.json)
+    5. Reload data in API
     """
     # Validate file type
     if not file.filename.endswith('.csv'):
@@ -298,32 +305,75 @@ async def upload_csv(file: UploadFile = File(...)):
             detail="Only CSV files are allowed"
         )
     
-    # Create uploads directory if it doesn't exist
-    uploads_dir = Path(__file__).parent / "uploads"
+    backend_dir = Path(__file__).parent
+    workspace_root = backend_dir.parent
+    uploads_dir = backend_dir / "uploads"
     uploads_dir.mkdir(exist_ok=True)
     
-    # Save file with timestamp to avoid conflicts
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    safe_filename = f"{timestamp}_{file.filename}"
-    file_path = uploads_dir / safe_filename
+    # Clear old CSV files to avoid conflicts
+    for old_csv in uploads_dir.glob("*.csv"):
+        old_csv.unlink()
+    
+    # Save file without timestamp (scripts expect single CSV)
+    file_path = uploads_dir / file.filename
     
     try:
         # Save uploaded file
         with open(file_path, "wb") as buffer:
             shutil.copyfileobj(file.file, buffer)
         
+        pipeline_steps = []
+        
+        # Step 1: Run ML inference pipeline
+        print("\n🚀 Step 1: Running ML inference pipeline...")
+        pipeline_py = workspace_root / "ml" / "pipeline.py"
+        result = subprocess.run(
+            [sys.executable, str(pipeline_py), "--csv", str(file_path)],
+            capture_output=True,
+            text=True,
+            cwd=str(workspace_root / "ml")
+        )
+        if result.returncode != 0:
+            raise Exception(f"Pipeline failed: {result.stderr}")
+        pipeline_steps.append({"step": "ML Inference", "status": "success", "output": result.stdout.strip()})
+        
+        # Step 2: Process forecasts into grid format
+        print("\n🔄 Step 2: Processing forecasts into grid...")
+        process_py = backend_dir / "outputs" / "process_forecasts.py"
+        result = subprocess.run(
+            [sys.executable, str(process_py)],
+            capture_output=True,
+            text=True,
+            cwd=str(backend_dir / "outputs")
+        )
+        if result.returncode != 0:
+            raise Exception(f"Process forecasts failed: {result.stderr}")
+        pipeline_steps.append({"step": "Grid Generation", "status": "success", "output": result.stdout.strip()})
+        
+        # Step 3: Reload data in API
+        print("\n♻️  Step 3: Reloading forecast data in API...")
+        load_forecasts()
+        load_grid_data()
+        pipeline_steps.append({"step": "API Reload", "status": "success", "locations": len(FORECAST_DATA), "frames": len(GRID_DATA.get('frames', []))})
+        
+        print("\n✅ Pipeline completed successfully!")
+        
         return {
             "status": "success",
-            "message": "CSV file uploaded successfully",
-            "filename": safe_filename,
+            "message": "CSV processed and forecasts generated",
+            "filename": file.filename,
             "path": str(file_path),
             "size_bytes": file_path.stat().st_size,
+            "pipeline_steps": pipeline_steps,
+            "forecast_locations": len(FORECAST_DATA),
+            "grid_frames": len(GRID_DATA.get('frames', [])),
             "timestamp": datetime.now().isoformat()
         }
     except Exception as e:
+        print(f"\n❌ Pipeline error: {str(e)}")
         raise HTTPException(
             status_code=500,
-            detail=f"Error saving file: {str(e)}"
+            detail=f"Pipeline error: {str(e)}"
         )
     finally:
         file.file.close()

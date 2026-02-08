@@ -34,7 +34,7 @@ def extract_test_set():
     print(f"Test set time index range: {test_df['time_idx'].min()} to {test_df['time_idx'].max()}")
     print(f"Unique edges in test set: {test_df['edge_id'].nunique()}")
     print(f"Time steps in test set: {test_df['time_idx'].nunique()}")
-    
+    test_df = test_df.loc[:, :'travel_time_seconds']
     # Create output directory if it doesn't exist
     output_path = Path(OUTPUT_DIR)
     output_path.mkdir(parents=True, exist_ok=True)

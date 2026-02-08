@@ -41,7 +41,6 @@ def find_latest_csv(uploads_dir: Optional[str] = None) -> Optional[str]:
     print(f"Found CSV: {latest}")
     return str(latest)
 
-
 def prepare_inference_batch(
     df: pd.DataFrame,
     encoder_length: int,
@@ -61,6 +60,13 @@ def prepare_inference_batch(
     
     edge_groups = df.groupby('edge_id')
     batches = []
+    
+    # Check if congestion-related columns exist
+    has_congestion = 'congestion_level' in df.columns
+    has_neighbor_congestion = 'neighbor_avg_congestion_t-1' in df.columns
+    has_neighbor_speed = 'neighbor_avg_speed_t-1' in df.columns
+    has_upstream = 'upstream_congestion_t-1' in df.columns
+    has_downstream = 'downstream_congestion_t-1' in df.columns
     
     for edge_id, group in edge_groups:
         if len(group) < encoder_length:
@@ -99,15 +105,21 @@ def prepare_inference_batch(
             torch.tensor(encoder_data['event_impact_score'].values, dtype=torch.float32)
         ], dim=1)
         
+        # Handle missing congestion columns - use zeros as placeholders
         encoder_unknown_real = torch.stack([
             torch.tensor(encoder_data['average_speed_kph'].values, dtype=torch.float32),
             torch.tensor(encoder_data['vehicle_count'].values, dtype=torch.float32),
             torch.tensor(encoder_data['travel_time_seconds'].values, dtype=torch.float32),
-            torch.tensor(encoder_data.get('congestion_level', [0]*len(encoder_data)).values, dtype=torch.float32),
-            torch.tensor(encoder_data.get('neighbor_avg_congestion_t-1', [0]*len(encoder_data)).values, dtype=torch.float32),
-            torch.tensor(encoder_data.get('neighbor_avg_speed_t-1', [0]*len(encoder_data)).values, dtype=torch.float32),
-            torch.tensor(encoder_data.get('upstream_congestion_t-1', [0]*len(encoder_data)).values, dtype=torch.float32),
-            torch.tensor(encoder_data.get('downstream_congestion_t-1', [0]*len(encoder_data)).values, dtype=torch.float32)
+            torch.tensor(encoder_data['congestion_level'].values if has_congestion 
+                        else np.zeros(len(encoder_data)), dtype=torch.float32),
+            torch.tensor(encoder_data['neighbor_avg_congestion_t-1'].values if has_neighbor_congestion 
+                        else np.zeros(len(encoder_data)), dtype=torch.float32),
+            torch.tensor(encoder_data['neighbor_avg_speed_t-1'].values if has_neighbor_speed 
+                        else np.zeros(len(encoder_data)), dtype=torch.float32),
+            torch.tensor(encoder_data['upstream_congestion_t-1'].values if has_upstream 
+                        else np.zeros(len(encoder_data)), dtype=torch.float32),
+            torch.tensor(encoder_data['downstream_congestion_t-1'].values if has_downstream 
+                        else np.zeros(len(encoder_data)), dtype=torch.float32)
         ], dim=1)
         
         last_time = encoder_data.iloc[-1]
@@ -141,7 +153,8 @@ def prepare_inference_batch(
             'decoder_known_categorical': decoder_known_categorical,
             'decoder_known_real': decoder_known_real,
             'latitude': static_row['latitude_midroad'],
-            'longitude': static_row['longitude_midroad']
+            'longitude': static_row['longitude_midroad'],
+            'edge_id': edge_id  # Add edge_id for tracking
         })
     
     if not batches:
@@ -159,11 +172,11 @@ def prepare_inference_batch(
                                        for k in batches[0]['decoder_known_categorical'].keys()},
         'decoder_known_real': torch.stack([b['decoder_known_real'] for b in batches]).to(device),
         'latitudes': [b['latitude'] for b in batches],
-        'longitudes': [b['longitude'] for b in batches]
+        'longitudes': [b['longitude'] for b in batches],
+        'edge_ids': [b['edge_id'] for b in batches]  # Include edge IDs
     }
     
     return batch
-
 
 def infer_from_csv(
     csv_source: Union[str, bytes, None] = None,

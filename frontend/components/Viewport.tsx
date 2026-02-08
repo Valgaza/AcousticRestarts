@@ -19,6 +19,7 @@ interface ViewportProps {
 
 export default function Viewport({ state, liveTraffic, gridTraffic, useLiveData = true }: ViewportProps) {
   const [selectedCell, setSelectedCell] = useState<GridCell | null>(null)
+  const [currentTime, setCurrentTime] = useState(new Date())
 
   // Use grid traffic data
   const activeGrid = gridTraffic.grid
@@ -26,6 +27,14 @@ export default function Viewport({ state, liveTraffic, gridTraffic, useLiveData 
   const lastUpdate = gridTraffic.lastUpdate
   const gridKey = `grid-frame-${gridTraffic.currentFrameIndex}`
   const currentFrame = gridTraffic.frames[gridTraffic.currentFrameIndex]
+
+  // Update current time every second
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(new Date())
+    }, 1000)
+    return () => clearInterval(timer)
+  }, [])
 
   // Debug: Log when grid changes
   React.useEffect(() => {
@@ -41,10 +50,10 @@ export default function Viewport({ state, liveTraffic, gridTraffic, useLiveData 
     return 'bg-indigo-500' // Gridlock
   }
 
-  const formatTime = (hour: number) => {
-    const h = Math.floor(hour)
-    const m = Math.round((hour - h) * 60)
-    return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`
+  const formatCurrentTime = (date: Date) => {
+    const hours = String(date.getHours()).padStart(2, '0')
+    const minutes = String(date.getMinutes()).padStart(2, '0')
+    return `${hours}:${minutes}`
   }
 
   return (
@@ -56,7 +65,7 @@ export default function Viewport({ state, liveTraffic, gridTraffic, useLiveData 
             <Clock className="w-5 h-5 text-slate-400" />
             <div>
               <p className="text-xs font-mono text-slate-400 uppercase tracking-wider">Current Time</p>
-              <p className="text-lg font-mono font-bold text-slate-100">{formatTime(state.currentTime)}</p>
+              <p className="text-lg font-mono font-bold text-slate-100" suppressHydrationWarning>{formatCurrentTime(currentTime)}</p>
             </div>
           </div>
 

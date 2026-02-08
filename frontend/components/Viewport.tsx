@@ -43,11 +43,32 @@ export default function Viewport({ state, liveTraffic, gridTraffic, useLiveData 
     console.log(`🔄 Grid frame ${gridTraffic.currentFrameIndex}/${gridTraffic.frames.length}, Active cells: ${nonZeroCells}, Avg: ${avgCongestion.toFixed(3)}`)
   }, [gridTraffic.currentFrameIndex, gridTraffic.grid, gridTraffic.frames.length])
 
-  const getCongestionColor = (level: number) => {
-    if (level < 0.3) return 'bg-emerald-500' // Low
-    if (level < 0.6) return 'bg-yellow-500' // Moderate
-    if (level < 0.8) return 'bg-rose-500' // Heavy
-    return 'bg-indigo-500' // Gridlock
+  const getCongestionColor = (level: number): string => {
+    // Return RGB color for smooth transitions
+    if (level < 0.3) return 'rgb(16, 185, 129)' // emerald-500
+    if (level < 0.6) return 'rgb(234, 179, 8)' // yellow-500
+    if (level < 0.8) return 'rgb(244, 63, 94)' // rose-500
+    return 'rgb(99, 102, 241)' // indigo-500
+  }
+
+  const interpolateColor = (level: number): string => {
+    // Smooth color interpolation based on congestion level
+    if (level < 0.3) {
+      // Green to Yellow (0-0.3)
+      const t = level / 0.3
+      return `rgb(${Math.round(16 + (234 - 16) * t)}, ${Math.round(185 + (179 - 185) * t)}, ${Math.round(129 + (8 - 129) * t)})`
+    } else if (level < 0.6) {
+      // Yellow to Red (0.3-0.6)
+      const t = (level - 0.3) / 0.3
+      return `rgb(${Math.round(234 + (244 - 234) * t)}, ${Math.round(179 + (63 - 179) * t)}, ${Math.round(8 + (94 - 8) * t)})`
+    } else if (level < 0.8) {
+      // Red to Purple (0.6-0.8)
+      const t = (level - 0.6) / 0.2
+      return `rgb(${Math.round(244 + (99 - 244) * t)}, ${Math.round(63 + (102 - 63) * t)}, ${Math.round(94 + (241 - 94) * t)})`
+    } else {
+      // Solid Purple (0.8+)
+      return 'rgb(99, 102, 241)'
+    }
   }
 
   const formatCurrentTime = (date: Date) => {
@@ -166,19 +187,24 @@ export default function Viewport({ state, liveTraffic, gridTraffic, useLiveData 
           />
 
           {/* Traffic Grid */}
-          <div className="absolute inset-0 grid gap-0 grid-cols-25 grid-rows-25 border border-slate-700" key={gridKey}>
+          <div className="absolute inset-0 grid gap-0 grid-cols-25 grid-rows-25 border border-slate-700">
             {activeGrid.flat().map((cell) => (
               <motion.div
-                key={`${gridKey}-${cell.x}-${cell.y}`}
+                key={`cell-${cell.x}-${cell.y}`}
                 onClick={(e) => {
                   e.stopPropagation()
                   setSelectedCell(cell)
                 }}
-                className={`border border-slate-700 transition-all hover:border-slate-500 cursor-pointer relative group ${getCongestionColor(cell.congestionLevel)}`}
+                className="border border-slate-700 transition-all hover:border-slate-500 cursor-pointer relative group"
                 animate={{
+                  backgroundColor: interpolateColor(cell.congestionLevel),
                   opacity: 0.3 + cell.congestionLevel * 0.7,
                 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
+                transition={{ 
+                  duration: 0.4, 
+                  ease: "easeInOut",
+                  backgroundColor: { duration: 0.5 }
+                }}
                 title={`Cell ${cell.x},${cell.y}: ${Math.round(cell.congestionLevel * 100)}% congestion | Frame: ${gridTraffic.currentFrameIndex + 1}`}
               >
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-slate-100/10 transition-opacity" />

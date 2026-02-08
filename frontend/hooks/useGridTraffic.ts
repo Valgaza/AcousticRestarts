@@ -90,18 +90,21 @@ export function useGridTraffic() {
         throw new Error('No grid frames available')
       }
 
-      // Set initial grid to first frame
-      const initialGrid = frameToGrid(response.frames[0])
+      setState((prev) => {
+        // Preserve current frame index if possible, otherwise reset to 0
+        const preservedIndex = Math.min(prev.currentFrameIndex, response.frames.length - 1)
+        const gridForIndex = frameToGrid(response.frames[preservedIndex])
 
-      setState((prev) => ({
-        ...prev,
-        frames: response.frames,
-        metadata: response.metadata,
-        grid: initialGrid,
-        currentFrameIndex: 0,
-        isLoading: false,
-        lastUpdate: new Date(),
-      }))
+        return {
+          ...prev,
+          frames: response.frames,
+          metadata: response.metadata,
+          grid: gridForIndex,
+          currentFrameIndex: preservedIndex,
+          isLoading: false,
+          lastUpdate: new Date(),
+        }
+      })
     } catch (error) {
       console.error('Failed to fetch grid frames:', error)
       setState((prev) => ({
@@ -117,16 +120,16 @@ export function useGridTraffic() {
     fetchFrames()
   }, [fetchFrames])
 
-  // Auto-refresh frames from API
+  // Auto-refresh frames from API (disabled during playback)
   useEffect(() => {
-    if (!autoRefresh) return
+    if (!autoRefresh || state.isPlaying) return
 
     const interval = setInterval(() => {
       fetchFrames()
     }, REFRESH_INTERVAL)
 
     return () => clearInterval(interval)
-  }, [autoRefresh, fetchFrames])
+  }, [autoRefresh, state.isPlaying, fetchFrames])
 
   // Auto-cycle through frames
   useEffect(() => {

@@ -61,12 +61,12 @@ export default function ControlSidebar({ state, liveTraffic, gridTraffic, useLiv
                 {gridTraffic.speed}s
               </span>
             </div>
-            <div className="flex gap-1">
-              {[2, 3, 5].map((speed) => (
+            <div className="grid grid-cols-5 gap-1">
+              {[0.25, 0.5, 2, 3, 5].map((speed) => (
                 <Button
                   key={speed}
                   onClick={() => gridTraffic.setSpeed(speed)}
-                  className={`flex-1 text-xs font-mono ${
+                  className={`text-xs font-mono ${
                     gridTraffic.speed === speed
                       ? 'bg-slate-600 text-slate-100 border-slate-500'
                       : 'bg-slate-700 hover:bg-slate-600 text-slate-300 border-slate-600'

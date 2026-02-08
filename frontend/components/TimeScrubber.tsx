@@ -18,26 +18,61 @@ export default function TimeScrubber({ gridTraffic }: TimeScrubberProps) {
     }
   }
 
+  const formatDateTimeWithDate = (dateTimeStr: string) => {
+    try {
+      const date = new Date(dateTimeStr)
+      const month = date.getMonth() + 1
+      const day = date.getDate()
+      const hours = date.getHours()
+      const minutes = date.getMinutes()
+      return `${String(month).padStart(2, '0')}/${String(day).padStart(2, '0')} ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`
+    } catch {
+      return dateTimeStr
+    }
+  }
+
   const currentFrame = gridTraffic.frames[gridTraffic.currentFrameIndex]
-  const displayTime = currentFrame ? formatDateTime(currentFrame.DateTime) : '--:--'
+  const displayTime = currentFrame ? formatDateTimeWithDate(currentFrame.DateTime) : '--:--'
+  
+  // Get date range
+  const getDateRange = () => {
+    if (gridTraffic.frames.length === 0) return ''
+    const firstDate = new Date(gridTraffic.frames[0].DateTime)
+    const lastDate = new Date(gridTraffic.frames[gridTraffic.frames.length - 1].DateTime)
+    const formatDate = (d: Date) => `${d.getMonth() + 1}/${d.getDate()}`
+    return `${formatDate(firstDate)} - ${formatDate(lastDate)}`
+  }
   
   // Generate time labels from available frames
   const getTimeLabels = () => {
     if (gridTraffic.frames.length === 0) return []
     
-    const labelCount = Math.min(6, gridTraffic.frames.length)
+    // For large datasets, show more labels
+    const labelCount = gridTraffic.frames.length > 100 ? 8 : Math.min(6, gridTraffic.frames.length)
     const step = Math.max(1, Math.floor(gridTraffic.frames.length / (labelCount - 1)))
     
     const labels = []
+    // Check if data spans multiple days
+    const firstDate = new Date(gridTraffic.frames[0].DateTime)
+    const lastDate = new Date(gridTraffic.frames[gridTraffic.frames.length - 1].DateTime)
+    const spansMultipleDays = firstDate.getDate() !== lastDate.getDate() || 
+                               firstDate.getMonth() !== lastDate.getMonth()
+    
     for (let i = 0; i < labelCount; i++) {
       const index = Math.min(i * step, gridTraffic.frames.length - 1)
       const frame = gridTraffic.frames[index]
       if (frame) {
         try {
           const date = new Date(frame.DateTime)
+          const day = date.getDate()
           const hours = date.getHours()
           const minutes = date.getMinutes()
-          labels.push(`${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`)
+          // Show date if spans multiple days, otherwise just time
+          if (spansMultipleDays) {
+            labels.push(`${day}d ${String(hours).padStart(2, '0')}h`)
+          } else {
+            labels.push(`${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`)
+          }
         } catch {
           labels.push('--:--')
         }
@@ -53,7 +88,12 @@ export default function TimeScrubber({ gridTraffic }: TimeScrubberProps) {
     <div className="bg-slate-900/80 backdrop-blur border-t border-slate-700 p-4">
       <div className="max-w-full">
         <div className="flex justify-between items-center mb-3">
-          <p className="text-xs font-mono text-slate-400 uppercase tracking-wider">Timeline</p>
+          <div>
+            <p className="text-xs font-mono text-slate-400 uppercase tracking-wider">Timeline</p>
+            <p className="text-xs font-mono text-slate-500 mt-0.5">
+              {gridTraffic.frames.length} frames {getDateRange() && `· ${getDateRange()}`}
+            </p>
+          </div>
           <p className="text-sm font-mono font-bold text-slate-100">{displayTime}</p>
         </div>
 
